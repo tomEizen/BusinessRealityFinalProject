@@ -107,7 +107,7 @@ function addQrCode(url) {
     });
     qrcode.makeCode("www.one.co.il");
 }
-function printDiv(divID,numberOfQR) {
+function printDiv(divID, numberOfQR) {
     //Get the HTML of div
     var divElements = document.getElementById(divID).innerHTML;
     //Get the HTML of whole page
@@ -133,4 +133,19 @@ function printDiv(divID,numberOfQR) {
 function productInfo(category) {
     alert(category);
     $('#lblCategory').text = category;
+}
+
+function addPropToTable() {
+    var text = $('#NewCampaignProp').val();
+    if ($('#AddCategoryProperties').text().match(text)) { }
+    else {
+        $('#AddCategoryProperties').append('<tr class="odd gradeX">><td>' + text + '</td></tr>');
+    }
+}
+function addNewPropToTable() {
+    var text = $('#newPropTB').val().trim();
+    if ($('#AddCategoryProperties').text().match(text)) { }
+    else {
+        $('#AddCategoryProperties').append('<tr class="odd gradeX">><td>' + text + '</td></tr>');
+    }
 }

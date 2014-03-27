@@ -37,6 +37,13 @@
 
         $(document).ready(function () {
             setupLeftMenu();
+
+            $('#addPropBtn').click(function () {
+                addPropToTable();
+            });
+            $('#addNewPropBtn').click(function () {
+                addNewPropToTable();
+            });
             $('.datatable').dataTable();
             setSidebarHeight();
             $('#RadioButtonList1').change(function () {
@@ -121,11 +128,6 @@
         <div id="addProduct" class="displayNone">
             <div class="container_12">
                 <div class="grid_10">
-                    
-                    
-                    
-                    
-                    
                     <div class="box round first fullpage">
                         <h2>
                             הוסף מוצר חדש</h2>
@@ -147,14 +149,14 @@
                                     <td>
                                         <label>
                                             מק"ט מוצר</label>
-
                                     </td>
                                     <td>
                                         <asp:TextBox ID="productIdTB" runat="server"></asp:TextBox>
-                                    
-<asp:CompareValidator ID="cv" runat="server" ControlToValidate="productIdTB" Type="Integer"
-   Operator="DataTypeCheck" ErrorMessage="שגיעה. ערך חייב להרשם כשמספר! " Color="White" BorderColor="#CC0000" />
-   <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator1" controltovalidate="productIdTB" errormessage="שגיעה. שדה חובה!" />
+                                        <asp:CompareValidator ID="cv" runat="server" ControlToValidate="productIdTB" Type="Integer"
+                                            Operator="DataTypeCheck" ErrorMessage="שגיעה. ערך חייב להרשם כשמספר! " Color="White"
+                                            BorderColor="#CC0000" />
+                                        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="productIdTB"
+                                            ErrorMessage="שגיעה. שדה חובה!" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -164,7 +166,8 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="productNameTB" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator runat="server" id="reqName" controltovalidate="productNameTB" errormessage="שגיעה. שדה חובה!" />
+                                        <asp:RequiredFieldValidator runat="server" ID="reqName" ControlToValidate="productNameTB"
+                                            ErrorMessage="שגיעה. שדה חובה!" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -183,9 +186,11 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="ProductPriceTB" runat="server"></asp:TextBox>
-                                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="ProductPriceTB" Type="Double"
-   Operator="DataTypeCheck" ErrorMessage="שגיעה. ערך חייב להרשם כשמספר! "  BorderColor="#CC0000" />
-   <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator2" controltovalidate="ProductPriceTB" errormessage="שגיעה. שדה חובה!" BorderColor="Red" />
+                                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="ProductPriceTB"
+                                            Type="Double" Operator="DataTypeCheck" ErrorMessage="שגיעה. ערך חייב להרשם כשמספר! "
+                                            BorderColor="#CC0000" />
+                                        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ControlToValidate="ProductPriceTB"
+                                            ErrorMessage="שגיעה. שדה חובה!" BorderColor="Red" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -240,104 +245,44 @@
                 </div>
             </div>
         </div>
-      
-      
-      
-      
-      
         <div id="addCategory" class="displayNone">
             <div class="container_12">
                 <div class="grid_10">
                     <div class="box round first fullpage">
                         <h2>
                             הוספת קטגוריה חדשה</h2>
-                      <div>
-                          
-                        <label>
-                            שם הקטגוריה</label>&nbsp;&nbsp;
-                        <input type="text" class="main" />
-                        <div class="block ">
-                          
+                        <div>
+                            <label>
+                                שם הקטגוריה</label>&nbsp;&nbsp;
+                            <input type="text" class="main" />
+                            <div class="block ">
                             </div>
                             <div class="btn-arrow-left">
-                                           <label>  בחר תכונה לקטגוריה</label>
-                     
-                      <asp:DropDownList ID="NewCampaignProp" runat="server">
-
-
-
-                                   </asp:DropDownList>
-
-
-
-
-                                          <button id="addNewProp">
-                                                הוסף תכונה</button>
-
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                   <label>  הוספת תכונה חדשה לרשימת התכונות</label>
-                                                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                                        <button id="Button6">
-                                                הוספה</button>
-                                        
-                          
-                          
-                          </div>
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
+                                <label>
+                                    בחר תכונה לקטגוריה</label>
+                                <asp:DropDownList ID="NewCampaignProp" runat="server">
+                                </asp:DropDownList>
+                                <asp:Button ID="addPropBtn" runat="server" Text="הוסף תכונה" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label>
+                                    הוספת תכונה חדשה</label>
+                                <asp:TextBox ID="newPropTB" runat="server"></asp:TextBox>
+                                <asp:Button ID="addNewPropBtn" runat="server" Text="הוסף תכונה" />
+                            </div>
                             <table class="form">
                                 <thead>
                                     <tr>
                                         <th style="text-align: right">
                                             תכונות בקטגוריה
                                         </th>
-
-                                 
-
-
-
-
-
-
-
-
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>
-                            
-                                           <label>  תכונה 1</label>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>
-                                          <label> תכונה 2</label>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>
-                                           <label>  תכונה 3</label>
-                                        </td>
-
-                                    </tr> 
-              
+                                <tbody id="AddCategoryProperties">
                                 </tbody>
                             </table>
-                                <div>
-                                           <button id="Button10">
-                                              הוסף קטגוריה</button>
-                                      </div>
+                            <div>
+                                <asp:Button ID="addNewCategory" runat="server" Text="הוסף קטגוריה" OnClick="addNewCategory_Click1" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -405,8 +350,7 @@
                                                 ערוך</button>
                                         </td>
                                     </tr>
-                                    <tr class="even
-    gradeC">
+                                    <tr class="evengradeC">
                                         <td>
                                             <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox>
                                         </td>
