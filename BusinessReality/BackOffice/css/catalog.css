@@ -1,0 +1,145 @@
+﻿
+.displayNone
+{
+     display:none; 
+}
+.tableDataCategory
+{
+    text-align:center;
+}
+#discountTB
+{
+     display:none;
+}
+  #productInfo {
+        -moz-border-radius: 6px;
+        background: #eef2f7;
+        -webkit-border-radius: 6px;
+        border: 1px solid #536376;
+        -webkit-box-shadow: rgba(0,0,0,.6) 0px 2px 12px;
+        -moz-box-shadow:  rgba(0,0,0,.6) 0px 2px 12px;;
+        padding: 14px 22px;
+        width: 700px;
+        height:500px;
+        position: relative;
+        display: none;
+        direction:rtl;
+        text-align:center;
+    }
+    #productInfo #productInfo_form {
+        margin-top: 13px;
+        text-align:right;
+    }
+    #productInfo label {
+        display: block;
+        margin-bottom: 10px; 
+        color: #536376;
+        font-size: .9em;
+    }
+  
+    #productInfo label input,textarea 
+    { 
+    font-family :Arial, sans-serif; 
+    color:#aaa; 
+    border:solid 1px #ccc; 
+    display: block;
+     width: 393px;
+        height: 31px;
+        background-position: -201px 0;
+        position:relative;
+        font-size: 1.5em;
+        color:Black;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+        line-height: 31px;
+        -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5); 
+ -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5); 
+box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    }
+
+#productInfo label input:focus, textarea:focus {  
+    -webkit-box-shadow: 0px 0px 5px #007eff;  
+    -moz-box-shadow: 0px 0px 5px #007eff;  
+    box-shadow: 0px 0px 5px #007eff;  
+}  
+#productInfo label select
+{
+  width: 393px;
+        height: 34px;
+        -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5); 
+ -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5); 
+box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+#productInfo label select:focus {  
+    -webkit-box-shadow: 0px 0px 5px #007eff;  
+    -moz-box-shadow: 0px 0px 5px #007eff;  
+    box-shadow: 0px 0px 5px #007eff;  
+}  
+
+  #prodectInserted {
+        -moz-border-radius: 6px;
+        background: #eef2f7;
+        -webkit-border-radius: 6px;
+        border: 1px solid #536376;
+        -webkit-box-shadow: rgba(0,0,0,.6) 0px 2px 12px;
+        -moz-box-shadow:  rgba(0,0,0,.6) 0px 2px 12px;;
+        padding: 14px 22px;
+        width: 700px;
+        height:500px;
+        position: relative;
+        display: none;
+        direction:rtl;
+        text-align:center;
+    }
+    #productInfo #prodectInserted_form {
+        prodectInserted-top: 13px;
+        text-align:right;
+    }
+    #prodectInserted label {
+        display: block;
+        margin-bottom: 10px; 
+        color: #536376;
+        font-size: .9em;
+    }
+  
+    #prodectInserted label input,textarea 
+    { 
+    font-family :Arial, sans-serif; 
+    color:#aaa; 
+    border:solid 1px #ccc; 
+    display: block;
+     width: 393px;
+        height: 31px;
+        background-position: -201px 0;
+        position:relative;
+        font-size: 1.5em;
+        color:Black;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+        line-height: 31px;
+        -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5); 
+ -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5); 
+box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    }
+
+#prodectInserted label input:focus, textarea:focus {  
+    -webkit-box-shadow: 0px 0px 5px #007eff;  
+    -moz-box-shadow: 0px 0px 5px #007eff;  
+    box-shadow: 0px 0px 5px #007eff;  
+}  
+#prodectInserted label select
+{
+  width: 393px;
+        height: 34px;
+        -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5); 
+ -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5); 
+box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+#prodectInserted label select:focus {  
+    -webkit-box-shadow: 0px 0px 5px #007eff;  
+    -moz-box-shadow: 0px 0px 5px #007eff;  
+    box-shadow: 0px 0px 5px #007eff;  
+}  
+
