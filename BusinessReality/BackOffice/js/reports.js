@@ -1,4 +1,4 @@
-﻿var plot4
+﻿
 var plot5
 var plot6
 var plot7
@@ -9,9 +9,6 @@ function show(target) {
     $('#act').hide();
     $('#campaign').hide();
     $('#' + target).fadeIn(1300);
-    if (target == 'act') {
-        plot4.replot();
-    }
     if (target == 'campaign') {
         plot5.replot();
         plot6.replot();
@@ -91,15 +88,6 @@ function drawGenderChart(containerElement, male, female) {
   );
 
 }
-function scanProduct() {
-    var line1 = [14, 32, 41, 44, 40, 47, 53, 67];
-    plot4 = $.jqplot('chart1', [line1], {
-        title: 'Chart with Point Labels',
-        seriesDefaults: { showMarker: false,
-            pointLabels: { show: true }
-        }
-    });
-}
 
 //draw pie chart to represent the age ranges of the useres 
 function drawAgesChart(containerElement, range1, range2, range3, range4, range5, range6, range7, range8) {
@@ -125,11 +113,12 @@ function drawAgesChart(containerElement, range1, range2, range3, range4, range5,
 //draw a bar chart to represent the top 5 campaign
 function drawCamgaignShareChart(containerElement, name1, share1, name2, share2, name3, share3, name4, share4, name5, share5) {
 
- var line1 = [[name1, parseInt(share1)], [name2,parseInt(share2)], [name3,parseInt(share3)], 
-  [name4,parseInt(share4)], [name5,parseInt(share5)]];
- 
-   plot5 = $.jqplot(containerElement, [line1],
+    var line1 = [[name1, parseInt(share1)], [name2, parseInt(share2)], [name3, parseInt(share3)],
+  [name4, parseInt(share4)], [name5, parseInt(share5)]];
+
+    plot5 = $.jqplot(containerElement, [line1],
    {
+       width: '1070px',
        title: '',
        series: [{ renderer: $.jqplot.BarRenderer}],
        axesDefaults: {
@@ -161,6 +150,7 @@ function drawCampaignShareAgesChart(containerElement, range1, range2, range3, ra
     plot6 = jQuery.jqplot(containerElement,
     [[['0-12', parseInt(range1)], ['13-17', parseInt(range2)], ['18-24', parseInt(range3)], ['25-34', parseInt(range4)], ['35-44', parseInt(range5)], ['45-54', parseInt(range6)], ['55-64', parseInt(range7)], ['65+', parseInt(range8)], ]],
     {
+        width: '510px',
         title: ' ',
         seriesDefaults: {
             shadow: false,
@@ -184,6 +174,7 @@ function drawCampaignShareGenderChart(containerElement, male, female) {
     plot7 = $.jqplot(containerElement,
     [[['נשים<br/>' + female, parseInt(female)], ['גברים<br/>' + male, parseInt(male)]]],
     {
+        width: '510px',
         title: ' ',
         seriesDefaults: {
             shadow: true,

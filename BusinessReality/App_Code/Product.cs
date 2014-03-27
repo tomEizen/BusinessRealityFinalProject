@@ -48,6 +48,11 @@ public class Product
         DataBaseManager db = new DataBaseManager();
         return db.productPropertiesStatistics(productCounter);
     }
+    public GridView GetHistoryScan(int productCounter)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.GetHistoryScan(productCounter);
+    }
 }
 
 

@@ -343,6 +343,27 @@ public class DataBaseManager
         }
         return names;
     }
+    public GridView GetHistoryScan(int productCounter)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        GridView camp = new GridView();
+
+        try
+        {
+            paraList.Add(new SqlParameter("@productCounter", productCounter));
+            SqlDataReader dr = ActivateStoredProc("GetHistoryScan", paraList);
+            camp.DataSource = dr;
+            camp.DataBind();
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        return camp;
+    }
     ///////////////////endOfPlots/////////////////////////////
     public Organization getComapnyProfile(string emailAddress)
     {

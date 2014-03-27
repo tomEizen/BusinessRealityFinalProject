@@ -207,11 +207,36 @@ namespace BusinessReality.BackOffice
                 HtmlTableCell tc2 = new HtmlTableCell();
                 tc.InnerHtml = row.Cells[0].Text;
                 tc1.InnerHtml = row.Cells[1].Text;
-                tc2.InnerHtml = row.Cells[2].Text;
+                tc2.InnerHtml = '%' + row.Cells[2].Text;
                 tr.Controls.Add(tc);
                 tr.Controls.Add(tc1);
                 tr.Controls.Add(tc2);
                 productPropertiesStatistics.Controls.Add(tr);
+            }
+            GridView productHistory = p.GetHistoryScan(categoryProducts[productNamesDDL.Text]);
+            int count = 0;
+            foreach (GridViewRow row in productHistory.Rows)
+            {
+
+                for (int i = 0; i < row.Cells.Count - 2; i++)
+                {
+                    count += Convert.ToInt32(row.Cells[i].Text);
+                }
+                for (int i = 0; i < row.Cells.Count - 2; i++)
+                {
+                    HtmlTableRow tr = new HtmlTableRow();
+                    HtmlTableCell tc = new HtmlTableCell();
+                    HtmlTableCell tc1 = new HtmlTableCell();
+                    HtmlTableCell tc2 = new HtmlTableCell();
+                    tc.InnerHtml = DateTime.Now.AddMonths(-i).Month.ToString() + "/" + DateTime.Now.AddMonths(-i).Year.ToString();
+                    tc1.InnerHtml = row.Cells[i].Text;
+                    int ss = Convert.ToInt32(row.Cells[i].Text);
+                    tc2.InnerHtml = '%' + ((Convert.ToDouble(row.Cells[i].Text) / count) * 100).ToString();
+                    tr.Controls.Add(tc);
+                    tr.Controls.Add(tc1);
+                    tr.Controls.Add(tc2);
+                    prodyctHistoryStatistics.Controls.Add(tr);
+                }
             }
         }
 

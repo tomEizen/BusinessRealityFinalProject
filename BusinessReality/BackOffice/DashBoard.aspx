@@ -245,7 +245,7 @@
                                                             כמות כניסות
                                                         </td>
                                                         <td>
-                                                            אחוז כניסות
+                                                            אחוז מסה"כ הכניסות
                                                         </td>
                                                     </tr>
                                                 </thead>
@@ -256,12 +256,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="grid_12">
+                            <div class="grid_6">
                                 <div class="box round  ">
                                     <h2>
-                                        היסטוריית סריקות ברקוד</h2>
+                                        היסטוריית סריקות המוצר</h2>
                                     <div class="block">
-                                        <div id="chart1">
+                                        <div id="Div5">
+                                            <table class="tablecss">
+                                                <thead>
+                                                    <tr>
+                                                        <td>
+                                                            חודש
+                                                        </td>
+                                                        <td>
+                                                            כמות סריקות
+                                                        </td>
+                                                        <td>
+                                                            אחוז מסה"כ הסריקות
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="prodyctHistoryStatistics" runat="server">
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -278,7 +295,7 @@
                     <div class="box round" id="Div1">
                         <h2>
                             נתוני קמפיין נוכחי</h2>
-                        <div class="block" style="text-align:right">
+                        <div class="block" style="text-align: right">
                             <div class="stat-col">
                                 <span>ממוצע שעת שיתוף</span>
                                 <p id="hourCampaign" class="purple" runat="server">
