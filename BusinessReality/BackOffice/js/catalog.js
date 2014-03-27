@@ -8,6 +8,28 @@ function show(target) {
     $('#' + target).fadeIn(1300);
 }
 
+//set the table header to hebrew
+$(document).ready(function () {
+    $('#productTable').dataTable({
+        "oLanguage": {
+            "sLengthMenu": "מציג _MENU_ רשומות",
+            "sZeroRecords": "לא קיימים מוצרים בקטלוג",
+            "sInfo": " מציג רשומה _START_ עד רשומה _END_ מתוך _TOTAL_ רשומות",
+            "sInfoEmpty": "",
+            "sInfoFiltered": "(filtered from _MAX_ total records)",
+            "sSearch": "חיפוש:"
+        }
+    });
+});
+
+function InitComplete(oSettings) {
+   $('#tblOrders_filter')
+       .contents()
+       .filter(function() { return this.nodeType == 3 })
+       .replaceWith('Refine search: ');
+}
+
+
 
 //once a tr inside the products table is clicked a pop up window is open with the info about this product
 $(function () {

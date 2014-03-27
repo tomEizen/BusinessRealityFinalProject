@@ -209,7 +209,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         allProp = p.getAllProp("aviv@gmail.com");
         foreach (KeyValuePair<string, int> pair in allProp)
         {
-            //NewCampaignProp.Items.Add(pair.Key);
+            NewCampaignProp.Items.Add(pair.Key);
         }
     }
     protected void addNewCategory_Click1(object sender, EventArgs e)
