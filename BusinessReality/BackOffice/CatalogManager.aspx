@@ -266,7 +266,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label>
                                     הוספת תכונה חדשה</label>
-                                <asp:TextBox ID="newPropTB" runat="server"></asp:TextBox>
+                                <asp:TextBox  ID="newPropTB" runat="server"></asp:TextBox>
                                 <asp:Button ID="addNewPropBtn" runat="server" Text="הוסף תכונה" />
                             </div>
                             <table class="form">
@@ -280,9 +280,8 @@
                                 <tbody id="AddCategoryProperties">
                                 </tbody>
                             </table>
-                            <div>
-                                <asp:Button ID="addNewCategory" runat="server" Text="הוסף קטגוריה" OnClick="addNewCategory_Click1" />
-                            </div>
+                            <asp:Button ID="addCategoryBTN" runat="server" Text="הוסף" 
+                                onclick="addCategoryBTN_Click" />
                         </div>
                     </div>
                 </div>
@@ -295,68 +294,31 @@
                         <h2>
                             ערוך קטגוריה</h2>
                         <label>
-                            בחר קטגוריה לתצוגה</label>&nbsp;&nbsp;
-                        <select id="select" name="select" style="text-align: right">
-                            <option value="1">ריהוט</option>
-                            <option value="2">הלבשה</option>
-                            <option value="3">טקסטיל</option>
-                        </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="menuitem" onclick="show('addCategory')"
-                            style="color: #0000FF; text-transform: capitalize; text-decoration: underline">הוסף
-                            קטגוריה חדשה</a>
-                        <div class="block
-    ">
-                            <table class="form">
-                                <thead>
-                                    <tr>
-                                        <th dir="rtl">
-                                            שם תכונה
-                                        </th>
-                                        <th dir="rtl">
-                                            עריכה
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="tableDataCategory">
-                                    <tr class="odd gradeX">
-                                        <td>
-                                            ארץ ייצור
-                                        </td>
-                                        <td class="center">
-                                            <button id="opener">
-                                                מחק</button>
-                                            <button id="Button4">
-                                                ערוך</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>
-                                            סוג עץ
-                                        </td>
-                                        <td class="center">
-                                            <button id="Button5">
-                                                מחק</button>
-                                            <button id="Button7">
-                                                ערוך</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>
-                                            פריט אספנות
-                                        </td>
-                                        <td class="center">
-                                            <button id="Button8">
-                                                מחק</button>
-                                            <button id="Button9">
-                                                ערוך</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="evengradeC">
-                                        <td>
-                                            <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            בחר קטגוריה לתצוגה</label>
+                        <asp:DropDownList ID="editCategoryCategoriesDDL" AutoPostBack="true" runat="server"
+                            OnSelectedIndexChanged="editCategoryCategoriesDDL_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        <a class="menuitem" onclick="show('addCategory')" style="color: #0000FF; text-transform: capitalize;
+                            text-decoration: underline">הוסף קטגוריה חדשה</a>
+                        <div class="block">
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
+                                    <table class="form">
+                                        <thead>
+                                            <tr>
+                                                <th dir="rtl">
+                                                    שם תכונה
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="tableDataCategory" id="EditCategoryPropTable" runat="server">
+                                        </tbody>
+                                    </table>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="editCategoryCategoriesDDL" EventName="SelectedIndexChanged" />
+                                </Triggers>
+                            </asp:UpdatePanel>
                         </div>
                     </div>
                 </div>

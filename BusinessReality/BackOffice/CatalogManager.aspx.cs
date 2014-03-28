@@ -41,11 +41,13 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     {
         Category c = new Category();
         categoriesNamesDDL.Items.Add("בחר");
+        editCategoryCategoriesDDL.Items.Add("בחר");
         categories = c.getCategoriesNames("aviv@gmail.com");//צריך zלעשות משתנה של משתמש 
         foreach (KeyValuePair<string, int> pair in categories)
+        {
             categoriesNamesDDL.Items.Add(pair.Key);
-
-
+            editCategoryCategoriesDDL.Items.Add(pair.Key);
+        }
     }
 
     protected void change()
@@ -209,12 +211,31 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         allProp = p.getAllProp("aviv@gmail.com");
         foreach (KeyValuePair<string, int> pair in allProp)
         {
-            //NewCampaignProp.Items.Add(pair.Key);
+            NewCampaignProp.Items.Add(pair.Key);
         }
     }
-    protected void addNewCategory_Click1(object sender, EventArgs e)
+    protected void editCategoryCategoriesDDL_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        EditCategoryPropTable.Controls.Clear();
+        Category c = new Category();
+        properties = new Dictionary<string, int>();
+        if (editCategoryCategoriesDDL.SelectedValue.ToString() != "בחר")
+        {
+            properties = c.getCategoryProperties(categories[editCategoryCategoriesDDL.SelectedValue.ToString()]);
+            foreach (KeyValuePair<string, int> pair in properties)
+            {
+                HtmlTableRow tr = new HtmlTableRow();
+                HtmlTableCell tc = new HtmlTableCell();
+                tr.Attributes.Add("Class", "odd gradeX");
+                tc.InnerHtml = pair.Key;
+                tr.Controls.Add(tc);
+                EditCategoryPropTable.Controls.Add(tr);
+            }
+        }
+   
+    }
+    protected void addCategoryBTN_Click(object sender, EventArgs e)
     {
 
     }
-
 }
