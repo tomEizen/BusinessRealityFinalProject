@@ -8,14 +8,21 @@ using System.Web;
 /// </summary>
 public class ProductProperty
 {
+
     private string description;
 
-    public ProductProperty()
+	public ProductProperty()
+	{
+		//
+		// TODO: Add constructor logic here
+		//
+	}
+
+    public string Description
     {
-        //
-        // TODO: Add constructor logic here
-        //
+        get { return this.description; }
+        set { this.description = value; }
     }
 
-    public string Description { get { return this.description; } set { this.description = value; } }
+
 }

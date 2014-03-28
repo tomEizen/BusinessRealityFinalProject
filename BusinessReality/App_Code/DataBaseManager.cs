@@ -433,6 +433,86 @@ public class DataBaseManager
         return products;
     }
 
+
+/// <summary>
+/// get a specific product basic info from the db
+/// </summary>
+    /// <param name="managerEmail">manager's email for identification</param>
+    /// <param name="productId">to select a specific product from the db</param>
+/// <returns>a product object</returns>
+    public Product GetSpecificProductInfoBasic(string managerEmail,int productId)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        Product product = new Product();
+        try
+        {
+            paraList.Add(new SqlParameter("@emailAddress", managerEmail));
+            paraList.Add(new SqlParameter("@productId", productId));
+            SqlDataReader dr = ActivateStoredProc("GetSpecificProductInfoBasic", paraList);
+            while (dr.Read())
+            {// Read till the end of the data into a row
+                // read first field from the row into the list collection
+                Product p = new Product();
+                Category c = new Category();
+                c.Name = dr["Name"].ToString();
+                p.Category = c;
+                p.Id = Convert.ToInt32(dr["ProductId"]);
+                p.Name = dr["productName"].ToString();
+                p.Price = Convert.ToDouble(dr["Price"]);
+                if (dr["Discount"] != null || dr["Discount"] != "")
+                    p.Discount = dr["Discount"].ToString();
+                p.ImageUrl = dr["img"].ToString();
+                p.Description = dr["ShortDescription"].ToString();
+                product=p;
+            }
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        return product;
+    }
+
+
+    /// <summary>
+    /// get the full info of a specific product from the db
+    /// </summary>
+    /// <param name="managerEmail">manager's email for identification</param>
+    /// <param name="productId">to select a specific product from the db</param>
+    /// <returns>a list of the product info</returns>
+    public Dictionary<string, string> GetProductPropertiesInfo(string managerEmail, int productId)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        Dictionary<string, string> properties = new Dictionary<string, string>();
+
+        try
+        {
+            paraList.Add(new SqlParameter("@emailAddress", managerEmail));
+            paraList.Add(new SqlParameter("@productId", productId));
+            SqlDataReader dr = ActivateStoredProc("proc_GetProductPropertiesInfo", paraList);
+            while (dr.Read())
+            {// Read till the end of the data into a row
+                // read first field from the row into the list collection
+                Property prop = new Property();
+                properties.Add(dr["propertyName"].ToString(), dr["propertyDescription"].ToString());
+            }
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        return properties;
+    }
+
+
+
+
     /// <summary>
     ///gets the catagories
     /// </summary>
@@ -561,7 +641,7 @@ public class DataBaseManager
     /// </summary>
     /// <param name="email">the manager email</param>
     /// <returns>a list of the campaigns</returns>
-    public Dictionary<string,int> GetCampaignsShare(string email)
+    public Dictionary<string, int> GetCampaignsShare(string email)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
         Dictionary<string, int> campaigns = new Dictionary<string, int>();
@@ -572,9 +652,9 @@ public class DataBaseManager
 
             while (dr.Read())
             {// Read till the end of the data into a row
-      
+
                 campaigns.Add(dr["Name"].ToString(), Convert.ToInt32(dr["ShareCount"]));
-}
+            }
         }
         catch (Exception ex)
         {
