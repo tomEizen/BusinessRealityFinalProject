@@ -27,15 +27,24 @@ public class Product
     public string ImageUrl { get { return this.imageUrl; } set { this.imageUrl = value; } }
     public DateTime DateModified { get { return this.dateModified; } set { this.dateModified = value; } }
     public Category Category { get { return this.category; } set { this.category = value; } }
+    
+    
     public int insertNewProduct(Product product,int categoryName, Dictionary<int, string> pp, string emailManager)
     {
         DataBaseManager db = new DataBaseManager();
         return db.insertNewProduct(product,categoryName, pp, emailManager);
     }
+    
     public List<Product> GetAllProductInfoBasic(string email)
     {
         DataBaseManager db = new DataBaseManager();
         return db.GetAllProductInfoBasic(email);
+    }
+
+    public Product GetSpecificProductInfoBasic(string email,int productId)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.GetSpecificProductInfoBasic(email,productId);
     }
 
     public Dictionary<string, int> Top5ScanedProducts(string managerEmail)

@@ -172,6 +172,8 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             productsData.Controls.Add(tr);
         }
     }
+
+
     // insert the uploaded picture to the server dic'
     private void InsertPictureToDirectory()
     {

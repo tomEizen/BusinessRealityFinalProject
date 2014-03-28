@@ -5,6 +5,7 @@ function show(target) {
     $('#editCategory').hide();
     $('#addCategory').hide();
     $('#editProduct').hide();
+    $('#productInfo').hide();
     $('#' + target).fadeIn(1300);
 }
 
@@ -14,7 +15,7 @@ $(document).ready(function () {
         "oLanguage": {
             "sLengthMenu": "מציג _MENU_ רשומות",
             "sZeroRecords": "לא קיימים מוצרים בקטלוג",
-            "sInfo": " מציג רשומה _START_ עד רשומה _END_ מתוך _TOTAL_ רשומות",
+            "sInfo": " מציג רשומה _START_ עד  _END_ מתוך _TOTAL_ רשומות",
             "sInfoEmpty": "",
             "sInfoFiltered": "(filtered from _MAX_ total records)",
             "sSearch": "חיפוש:"
@@ -22,41 +23,24 @@ $(document).ready(function () {
     });
 });
 
-function InitComplete(oSettings) {
-   $('#tblOrders_filter')
-       .contents()
-       .filter(function() { return this.nodeType == 3 })
-       .replaceWith('Refine search: ');
-}
-
-
 
 //once a tr inside the products table is clicked a pop up window is open with the info about this product
 $(function () {
-    function launch() {
-        $('#productInfo').lightbox_me({ centered: true, onLoad: function () { $('#productInfo').find('input:first').focus() } });
-    }
 
     $('.tableData tr').click(function (e) {
         EnterDetails($(this).index());
-        $("#productInfo").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
-            $("#productInfo").find("input:first").focus();
-        }
-        });
-
-        e.preventDefault();
+        //document.location = 'DashBoard.aspx'
     });
-
-
-    $('table tr:nth-child(even)').addClass('stripe');
+    
 });
 
 //enter the details to the  product info window
 function EnterDetails(row_number) {
     RemoveDetailsFromProductInfoPage();
     var MyRows = $('table#productTable').find('tbody').find('tr');
-    $('#name').append($(MyRows[row_number]).find('td:eq(1)').text());
-
+    var productID=($(MyRows[row_number]).find('td:eq(2)').text());
+    //document.getElementById('HiddenProductId').value = productID;
+    alert(productID);
 }
 
 //empty all elements inside the product info window
