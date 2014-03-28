@@ -23,9 +23,9 @@ $(document).ready(function () {
 });
 
 function InitComplete(oSettings) {
-   $('#tblOrders_filter')
+    $('#tblOrders_filter')
        .contents()
-       .filter(function() { return this.nodeType == 3 })
+       .filter(function () { return this.nodeType == 3 })
        .replaceWith('Refine search: ');
 }
 
@@ -168,6 +168,6 @@ function addNewPropToTable() {
     var text = $('#newPropTB').val().trim();
     if ($('#AddCategoryProperties').text().match(text)) { }
     else {
-        $('#AddCategoryProperties').append('<tr class="odd gradeX">><td>' + text + '</td></tr>');
+        $('#AddCategoryProperties').append('<tr class="odd gradeX"><td>' + text + '</td></tr>');
     }
 }

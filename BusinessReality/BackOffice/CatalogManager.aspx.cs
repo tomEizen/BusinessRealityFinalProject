@@ -226,13 +226,26 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             {
                 HtmlTableRow tr = new HtmlTableRow();
                 HtmlTableCell tc = new HtmlTableCell();
+                HtmlTableCell tc1 = new HtmlTableCell();
+                Button btn = new Button();
+                Button btn1 = new Button();
+                btn.Text = "עריכה";
+                btn.OnClientClick = "updateRowInEditCategory()";
+                btn1.OnClientClick = "deleteRow()";
+                btn1.Text = "הסרה";
+                tc1.Controls.Add(btn);
+                tc1.Controls.Add(btn1);
                 tr.Attributes.Add("Class", "odd gradeX");
                 tc.InnerHtml = pair.Key;
                 tr.Controls.Add(tc);
+                tr.Controls.Add(tc1);
                 EditCategoryPropTable.Controls.Add(tr);
             }
+            HtmlTableRow tr1 = new HtmlTableRow();
+    
+
         }
-   
+
     }
     protected void addCategoryBTN_Click(object sender, EventArgs e)
     {

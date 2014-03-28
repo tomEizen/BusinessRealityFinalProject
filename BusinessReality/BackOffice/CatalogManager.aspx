@@ -52,6 +52,7 @@
                 else
                     discountTBvisible(true)
             });
+
         });
 
     </script>
@@ -266,7 +267,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label>
                                     הוספת תכונה חדשה</label>
-                                <asp:TextBox  ID="newPropTB" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="newPropTB" runat="server"></asp:TextBox>
                                 <asp:Button ID="addNewPropBtn" runat="server" Text="הוסף תכונה" />
                             </div>
                             <table class="form">
@@ -280,8 +281,6 @@
                                 <tbody id="AddCategoryProperties">
                                 </tbody>
                             </table>
-                            <asp:Button ID="addCategoryBTN" runat="server" Text="הוסף" 
-                                onclick="addCategoryBTN_Click" />
                         </div>
                     </div>
                 </div>
@@ -308,6 +307,9 @@
                                             <tr>
                                                 <th dir="rtl">
                                                     שם תכונה
+                                                </th>
+                                                <th dir="rtl">
+                                                    פעולה
                                                 </th>
                                             </tr>
                                         </thead>
