@@ -266,7 +266,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label>
                                     הוספת תכונה חדשה</label>
-                                <asp:TextBox  ID="newPropTB" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="newPropTB" runat="server"></asp:TextBox>
                                 <asp:Button ID="addNewPropBtn" runat="server" Text="הוסף תכונה" />
                             </div>
                             <table class="form">
@@ -280,8 +280,7 @@
                                 <tbody id="AddCategoryProperties">
                                 </tbody>
                             </table>
-                            <asp:Button ID="addCategoryBTN" runat="server" Text="הוסף" 
-                                onclick="addCategoryBTN_Click" />
+                            <asp:Button ID="addCategoryBTN" runat="server" Text="הוסף" OnClick="addCategoryBTN_Click" />
                         </div>
                     </div>
                 </div>
@@ -406,86 +405,88 @@
             </div>
         </div>
         <div id="productInfo" class="displayNone">
-            <input id="HiddenProductId" name="Hidden1" type="Hidden" runat="server"/>
-            <div class="container_12">
-                <div class="grid_10">
-                    <div class="box round first fullpage">
-                        <h2>
-                            פרטי המוצר</h2>
-                        <div class="block ">
-                            <table class="form">
-                                <tr>
-                                    <td class="col1">
-                                        <label>
-                                            קטגוריה</label>
-                                    </td>
-                                    <td class="col2">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            מק"ט מוצר</label>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="makat" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            שם המוצר</label>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            תיאור המוצר</label>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="TextBox3" class="large" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            מוצר במבצע</label>
-                                    </td>
-                                    <td>
-                                        <asp:RadioButton Checked="true" ID="RadioButton1" name="rdlDiscount" runat="server" />
-                                        לא
-                                        <asp:RadioButton ID="RadioButton2" name="rdlDiscount" runat="server" />
-                                        כן
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            הוסף תמונה</label>
-                                    </td>
-                                    <td>
-                                        <asp:FileUpload ID="FileUpload1" runat="server" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    </td>
-                                    <td>
-                                        <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="show('editProduct')" />
-                                        <asp:Button ID="btnPrintQrCode" runat="server" Text="הדפס ברקוד" Width="100px" />
-                                        <asp:Button ID="btnDeleteProduct" runat="server" Text="מחק מוצר" Width="100px" />
-                                        <input id="Button10" type="button" value="ביטול" onclick="show('general')" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+            <%--<input id="HiddenProductId" name="Hidden1" type="Hidden" runat="server"/>--%>
+            <%--<div class="container_12">--%>
+            <%--<div class="grid_10">--%>
+            <div class="box round first fullpage">
+                <div class="block ">
+                    <table class="form">
+                        <tr>
+                            <td class="col1">
+                                <label>
+                                    שם המוצר:</label>
+                            </td>
+                            <td>
+                                <label id="lblproductName">
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מק"ט המוצר:</label>
+                            </td>
+                            <td>
+                                <label id="lblproductId">
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    קטגוריה:</label>
+                            </td>
+                            <td>
+                                <label id="lblProductCategory">
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    תיאור המוצר:</label>
+                            </td>
+                            <td>
+                               <label id="lblProductDescription">
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מוצר במבצע:</label>
+                            </td>
+                            <td>
+                                <asp:RadioButton Checked="true" ID="RadioButton1" name="rdlDiscount" runat="server" />
+                                לא
+                                <asp:RadioButton ID="RadioButton2" name="rdlDiscount" runat="server" />
+                                כן
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                             <label>
+                                     :תמונה</label>
+                            </td>
+                            <td>
+                                <img alt="" src="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="show('editProduct')" />
+                                <asp:Button ID="btnPrintQrCode" runat="server" Text="הדפס ברקוד" Width="100px" />
+                                <asp:Button ID="btnDeleteProduct" runat="server" Text="מחק מוצר" Width="100px" />
+                                <input id="Button10" type="button" value="ביטול" onclick="CloseLightBox()" />
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
+            <%-- </div>--%>
+            <%--</div>--%>
         </div>
         <div class="grid_2">
             <div class="box sidemenu">

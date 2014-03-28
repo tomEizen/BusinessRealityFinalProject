@@ -21,7 +21,7 @@
                     <img src="img/logo.png" id="logo" /></a>
             </div>
             <p>
-                We are Business Reality</p>
+               מהיום תוכלו להפיק מידע עסקי חכם אודות לקוחות הארגון, להציע להם חווית קנייה יחודית ותוך כדי לשווק את הארגון ברשתות החברתיות</p>
             <br />
             <div id="general">
                 <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
@@ -33,7 +33,7 @@
                 <a href="" style="color: White" onclick="show('register')">צור פרופיל חדש</a>
             </div>
             <div id="register" class="displayNone">
-                <img src="img/gallery/campaigns/3%20copy.jpg" />
+                <img src="img/img_LoginPage/bg.jpg" />  
             </div>
         </div>
         <div class="footer">

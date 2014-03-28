@@ -25,14 +25,36 @@ $(document).ready(function () {
 
 
 //once a tr inside the products table is clicked a pop up window is open with the info about this product
+//$(function () {
+
+//    $('.tableData tr').click(function (e) {
+//        EnterDetails($(this).index());
+//        document.location = 'DashBoard.aspx'
+//    });
+//    
+//});
+
+//once a tr inside the products table is clicked a pop up window is open with the info about this product
 $(function () {
+    function launch() {
+        $('#productInfo').lightbox_me({ centered: true, onLoad: function () { $('#productInfo').find('input:first').focus() } });
+    }
 
     $('.tableData tr').click(function (e) {
         EnterDetails($(this).index());
-        //document.location = 'DashBoard.aspx'
+        $("#productInfo").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
+            $("#productInfo").find("input:first").focus();
+        }
+        });
+
+        e.preventDefault();
     });
-    
+
+
+    $('table tr:nth-child(even)').addClass('stripe');
 });
+
+
 
 //enter the details to the  product info window
 function EnterDetails(row_number) {
@@ -40,7 +62,7 @@ function EnterDetails(row_number) {
     var MyRows = $('table#productTable').find('tbody').find('tr');
     var productID=($(MyRows[row_number]).find('td:eq(2)').text());
     //document.getElementById('HiddenProductId').value = productID;
-    alert(productID);
+    //alert(productID);
 }
 
 //empty all elements inside the product info window
