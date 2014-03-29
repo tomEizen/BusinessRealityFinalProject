@@ -86,10 +86,10 @@
             </div>
             <div class="grid_12">
                 <ul class="nav main">
-                    <li class="ic-dashboard"><a href="DashBoard.aspx"><span>דוחות</span></a> </li>
-                    <li class="ic-form-style"><a href="CatalogManager.aspx"><span>ניהול קטלוג</span></a>
+                    <li class="ic-dashboard"><a href="DashBoard.aspx"><span>הפקת דוחות</span></a> </li>
+                    <li class="ic-form-style"><a href="CatalogManager.aspx"><span>ניהול קטלוג מוצרים</span></a>
                     </li>
-                    <li class="ic-typography"><a href="Campaign.aspx"><span>ניהול קמפיין</span></a></li>
+                    <li class="ic-typography"><a href="Campaign.aspx"><span>ניהול קמפיין פייסבוק</span></a></li>
                 </ul>
             </div>
             <div class="clear">
