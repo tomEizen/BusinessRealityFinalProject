@@ -70,20 +70,20 @@ function setupProductViews(containerElementId) {
 //draw donut chart
 function drawGenderChart(containerElement, male, female) {
     var plot3 = $.jqplot(containerElement,
-    [[['נשים<br/>' + female, parseInt(female)], ['גברים<br/>' + male, parseInt(male)]]],
+    [[['נשים', parseInt(female)], ['גברים', parseInt(male)]]],
     {
         title: ' ',
         seriesDefaults: {
             shadow: true,
             renderer: jQuery.jqplot.PieRenderer,
             rendererOptions: {
-                dataLabels: ['label'],
+                dataLabels: ['percent'],
                 startAngle: 180,
                 sliceMargin: 4,
                 showDataLabels: true
             }
         },
-        legend: { show: false, location: 'e' }
+        legend: { show: true, location: 'e' }
     }
   );
 
@@ -96,10 +96,10 @@ function drawAgesChart(containerElement, range1, range2, range3, range4, range5,
     {
         title: ' ',
         seriesDefaults: {
-            shadow: false,
+            shadow: true,
             renderer: jQuery.jqplot.PieRenderer,
             rendererOptions: {
-                dataLabels: ['value'],
+                dataLabels: ['percent'],
                 startAngle: 180,
                 sliceMargin: 4,
                 showDataLabels: true
@@ -113,16 +113,17 @@ function drawAgesChart(containerElement, range1, range2, range3, range4, range5,
 //draw a bar chart to represent the top 5 campaign
 function drawCamgaignShareChart(containerElement, name1, share1, name2, share2, name3, share3, name4, share4, name5, share5) {
 
-    var line1 = [[name1, parseInt(share1)], [name2, parseInt(share2)], [name3, parseInt(share3)],
-  [name4, parseInt(share4)], [name5, parseInt(share5)]];
+   $.jqplot.config.enablePlugins = true;
+   var line1 = [[name1.toString(), parseInt(share1)], [name2.toString(), parseInt(share2)], [name3.toString(), parseInt(share3)],
+  [name4.toString(), parseInt(share4)], [name5.toString(), parseInt(share5)]];
 
-    plot5 = $.jqplot(containerElement, [line1],
+   plot5 = $.jqplot(containerElement, [line1],
    {
-       width: '1070px',
+       width: '700px',
        title: '',
        series: [{ renderer: $.jqplot.BarRenderer}],
        axesDefaults: {
-           tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+           tickRenderer: $.jqplot.AxisTickRenderer,
            tickOptions: {
                mark: 'inside',
                showMark: true,
@@ -132,31 +133,42 @@ function drawCamgaignShareChart(containerElement, name1, share1, name2, share2, 
                showTickMarks: true,
                angle: -25,
                fontSize: '10pt'
+
+
            }
        },
+       pointLabels: { show: true },
+
        axes: {
            xaxis: {
-               renderer: $.jqplot.CategoryAxisRenderer
-           }
 
+               renderer: $.jqplot.CategoryAxisRenderer
+
+           },
+           highlighter: {
+               sizeAdjust: 7.5
+           },
+           cursor: {
+               show: true
+           }
        }
    }
   );
-}
-
+  }
+  
 
 //draw pie chart to represent the age ranges of the useres who shared a campaign
 function drawCampaignShareAgesChart(containerElement, range1, range2, range3, range4, range5, range6, range7, range8) {
     plot6 = jQuery.jqplot(containerElement,
     [[['0-12', parseInt(range1)], ['13-17', parseInt(range2)], ['18-24', parseInt(range3)], ['25-34', parseInt(range4)], ['35-44', parseInt(range5)], ['45-54', parseInt(range6)], ['55-64', parseInt(range7)], ['65+', parseInt(range8)], ]],
     {
-        width: '510px',
+        width: '480px',
         title: ' ',
         seriesDefaults: {
-            shadow: false,
+            shadow: true,
             renderer: jQuery.jqplot.PieRenderer,
             rendererOptions: {
-                dataLabels: ['value'],
+                dataLabels: ['percent'],
                 startAngle: 180,
                 sliceMargin: 4,
                 showDataLabels: true
@@ -172,21 +184,21 @@ function drawCampaignShareAgesChart(containerElement, range1, range2, range3, ra
 //draw pie chart to represent the gender of the users who shared a campaign
 function drawCampaignShareGenderChart(containerElement, male, female) {
     plot7 = $.jqplot(containerElement,
-    [[['נשים<br/>' + female, parseInt(female)], ['גברים<br/>' + male, parseInt(male)]]],
+    [[['נשים', parseInt(female)], ['גברים', parseInt(male)]]],
     {
-        width: '510px',
+        width: '480px',
         title: ' ',
         seriesDefaults: {
             shadow: true,
             renderer: jQuery.jqplot.PieRenderer,
             rendererOptions: {
-                dataLabels: ['label'],
+                dataLabels: ['percent'],
                 startAngle: 180,
                 sliceMargin: 4,
                 showDataLabels: true
             }
         },
-        legend: { show: false, location: 'e' }
+        legend: { show: true, location: 'e' }
     }
   );
 }

@@ -44,6 +44,9 @@ namespace BusinessReality.BackOffice
 
         }
 
+        /// <summary>
+        /// get the ages of the users from the db and send it to js to draw a pie chart
+        /// </summary>
         private void UpdateAgesStatistics()
         {
             User us = new User();
@@ -240,7 +243,9 @@ namespace BusinessReality.BackOffice
             }
         }
 
-
+        /// <summary>
+        /// get the top 5 shared campaigns from the db and send it to js to draw a bar chart
+        /// </summary>
         private void getCamapaignsShareStatistics()
         {
             Campaign cam = new Campaign();
@@ -260,7 +265,9 @@ namespace BusinessReality.BackOffice
         }
 
 
-
+        /// <summary>
+        /// get the ages of the users who shared campaigns from the db and send it to js to draw a pie chart
+        /// </summary>
         private void UpdateCampaignShareAgesStatistics()
         {
             User us = new User();
@@ -302,7 +309,9 @@ namespace BusinessReality.BackOffice
 
         }
 
-
+        /// <summary>
+        /// get the gender of the users who shared campaigns from the db and send it to js to draw a pie chart
+        /// </summary>
         private void UpdateCampaignShareGender()
         {
             User us = new User();
