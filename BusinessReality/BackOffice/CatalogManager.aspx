@@ -63,7 +63,7 @@
         <div class="grid_12">
             <ul class="nav main">
                 <li class="ic-dashboard"><a href="DashBoard.aspx"><span>הפקת דוחות</span></a> </li>
-                <li class="ic-form-style"><a href="CatalogManager.aspx"><span> ניהול קטלוג מוצרים</span></a>
+                <li class="ic-form-style"><a href="CatalogManager.aspx"><span>ניהול קטלוג מוצרים</span></a>
                 </li>
                 <li class="ic-typography"><a href="Campaign.aspx"><span>ניהול קמפיין פייסבוק</span></a></li>
             </ul>
@@ -427,6 +427,10 @@
                             </td>
                         </tr>
                         <tr>
+                            <td id="qrcodePrint">
+                            </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <label>
                                     תמונה:</label>
@@ -441,16 +445,16 @@
                 </table>
                 <div style="text-align: center">
                     <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
-                    <asp:Button ID="btnPrintCode" runat="server" Text="הדפס ברקוד" Width="100px" />
+                    <input type="button" id="btnPrintCode" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','6')" />
                     <input id="btnCloseBox" type="button" value="ביטול" onclick="	()" />
                 </div>
             </div>
-            <%-- </div>--%>
-            <div id="actions">
-            </div>
-            <div class="clear">
-            </div>
         </div>
+        <div id="actions">
+        </div>
+        <div class="clear">
+        </div>
+    </div>
     </form>
 </body>
 </html>

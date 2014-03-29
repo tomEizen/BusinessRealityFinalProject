@@ -28,15 +28,7 @@ $(document).ready(function () {
 $('#tblOrders_filter')
        .filter(function () { return this.nodeType == 3 })
 
-//once a tr inside the products table is clicked a pop up window is open with the info about this product
-//$(function () {
 
-//    $('.tableData tr').click(function (e) {
-//        EnterDetails($(this).index());
-//        document.location = 'DashBoard.aspx'
-//    });
-//    
-//});
 
 //once a tr inside the products table is clicked a pop up window is open with the info about this product
 $(function () {
@@ -109,6 +101,7 @@ function EnterDetails(product) {
     $("#productInfoDiscount").text(product.Discount);
     $("#lblProductPrice").text(product.Price + ' ש"ח');
     $('#productInfoImage').attr("src", product.ImageUrl);
+    addQrCode('www.one.co.il', 'qrcodePrint');
     GetProductPropertiesInfo(product.Id);
 }
 
@@ -128,6 +121,7 @@ function RemoveDetailsFromProductInfoPage() {
     $('#lblproductID').empty();
     $('#lblProductDescription').empty();
     $('#productInfoTB > tbody').empty();
+    $('#qrcodePrint').empty();
 }
 
 function CloseLightBox() {
@@ -169,7 +163,6 @@ $(function () {
     }
 
     $('#Butt').click(function (e) {
-
         $("#prodectInserted").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
             $("#prodectInserted").find("input:first").focus();
 
@@ -189,27 +182,28 @@ function productInsertedToDb(url) {
     });
 }
 
-function addQrCode(url) {
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
+function addQrCode(url,div) {
+    var qrcode = new QRCode(document.getElementById(div), {
         width: 100,
         height: 100
     });
-    qrcode.makeCode("www.one.co.il");
+    qrcode.makeCode(url);
 }
 function printDiv(divID, numberOfQR) {
+    alert(divID);
+    addQrCode('www.one.co.il',divID);
     //Get the HTML of div
     var divElements = document.getElementById(divID).innerHTML;
     //Get the HTML of whole page
     var oldPage = document.body.innerHTML;
-
+    var div = "";
     //Reset the page's HTML with div's HTML only
     for (var i = 0; i < numberOfQR; i++) {
-        divElements += divElements;
+        div += divElements;
     }
     document.body.innerHTML =
               "<html><head><title></title></head><body>" +
-              divElements + "</body>";
-
+              div + "</body></html>";
     //Print Page
     window.print();
 

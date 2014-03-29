@@ -25,7 +25,6 @@
     <script src="js/jquery-ui/jquery.ui.mouse.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui/jquery.ui.sortable.min.js" type="text/javascript"></script>
     <script src="js/table/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="js/catalog.js" type="text/javascript"></script>
     <script src="js/campaign.js" type="text/javascript"></script>
     <!-- END: load jquery -->
     <script type="text/javascript" src="js/table/jquery.dataTables.min.js"></script>
@@ -82,7 +81,7 @@
                     <h2>
                         ניהול קמפיין</h2> 
                     <div class="block">
-                        <table class="data display datatable" id="productTable">
+                        <table class="data display datatable" id="CampaignTable">
                             <thead>
                                 <tr>
                                     <th style="text-align: right">
