@@ -95,10 +95,10 @@
                 </div>
                 <div class="grid_12">
                     <ul class="nav main">
-                        <li class="ic-dashboard"><a href="DashBoard.aspx"><span>דוחות</span></a> </li>
-                        <li class="ic-form-style"><a href="CatalogManager.aspx"><span>ניהול קטלוג</span></a>
+                        <li class="ic-dashboard"><a href="DashBoard.aspx"><span>הפקת דוחות</span></a> </li>
+                        <li class="ic-form-style"><a href="CatalogManager.aspx"><span>ניהול קטלוג מוצרים</span></a>
                         </li>
-                        <li class="ic-typography"><a href="Campaign.aspx"><span>ניהול קמפיין</span></a></li>
+                        <li class="ic-typography"><a href="Campaign.aspx"><span> ניהול קמפיין פייסבוק</span></a></li>
                     </ul>
                 </div>
                 <div class="clear">
@@ -240,15 +240,15 @@
                                             <table class="tablecss">
                                                 <thead>
                                                     <tr>
-                                                        <td>
+                                                        <th>
                                                             שם המאפיין
-                                                        </td>
-                                                        <td>
+                                                        </th>
+                                                        <th>
                                                             כמות כניסות
-                                                        </td>
-                                                        <td>
+                                                        </th>
+                                                        <th>
                                                             אחוז מסה"כ הכניסות
-                                                        </td>
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="productPropertiesStatistics" runat="server">
@@ -267,15 +267,15 @@
                                             <table class="tablecss">
                                                 <thead>
                                                     <tr>
-                                                        <td>
+                                                        <th>
                                                             חודש
-                                                        </td>
-                                                        <td>
+                                                        </th>
+                                                        <th>
                                                             כמות סריקות
-                                                        </td>
-                                                        <td>
+                                                        </th>
+                                                        <th>
                                                             אחוז מסה"כ הסריקות
-                                                        </td>
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="prodyctHistoryStatistics" runat="server">

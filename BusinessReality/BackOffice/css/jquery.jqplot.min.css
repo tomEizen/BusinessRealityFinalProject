@@ -4,6 +4,10 @@
     color: #666;
     font-family: "Trebuchet MS" ,Arial,Helvetica,sans-serif;
     font-size: 1em;
+    margin-right:auto;
+    margin-left:auto;
+    margin-bottom:auto;
+    margin-top:auto;
 }
 .jqplot-axis
 {
