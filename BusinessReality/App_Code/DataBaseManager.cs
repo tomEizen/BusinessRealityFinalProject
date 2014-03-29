@@ -622,7 +622,16 @@ public class DataBaseManager
         return campaigns;
     }
 
-
+    //SqlCommand cmd = new SqlCommand("addNewProduct", con);
+    //    paraList.Add(new SqlParameter("@ProductId", product.Id));
+    //    paraList.Add(new SqlParameter("@email", emailManager));
+    //    paraList.Add(new SqlParameter("@Name", product.Name));
+    //    paraList.Add(new SqlParameter("@ShortDescription", product.Description));
+    //    paraList.Add(new SqlParameter("@Price", product.Price));
+    //    paraList.Add(new SqlParameter("@DateModified", product.DateModified.ToString("yyyy-MM-dd HH:mm:ss")));
+    //    paraList.Add(new SqlParameter("@img", product.ImageUrl));
+    //    paraList.Add(new SqlParameter("@Discount", product.Discount));
+    //    paraList.Add(new SqlParameter("@CatagoryName", categoryID));   
     /// <summary>
     /// insert a new product into the db. also insert the properties description to the db
     /// </summary>
@@ -653,13 +662,13 @@ public class DataBaseManager
         StringBuilder sb = new StringBuilder();
         if (product.Discount != null)
         {
-            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8})", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), product.Discount, organizaion, categoryID, product.ImageUrl);
-            prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,Discount,OrganizationID,CatagoryId,img)";
+            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), product.Discount, organizaion, categoryID);
+            prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,Discount,OrganizationID,CatagoryId)";
         }
         else
         {
-            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), organizaion, categoryID, product.ImageUrl);
-            prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,OrganizationID,CatagoryId,img)";
+            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), organizaion, categoryID);
+            prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,OrganizationID,CatagoryId)";
         }
         command = prefix + sb.ToString();
         rowChangeProduct = insertCommand(command);

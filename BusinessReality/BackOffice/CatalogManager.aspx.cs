@@ -122,11 +122,11 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             product.Description = productDescriptionTB.Text;
             DateTime currentTime = DateTime.Now;
             product.DateModified = currentTime;
+            product.ImageUrl = "assaas";
             product.Price = Convert.ToDouble(ProductPriceTB.Text);
             if (discountTB.Text == "") { }
             else
                 product.Discount = discountTB.Text;
-            product.ImageUrl = ProductpicPath;//מכניס ריק לא מזהה את התמונה אחרי הקריאה לצד שרת הראשונה
             int numOfRows = product.insertNewProduct(product, categories[categoriesNamesDDL.SelectedValue.ToString()], propertiesOfCategory, "aviv@gmail.com");
             if (numOfRows > 0)//מוציא הודעה האם המוצר הוכנס כמו שצריך
             {
@@ -159,7 +159,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             tc3.InnerHtml = product.Price.ToString();
             CheckBox cb = new CheckBox();
 
-            if (product.Discount != null && product.Discount != " ")
+            if (product.Discount != null && product.Discount != "")
             {
                 cb.Checked = true;
                 tc4.Controls.Add(cb);
@@ -216,6 +216,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             NewCampaignProp.Items.Add(pair.Key);
         }
     }
+
     protected void editCategoryCategoriesDDL_SelectedIndexChanged(object sender, EventArgs e)
     {
         EditCategoryPropTable.Controls.Clear();
@@ -244,13 +245,6 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
                 EditCategoryPropTable.Controls.Add(tr);
             }
         }
-    }
-
-    protected void button_Click(object sender, EventArgs e)
-    {
-        Button button = sender as Button;
-        string buttonid = button.ID.ToString();
-        // identify which button was what row to update based on id clicked and perform necessary actions
     }
 
     protected void addNewCategory_Click(object sender, EventArgs e)

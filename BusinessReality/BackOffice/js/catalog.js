@@ -253,7 +253,7 @@ $(document).ready(function () {
     $('.datatable').dataTable();
     setSidebarHeight();
     $('#RadioButtonList1').change(function () {
-        if ($('#<%=RadioButtonList1.ClientID %> input:checked').val() == 'לא')
+        if ($('#RadioButtonList1 input:checked').val() == 'לא')
             discountTBvisible(false)
         else
             discountTBvisible(true)
