@@ -363,101 +363,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
-        <div id="productInfo" class="displayNone">
-            <%--<input id="HiddenProductId" name="Hidden1" type="Hidden" runat="server"/>--%>
-            <%--<div class="container_12">--%>
-            <%--<div class="grid_10">--%>
-           <%-- <div class="box round first fullpage">--%>
-                <div class="block ">
-                    <table class="form">
-                        <tr>
-                            <td class="col1">
-                                <label>
-                                    שם המוצר:</label>
-                            </td>
-                            <td>
-                         <input id="lblproductName" type="text" />       
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>
-                                    מק"ט המוצר:</label>
-                            </td>
-                            <td>
-                         <input id="lblproductId" type="text" />       
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>
-                                    קטגוריה:</label>
-                            </td>
-                            <td>
-                            <input id="lblProductCategory" type="text" />       
-                              
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>
-                                    תיאור המוצר:</label>
-                            </td>
-                            <td>
-                            <input id="lblProductDescription" type="text" />   
-                            
-                            </td>
-                        </tr>
-                                                <tr>
-                            <td>
-                                <label>
-                                    מחיר המוצר:</label>
-                            </td>
-                            <td>
-                            <input id="lblProductPrice" type="text" />
-                           
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>
-                                    מוצר במבצע:</label>
-                            </td>
-                            <td>
-                                <asp:RadioButton Checked="true" ID="RadioButton1" name="rdlDiscount" runat="server" />
-                                לא
-                                <asp:RadioButton ID="RadioButton2" name="rdlDiscount" runat="server" />
-                                כן
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                             <label>
-                                   תמונה:</label>
-                            </td>
-                            <td>
-                                <img alt="" src="" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                                <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="show('editProduct')" />
-                                <asp:Button ID="btnPrintQrCode" runat="server" Text="הדפס ברקוד" Width="100px" />
-                                <asp:Button ID="btnDeleteProduct" runat="server" Text="מחק מוצר" Width="100px" />
-                                <input id="Button10" type="button" value="ביטול" onclick="CloseLightBox()" />
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-           <%-- </div>--%>
-            <%-- </div>--%>
-            <%--</div>--%>
-        </div>
->>>>>>> e2fca8121ae0a063eacbde95159240002d6ea8f5
         <div class="grid_2">
             <div class="box sidemenu">
                 <div class="block" id="Div1">
@@ -474,6 +379,67 @@
             <h3 id="infoName" class="sprited">
             </h3>
             <div id="productInfo_form">
+<<<<<<< HEAD
+                <table id="productInfoTB" class="form">
+                    <thead>
+                        <tr>
+                            <td class="col1">
+                                <label>
+                                    קטגוריה:</label>
+                            </td>
+                            <td class="col2">
+                                <asp:Label ID="lblCategory" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מק"ט מוצר:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblproductID" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    תיאור המוצר:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblProductDescription" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מחיר המוצר:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblProductPrice" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מוצר במבצע:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    תמונה:</label>
+                            </td>
+                            <td>
+                                <asp:Image ID="productInfoImage" runat="server" />
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+=======
                 <table class="form">
                     <tr>
                         <td class="col1">
@@ -481,7 +447,7 @@
                                 קטגוריה:</label>
                         </td>
                         <td class="col2">
-                            <asp:Label ID="lblCategory" runat="server"></asp:Label>
+                            <asp:Label ID="lblCategory" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -490,17 +456,25 @@
                                 מק"ט מוצר:</label>
                         </td>
                         <td>
-                            <asp:Label ID="lblproductID" runat="server"></asp:Label>
+                            <asp:Label ID="lblproductID" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
-    
                     <tr>
                         <td>
                             <label>
                                 תיאור המוצר:</label>
                         </td>
                         <td>
-                            <asp:Label ID="lblProductDescription" runat="server"></asp:Label>
+                            <asp:Label ID="lblProductDescription" runat="server" Text="Label"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                מחיר המוצר:</label>
+                        </td>
+                        <td>
+                            <asp:Label ID="lblProductPrice" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <asp:PlaceHolder ID="propertiesProductInfoPH" runat="server"></asp:PlaceHolder>
@@ -510,7 +484,7 @@
                                 מוצר במבצע:</label>
                         </td>
                         <td>
-                          <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
+                            <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -531,14 +505,20 @@
                             <input id="btnCloseBox" type="button" value="ביטול" onclick="CloseLightBox()" />
                         </td>
                     </tr>
+>>>>>>> 41800b3bd95bf1a6d97e7ea0b6c8a1a20f51b9c8
                 </table>
+                <div style="text-align: center">
+                    <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
+                    <asp:Button ID="btnPrintCode" runat="server" Text="הדפס ברקוד" Width="100px" />
+                    <input id="btnCloseBox" type="button" value="ביטול" onclick="	()" />
+                </div>
+            </div>
+            <%-- </div>--%>
+            <div id="actions">
+            </div>
+            <div class="clear">
             </div>
         </div>
-        <div id="actions">
-        </div>
-        <div class="clear">
-        </div>
-    </div>
     </form>
 </body>
 </html>

@@ -58,7 +58,7 @@ $(function () {
     $('table tr:nth-child(even)').addClass('stripe');
 });
 
-
+//getting the selected product from the web server
 function getProductInfo(row_number) {
     var email = 'aviv@gmail.com';
     var MyRows = $('table#productTable').find('tbody').find('tr');
@@ -79,7 +79,7 @@ function getProductInfo(row_number) {
         } // end of error
     }) // end of ajax call
 }
-
+//getting the selected product properties from the web server
 function GetProductPropertiesInfo(productID) {
     var email = 'aviv@gmail.com';
     $.ajax({ // ajax call starts
@@ -115,7 +115,7 @@ function EnterDetails(product) {
 //enter the proporties to the  product info window
 function EnterProperties(propeties) {
     $.each(propeties, function (index, Property) {
-        $('#productInfoTB > tbody').append('<tr><th>' + Property.Name + '</th><td>' + Property.Description + '</td></tr>');
+        $('#productInfoTB > tbody').append('<tr><th><label>' + Property.Name + '</th><td>' + Property.Description + '</td></tr>');
     });
 
 
