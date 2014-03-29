@@ -62,9 +62,14 @@ $(function () {
 function EnterDetails(row_number) {
     RemoveDetailsFromProductInfoPage();
     var MyRows = $('table#productTable').find('tbody').find('tr');
-    var productID=($(MyRows[row_number]).find('td:eq(2)').text());
-    //document.getElementById('HiddenProductId').value = productID;
-    //alert(productID);
+    var productID = ($(MyRows[row_number]).find('td:eq(2)').text());
+    var productName = ($(MyRows[row_number]).find('td:eq(1)').text());
+    var productCategory = ($(MyRows[row_number]).find('td:eq(0)').text());
+    var productPrice = ($(MyRows[row_number]).find('td:eq(3)').text());
+    document.getElementById('lblproductName').value = productName;
+    document.getElementById('lblproductId').value = productID;
+    document.getElementById('lblProductCategory').value = productCategory;
+    document.getElementById('lblProductPrice').value = productPrice;
 }
 
 //empty all elements inside the product info window

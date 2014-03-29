@@ -21,14 +21,15 @@
                     <img src="img/logo.png" id="logo" /></a>
             </div>
             <p>
-               מהיום תוכלו להפיק מידע עסקי חכם אודות לקוחות הארגון, להציע להם חווית קנייה יחודית ותוך כדי לשווק את הארגון ברשתות החברתיות</p>
+               מהיום תוכלו להפיק מידע עסקי חכם אודות לקוחותיכם, להציע להם חווית קנייה ייחודית ובו זמנית לשווק את הארגון ברשתות החברתיות</p>
             <br />
             <div id="general">
                 <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                 <br />
                 <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                 <br />
-                <asp:Button ID="btnSubmit" runat="server" Text="התחבר" />
+                <asp:Button ID="btnSubmit" runat="server" Text="התחבר" 
+                    onclick="btnSubmit_Click" BorderStyle="Groove"/>
                 <br />
                 <a href="" style="color: White" onclick="show('register')">צור פרופיל חדש</a>
             </div>

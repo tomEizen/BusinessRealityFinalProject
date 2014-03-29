@@ -411,7 +411,7 @@
             <%--<input id="HiddenProductId" name="Hidden1" type="Hidden" runat="server"/>--%>
             <%--<div class="container_12">--%>
             <%--<div class="grid_10">--%>
-            <div class="box round first fullpage">
+           <%-- <div class="box round first fullpage">--%>
                 <div class="block ">
                     <table class="form">
                         <tr>
@@ -420,8 +420,7 @@
                                     שם המוצר:</label>
                             </td>
                             <td>
-                                <label id="lblproductName">
-                                </label>
+                         <input id="lblproductName" type="text" />       
                             </td>
                         </tr>
                         <tr>
@@ -430,8 +429,7 @@
                                     מק"ט המוצר:</label>
                             </td>
                             <td>
-                                <label id="lblproductId">
-                                </label>
+                         <input id="lblproductId" type="text" />       
                             </td>
                         </tr>
                         <tr>
@@ -440,8 +438,8 @@
                                     קטגוריה:</label>
                             </td>
                             <td>
-                                <label id="lblProductCategory">
-                                </label>
+                            <input id="lblProductCategory" type="text" />       
+                              
                             </td>
                         </tr>
                         <tr>
@@ -450,8 +448,18 @@
                                     תיאור המוצר:</label>
                             </td>
                             <td>
-                               <label id="lblProductDescription">
-                                </label>
+                            <input id="lblProductDescription" type="text" />   
+                            
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <label>
+                                    מחיר המוצר:</label>
+                            </td>
+                            <td>
+                            <input id="lblProductPrice" type="text" />
+                           
                             </td>
                         </tr>
                         <tr>
@@ -469,7 +477,7 @@
                         <tr>
                             <td>
                              <label>
-                                     :תמונה</label>
+                                   תמונה:</label>
                             </td>
                             <td>
                                 <img alt="" src="" />
@@ -487,7 +495,7 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+           <%-- </div>--%>
             <%-- </div>--%>
             <%--</div>--%>
         </div>
