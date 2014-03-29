@@ -203,12 +203,15 @@
                                 </tr>
                                 <tr>
                                     <td>
+                                  
                                     </td>
                                     <td>
-                                        <asp:Button ID="btnSaveCampaign" runat="server" Text="שמור קמפיין" OnClick="btnSaveCampaign_Click" />
+                                        
                                     </td>
                                 </tr>
                             </table>
+                              <asp:Button ID="btnSaveCampaign" class="btn" runat="server" Text="שמור קמפיין"  OnClick="btnSaveCampaign_Click" />
+                         <input id="Button1" type="button" class="btn" value="ביטול" onclick="show('general')" />
                         </div>
                     </div>
                 </div>

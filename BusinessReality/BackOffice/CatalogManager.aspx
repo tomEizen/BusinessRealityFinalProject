@@ -190,8 +190,8 @@
                                     <asp:AsyncPostBackTrigger ControlID="categoriesNamesDDL" EventName="SelectedIndexChanged" />
                                 </Triggers>
                             </asp:UpdatePanel>
-                            <asp:Button ID="btnAddProduct" runat="server" Text="הוסף מוצר" Width="100px" OnClick="btnAddProduct_Click" />
-                            <input id="Button1" type="button" value="ביטול" onclick="show('general')" />
+                            <asp:Button ID="btnAddProduct" runat="server" Text="הוסף מוצר" class="btn" OnClick="btnAddProduct_Click" />
+                            <input id="Button1" type="button" class="btn" value="ביטול" onclick="show('general')" />
                         </div>
                     </div>
                 </div>
