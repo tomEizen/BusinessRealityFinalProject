@@ -386,7 +386,8 @@
                                 קטגוריה:</label>
                         </td>
                         <td class="col2">
-                            <asp:Label ID="lblCategory" runat="server"></asp:Label>
+                         <input id="lblproductName" type="text" />       
+                         <input id="lblproductId" type="text" />       
                         </td>
                     </tr>
                     <tr>
@@ -395,7 +396,8 @@
                                 מק"ט מוצר:</label>
                         </td>
                         <td>
-                            <asp:Label ID="lblproductID" runat="server"></asp:Label>
+                            <input id="lblProductCategory" type="text" />       
+                              
                         </td>
                     </tr>
     
@@ -405,7 +407,18 @@
                                 תיאור המוצר:</label>
                         </td>
                         <td>
-                            <asp:Label ID="lblProductDescription" runat="server"></asp:Label>
+                            <input id="lblProductDescription" type="text" />   
+                            
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <label>
+                                    מחיר המוצר:</label>
+                            </td>
+                            <td>
+                            <input id="lblProductPrice" type="text" />
+                           
                         </td>
                     </tr>
                     <asp:PlaceHolder ID="propertiesProductInfoPH" runat="server"></asp:PlaceHolder>
@@ -421,7 +434,7 @@
                     <tr>
                         <td>
                             <label>
-                                תמונה:</label>
+                                   תמונה:</label>
                         </td>
                         <td>
                             <asp:Image ID="Image1" runat="server" />
@@ -433,12 +446,12 @@
                         <td>
                             <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
                             <asp:Button ID="btnPrintCode" runat="server" Text="הדפס ברקוד" Width="100px" />
-                            <input id="btnCloseBox" type="button" value="ביטול" onclick="CloseLightBox()" />
+                            <input id="btnCloseBox" type="button" value="ביטול" onclick="	()" />
                         </td>
                     </tr>
                 </table>
             </div>
-        </div>
+           <%-- </div>--%>
         <div id="actions">
         </div>
         <div class="clear">
