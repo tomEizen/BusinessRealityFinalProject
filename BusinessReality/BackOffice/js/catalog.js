@@ -86,6 +86,7 @@ function EnterDetails(product) {
     $('#lblproductID').text(product.Id);
     $('#lblProductDescription').text(product.Description);
     $("#productInfoDiscount").text(product.Discount);
+    $("#lblProductPrice").text(product.Price +' ש"ח');
 }
 
 //empty all elements inside the product info window
