@@ -138,14 +138,15 @@
                                     <table class="tablecss">
                                         <thead>
                                             <tr>
-                                                <td>
-                                                </td>
-                                                <td>
+                                                <th>
+                                                    דירוג
+                                                </th>
+                                                <th>
                                                     שם המוצר
-                                                </td>
-                                                <td class="style1">
+                                                </th>
+                                                <th>
                                                     כמות סריקות
-                                                </td>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody id="mostScanedTbody" runat="server">
@@ -156,7 +157,7 @@
                         </div>
                     </div>
                     <div class="grid_6">
-                        <div class="box round ">
+                        <div class="box round">
                             <h2>
                                 חמשת הקטגוריות הנצפות</h2>
                             <div class="block">
@@ -164,14 +165,15 @@
                                     <table class="tablecss">
                                         <thead>
                                             <tr>
-                                                <td>
-                                                </td>
-                                                <td>
-                                                    שם הקטגוריה
-                                                </td>
-                                                <td class="style1">
+                                                <th>
+                                                    דירוג
+                                                </th>
+                                                <th>
+                                                    שם המוצר
+                                                </th>
+                                                <th>
                                                     כמות סריקות
-                                                </td>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody id="mostScanedCategories" runat="server">

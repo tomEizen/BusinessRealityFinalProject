@@ -96,7 +96,7 @@ function drawAgesChart(containerElement, range1, range2, range3, range4, range5,
     {
         title: ' ',
         seriesDefaults: {
-            shadow: false,
+            shadow: true,
             renderer: jQuery.jqplot.PieRenderer,
             rendererOptions: {
                 dataLabels: ['percent'],
@@ -162,10 +162,10 @@ function drawCampaignShareAgesChart(containerElement, range1, range2, range3, ra
     plot6 = jQuery.jqplot(containerElement,
     [[['0-12', parseInt(range1)], ['13-17', parseInt(range2)], ['18-24', parseInt(range3)], ['25-34', parseInt(range4)], ['35-44', parseInt(range5)], ['45-54', parseInt(range6)], ['55-64', parseInt(range7)], ['65+', parseInt(range8)], ]],
     {
-        width: '500px',
+        width: '480px',
         title: ' ',
         seriesDefaults: {
-            shadow: false,
+            shadow: true,
             renderer: jQuery.jqplot.PieRenderer,
             rendererOptions: {
                 dataLabels: ['percent'],
@@ -186,7 +186,7 @@ function drawCampaignShareGenderChart(containerElement, male, female) {
     plot7 = $.jqplot(containerElement,
     [[['נשים', parseInt(female)], ['גברים', parseInt(male)]]],
     {
-        width: '500px',
+        width: '480px',
         title: ' ',
         seriesDefaults: {
             shadow: true,

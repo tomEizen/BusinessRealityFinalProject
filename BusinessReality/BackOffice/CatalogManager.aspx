@@ -441,7 +441,7 @@
                         <td>
                             <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
                             <asp:Button ID="btnPrintCode" runat="server" Text="הדפס ברקוד" Width="100px" />
-                            <input id="btnCloseBox" type="button" value="ביטול" onclick="	()" />
+                            <input id="btnCloseBox" type="button" value="ביטול" onclick="CloseLightBox()" />
                         </td>
                     </tr>
                 </table>
