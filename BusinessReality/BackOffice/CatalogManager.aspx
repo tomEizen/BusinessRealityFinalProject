@@ -33,29 +33,6 @@
     <!-- END: load jquery -->
     <script type="text/javascript" src="js/table/jquery.dataTables.min.js"></script>
     <script src="js/setup.js" type="text/javascript"></script>
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            setupLeftMenu();
-
-            $('#addPropBtn').click(function () {
-                addPropToTable();
-            });
-            $('#addNewPropBtn').click(function () {
-                addNewPropToTable();
-            });
-            $('.datatable').dataTable();
-            setSidebarHeight();
-            $('#RadioButtonList1').change(function () {
-                if ($('#<%=RadioButtonList1.ClientID %> input:checked').val() == 'לא')
-                    discountTBvisible(false)
-                else
-                    discountTBvisible(true)
-            });
-
-        });
-
-    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -133,8 +110,6 @@
                         <h2>
                             הוסף מוצר חדש</h2>
                         <div class="block ">
-                            <table runat="server">
-                            </table>
                             <table class="form" id="addProductTable">
                                 <tr>
                                     <td class="col1">
@@ -153,11 +128,6 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="productIdTB" runat="server"></asp:TextBox>
-                                        <asp:CompareValidator ID="cv" runat="server" ControlToValidate="productIdTB" Type="Integer"
-                                            Operator="DataTypeCheck" ErrorMessage="שגיעה. ערך חייב להרשם כשמספר! " Color="White"
-                                            BorderColor="#CC0000" />
-                                        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="productIdTB"
-                                            ErrorMessage="שגיעה. שדה חובה!" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -167,8 +137,6 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="productNameTB" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator runat="server" ID="reqName" ControlToValidate="productNameTB"
-                                            ErrorMessage="שגיעה. שדה חובה!" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -187,11 +155,6 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="ProductPriceTB" runat="server"></asp:TextBox>
-                                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="ProductPriceTB"
-                                            Type="Double" Operator="DataTypeCheck" ErrorMessage="שגיעה. ערך חייב להרשם כשמספר! "
-                                            BorderColor="#CC0000" />
-                                        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ControlToValidate="ProductPriceTB"
-                                            ErrorMessage="שגיעה. שדה חובה!" BorderColor="Red" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -219,16 +182,16 @@
                                     </td>
                                 </tr>
                             </table>
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <asp:UpdatePanel runat="server">
                                 <ContentTemplate>
                                     <asp:PlaceHolder runat="server" ID="propertiesAddPH"></asp:PlaceHolder>
-                                    <asp:Button ID="btnAddProduct" runat="server" Text="הוסף מוצר" Width="100px" OnClick="btnAddProduct_Click" />
-                                    <input id="Button1" type="button" value="ביטול" onclick="show('general')" />
                                 </ContentTemplate>
                                 <Triggers>
                                     <asp:AsyncPostBackTrigger ControlID="categoriesNamesDDL" EventName="SelectedIndexChanged" />
                                 </Triggers>
                             </asp:UpdatePanel>
+                            <asp:Button ID="btnAddProduct" runat="server" Text="הוסף מוצר" Width="100px" OnClick="btnAddProduct_Click" />
+                            <input id="Button1" type="button" value="ביטול" onclick="show('general')" />
                         </div>
                     </div>
                 </div>
@@ -246,7 +209,7 @@
                 </div>
             </div>
         </div>
-        <div id="addCategory" class="displayNone">
+        <div id="addCategory" class="displayNone" runat="server">
             <div class="container_12">
                 <div class="grid_10">
                     <div class="box round first fullpage">
@@ -263,24 +226,17 @@
                                     בחר תכונה לקטגוריה</label>
                                 <asp:DropDownList ID="NewCampaignProp" runat="server">
                                 </asp:DropDownList>
-                                <asp:Button ID="addPropBtn" runat="server" Text="הוסף תכונה" />
+                                <input type="button" id="addPropBtn" runat="server" text="הוסף תכונה" onclick="addPropBtn_Click" />
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label>
                                     הוספת תכונה חדשה</label>
                                 <asp:TextBox ID="newPropTB" runat="server"></asp:TextBox>
-                                <asp:Button ID="addNewPropBtn" runat="server" Text="הוסף תכונה" />
+                                <input type="button" id="addNewPropBtn" runat="server" text="הוסף תכונה" />
                             </div>
-                            <table class="form">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align: right">
-                                            תכונות בקטגוריה
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody id="AddCategoryProperties">
-                                </tbody>
+                            <b>תכונות בקטגוריה</b>
+                            <table id="AddCategoryProperties" runat="server" class="form">
                             </table>
+                            <asp:Button OnClick="addNewCategory_Click" ID="addNewCategory" runat="server" Text="Button" />
                         </div>
                     </div>
                 </div>
@@ -309,7 +265,7 @@
                                                     שם תכונה
                                                 </th>
                                                 <th dir="rtl">
-                                                     פעולה
+                                                    פעולה
                                                 </th>
                                             </tr>
                                         </thead>
@@ -407,90 +363,6 @@
                 </div>
             </div>
         </div>
-        <div id="productInfo" class="displayNone">
-            <%--<input id="HiddenProductId" name="Hidden1" type="Hidden" runat="server"/>--%>
-            <%--<div class="container_12">--%>
-            <%--<div class="grid_10">--%>
-            <div class="box round first fullpage">
-                <div class="block ">
-                    <table class="form">
-                        <tr>
-                            <td class="col1">
-                                <label>
-                                    שם המוצר:</label>
-                            </td>
-                            <td>
-                                <label id="lblproductName">
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>
-                                    מק"ט המוצר:</label>
-                            </td>
-                            <td>
-                                <label id="lblproductId">
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>
-                                    קטגוריה:</label>
-                            </td>
-                            <td>
-                                <label id="lblProductCategory">
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>
-                                    תיאור המוצר:</label>
-                            </td>
-                            <td>
-                               <label id="lblProductDescription">
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label>
-                                    מוצר במבצע:</label>
-                            </td>
-                            <td>
-                                <asp:RadioButton Checked="true" ID="RadioButton1" name="rdlDiscount" runat="server" />
-                                לא
-                                <asp:RadioButton ID="RadioButton2" name="rdlDiscount" runat="server" />
-                                כן
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                             <label>
-                                     :תמונה</label>
-                            </td>
-                            <td>
-                                <img alt="" src="" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                                <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="show('editProduct')" />
-                                <asp:Button ID="btnPrintQrCode" runat="server" Text="הדפס ברקוד" Width="100px" />
-                                <asp:Button ID="btnDeleteProduct" runat="server" Text="מחק מוצר" Width="100px" />
-                                <input id="Button10" type="button" value="ביטול" onclick="CloseLightBox()" />
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <%-- </div>--%>
-            <%--</div>--%>
-        </div>
         <div class="grid_2">
             <div class="box sidemenu">
                 <div class="block" id="Div1">
@@ -503,10 +375,75 @@
         </div>
         <div class="clear">
         </div>
+        <div id="productInfo">
+            <h3 id="infoName" class="sprited">
+            </h3>
+            <div id="productInfo_form">
+                <table class="form">
+                    <tr>
+                        <td class="col1">
+                            <label>
+                                קטגוריה:</label>
+                        </td>
+                        <td class="col2">
+                            <asp:Label ID="lblCategory" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                מק"ט מוצר:</label>
+                        </td>
+                        <td>
+                            <asp:Label ID="lblproductID" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td>
+                            <label>
+                                תיאור המוצר:</label>
+                        </td>
+                        <td>
+                            <asp:Label ID="lblProductDescription" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <asp:PlaceHolder ID="propertiesProductInfoPH" runat="server"></asp:PlaceHolder>
+                    <tr>
+                        <td>
+                            <label>
+                                מוצר במבצע:</label>
+                        </td>
+                        <td>
+                          <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                תמונה:</label>
+                        </td>
+                        <td>
+                            <asp:Image ID="Image1" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
+                            <asp:Button ID="btnPrintCode" runat="server" Text="הדפס ברקוד" Width="100px" />
+                            <input id="btnCloseBox" type="button" value="ביטול" onclick="CloseLightBox()" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <div id="actions">
         </div>
         <div class="clear">
         </div>
+    </div>
     </form>
 </body>
 </html>

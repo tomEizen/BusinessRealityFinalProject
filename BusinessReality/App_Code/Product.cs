@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 public class Product
 {
     private int id;
+    string categoryName;
     private string name;
     private string description;
     private double price;
@@ -19,6 +20,7 @@ public class Product
     private DateTime dateModified;
     private Category category;
 
+    public string CategoryName { get { return this.categoryName; } set { this.categoryName = value; } }
     public int Id { get { return this.id; } set { this.id = value; } }
     public string Name { get { return this.name; } set { this.name = value; } }
     public string Description { get { return this.description; } set { this.description = value; } }
@@ -39,12 +41,6 @@ public class Product
     {
         DataBaseManager db = new DataBaseManager();
         return db.GetAllProductInfoBasic(email);
-    }
-
-    public Product GetSpecificProductInfoBasic(string email,int productId)
-    {
-        DataBaseManager db = new DataBaseManager();
-        return db.GetSpecificProductInfoBasic(email,productId);
     }
 
     public Dictionary<string, int> Top5ScanedProducts(string managerEmail)

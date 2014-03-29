@@ -1,6 +1,4 @@
 ﻿//show pages with fade
-var products;
-var propertyCount = 0;
 function show(target) {
     $('#general').hide();
     $('#addProduct').hide();
@@ -25,8 +23,15 @@ $(document).ready(function () {
     });
 });
 
-$('#tblOrders_filter')
+<<<<<<< HEAD
+function InitComplete(oSettings) {
+    $('#tblOrders_filter')
+       .contents()
        .filter(function () { return this.nodeType == 3 })
+       .replaceWith('Refine search: ');
+}
+=======
+>>>>>>> fe0e44ce7b559ab745b45a4fb69f8ab42b4f098b
 
 //once a tr inside the products table is clicked a pop up window is open with the info about this product
 //$(function () {
@@ -45,7 +50,7 @@ $(function () {
     }
 
     $('.tableData tr').click(function (e) {
-        getProductInfo($(this).index());
+        EnterDetails($(this).index());
         $("#productInfo").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
             $("#productInfo").find("input:first").focus();
         }
@@ -59,41 +64,19 @@ $(function () {
 });
 
 
-function getProductInfo(row_number) {
-    var MyRows = $('table#productTable').find('tbody').find('tr');
-    var productID = ($(MyRows[row_number]).find('td:eq(2)').text());
-    $.ajax({ // ajax call starts
-        url: 'WebService.asmx/getProductsInfo',   // JQuery loads serverside.php
-        data: '{productId:' + productID + '}',
-        type: 'POST',
-        dataType: 'json', // Choosing a JSON datatype
-        contentType: 'application/json; charset = utf-8',
-        success: function (data) // Variable data contains the data we get from serverside
-        {
-            p = $.parseJSON(data.d);
-            EnterDetails(p);
-        }, // end of success
-        error: function (e) {
-            alert(e.responseText);
-        } // end of error
-    }) // end of ajax call
-}
+
 //enter the details to the  product info window
-function EnterDetails(product) {
+function EnterDetails(row_number) {
     RemoveDetailsFromProductInfoPage();
-    $('#infoName').text(product.Name);
-    $('#lblCategory').text(product.CategoryName);
-    $('#lblproductID').text(product.Id);
-    $('#lblProductDescription').text(product.Description);
-    $("#productInfoDiscount").text(product.Discount);
+    var MyRows = $('table#productTable').find('tbody').find('tr');
+    var productID=($(MyRows[row_number]).find('td:eq(2)').text());
+    //document.getElementById('HiddenProductId').value = productID;
+    //alert(productID);
 }
 
 //empty all elements inside the product info window
 function RemoveDetailsFromProductInfoPage() {
-    $('#infoName').empty();
-    $('#lblCategory').empty();
-    $('#lblproductID').empty();
-    $('#lblProductDescription').empty();
+    $('#name').empty();
 }
 
 function CloseLightBox() {
@@ -135,12 +118,11 @@ $(function () {
     }
 
     $('#Butt').click(function (e) {
-
         $("#prodectInserted").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
             $("#prodectInserted").find("input:first").focus();
-
         }
         });
+
         e.preventDefault();
     });
 
@@ -194,35 +176,13 @@ function addPropToTable() {
     var text = $('#NewCampaignProp').val();
     if ($('#AddCategoryProperties').text().match(text)) { }
     else {
-        $('#AddCategoryProperties').append('<tr  runat="server" class="odd gradeX"><td  runat="server"  ><label ID="addCategory' + propertyCount + '"  runat="server" >' + text + '</label></td></tr>');
+        $('#AddCategoryProperties').append('<tr class="odd gradeX">><td>' + text + '</td></tr>');
     }
-    propertyCount++;
 }
 function addNewPropToTable() {
     var text = $('#newPropTB').val().trim();
     if ($('#AddCategoryProperties').text().match(text)) { }
     else {
-        $('#AddCategoryProperties').append('<tr class="odd gradeX" runat="server"><td  runat="server"  ><label ID="addCategory' + propertyCount + '"  runat="server" >' + text + '</label></td></tr>');
+        $('#AddCategoryProperties').append('<tr class="odd gradeX"><td>' + text + '</td></tr>');
     }
-    propertyCount++;
 }
-
-
-$(document).ready(function () {
-    setupLeftMenu();
-    $('#addPropBtn').click(function () {
-        addPropToTable();
-    });
-    $('#addNewPropBtn').click(function () {
-        addNewPropToTable();
-    });
-    $('.datatable').dataTable();
-    setSidebarHeight();
-    $('#RadioButtonList1').change(function () {
-        if ($('#<%=RadioButtonList1.ClientID %> input:checked').val() == 'לא')
-            discountTBvisible(false)
-        else
-            discountTBvisible(true)
-    });
-
-});
