@@ -92,7 +92,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
 
     }
 
-    //on click on the addProduct BTN
+    ////on click on the addProduct BTN
     protected void btnAddProduct_Click(object sender, EventArgs e)
     {
         try
@@ -103,7 +103,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             propertiesOfCategory = new Dictionary<int, string>();
             foreach (KeyValuePair<string, int> pair in properties)//getting the propery id and its description
             {
-                TextBox tb = Page.FindControl("txProperty" + counter) as TextBox;//לא מזהה את הערך בפנים
+                TextBox tb = Page.FindControl("txProperty" + counter) as TextBox;
                 if (tb != null)
                 {
                     string property = tb.Text;
@@ -153,7 +153,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             HtmlTableCell tc2 = new HtmlTableCell();
             HtmlTableCell tc3 = new HtmlTableCell();
             HtmlTableCell tc4 = new HtmlTableCell();
-            tc.InnerHtml = product.Category.Name;
+            tc.InnerHtml = product.CategoryName;
             tc1.InnerHtml = product.Name;
             tc2.InnerHtml = product.Id.ToString();
             tc3.InnerHtml = product.Price.ToString();
@@ -174,7 +174,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     }
 
 
-    // insert the uploaded picture to the server dic'
+    //insert the uploaded picture to the server dic'
     private void InsertPictureToDirectory()
     {
 
@@ -208,7 +208,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
 
     private void addPropToDrop()
     {
-
+        NewCampaignProp.Items.Clear();
         Property p = new Property();
         allProp = p.getAllProp("aviv@gmail.com");
         foreach (KeyValuePair<string, int> pair in allProp)
@@ -243,14 +243,20 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
                 tr.Controls.Add(tc1);
                 EditCategoryPropTable.Controls.Add(tr);
             }
-            HtmlTableRow tr1 = new HtmlTableRow();
-    
-
         }
-
     }
-    protected void addCategoryBTN_Click(object sender, EventArgs e)
+
+    protected void button_Click(object sender, EventArgs e)
     {
+        Button button = sender as Button;
+        string buttonid = button.ID.ToString();
+        // identify which button was what row to update based on id clicked and perform necessary actions
+    }
+
+    protected void addNewCategory_Click(object sender, EventArgs e)
+    {
+        Label lbl = Page.FindControl("addCategory1") as Label;
+
 
     }
 }

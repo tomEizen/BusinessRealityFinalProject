@@ -81,12 +81,23 @@ function getProductInfo(row_number) {
 //enter the details to the  product info window
 function EnterDetails(product) {
     RemoveDetailsFromProductInfoPage();
+<<<<<<< HEAD
     $('#infoName').text(product.Name);
     $('#lblCategory').text(product.CategoryName);
     $('#lblproductID').text(product.Id);
     $('#lblProductDescription').text(product.Description);
     $("#productInfoDiscount").text(product.Discount);
-    $("#lblProductPrice").text(product.Price +' ש"ח');
+=======
+    var MyRows = $('table#productTable').find('tbody').find('tr');
+    var productID = ($(MyRows[row_number]).find('td:eq(2)').text());
+    var productName = ($(MyRows[row_number]).find('td:eq(1)').text());
+    var productCategory = ($(MyRows[row_number]).find('td:eq(0)').text());
+    var productPrice = ($(MyRows[row_number]).find('td:eq(3)').text());
+    document.getElementById('lblproductName').value = productName;
+    document.getElementById('lblproductId').value = productID;
+    document.getElementById('lblProductCategory').value = productCategory;
+    document.getElementById('lblProductPrice').value = productPrice;
+>>>>>>> e2fca8121ae0a063eacbde95159240002d6ea8f5
 }
 
 //empty all elements inside the product info window

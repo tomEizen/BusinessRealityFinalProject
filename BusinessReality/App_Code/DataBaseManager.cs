@@ -410,9 +410,7 @@ public class DataBaseManager
             {// Read till the end of the data into a row
                 // read first field from the row into the list collection
                 Product product = new Product();
-                Category c = new Category();
-                c.Name = dr["Name"].ToString();
-                product.Category = c;
+                product.CategoryName = dr["Name"].ToString();
                 product.Id = Convert.ToInt32(dr["ProductId"]);
                 product.Name = dr["productName"].ToString();
                 product.Price = Convert.ToDouble(dr["Price"]);
@@ -431,49 +429,6 @@ public class DataBaseManager
 
         }
         return products;
-    }
-
-
-/// <summary>
-/// get a specific product basic info from the db
-/// </summary>
-    /// <param name="managerEmail">manager's email for identification</param>
-    /// <param name="productId">to select a specific product from the db</param>
-/// <returns>a product object</returns>
-    public Product GetSpecificProductInfoBasic(string managerEmail,int productId)
-    {
-        List<SqlParameter> paraList = new List<SqlParameter>();
-        Product product = new Product();
-        try
-        {
-            paraList.Add(new SqlParameter("@emailAddress", managerEmail));
-            paraList.Add(new SqlParameter("@productId", productId));
-            SqlDataReader dr = ActivateStoredProc("GetSpecificProductInfoBasic", paraList);
-            while (dr.Read())
-            {// Read till the end of the data into a row
-                // read first field from the row into the list collection
-                Product p = new Product();
-                Category c = new Category();
-                c.Name = dr["Name"].ToString();
-                p.Category = c;
-                p.Id = Convert.ToInt32(dr["ProductId"]);
-                p.Name = dr["productName"].ToString();
-                p.Price = Convert.ToDouble(dr["Price"]);
-                if (dr["Discount"] != null || dr["Discount"] != "")
-                    p.Discount = dr["Discount"].ToString();
-                p.ImageUrl = dr["img"].ToString();
-                p.Description = dr["ShortDescription"].ToString();
-                product=p;
-            }
-        }
-
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-
-        }
-        return product;
     }
 
 
