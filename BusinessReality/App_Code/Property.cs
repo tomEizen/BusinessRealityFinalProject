@@ -42,7 +42,7 @@ public class Property
 
     }
 
-    public Dictionary<String, string> GetProductPropertiesInfo(string managerEmail,int productId)
+    public List<Property> GetProductPropertiesInfo(string managerEmail, int productId)
     {
         DataBaseManager db = new DataBaseManager();
         return db.GetProductPropertiesInfo(managerEmail,productId);

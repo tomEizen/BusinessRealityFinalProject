@@ -15,9 +15,11 @@ using System.IO;
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 [System.Web.Script.Services.ScriptService]
-public class WebService : System.Web.Services.WebService {
+public class WebService : System.Web.Services.WebService
+{
 
-    public WebService () {
+    public WebService()
+    {
 
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
@@ -34,11 +36,11 @@ public class WebService : System.Web.Services.WebService {
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string getProductsInfo(int productId)
+    public string getProductsInfo(int productId, string email)
     {
-        List<Product> products = new List<Product>(); 
+        List<Product> products = new List<Product>();
         Product p = new Product();
-        products = p.GetAllProductInfoBasic("aviv@gmail.com");
+        products = p.GetAllProductInfoBasic(email);
         foreach (Product pp in products)
         {
             if (pp.Id == productId)
@@ -48,5 +50,16 @@ public class WebService : System.Web.Services.WebService {
         string jsonString = js.Serialize(p);
         return jsonString;
     }
-    
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string GetProductPropertiesInfo(int productId, string email)
+    {
+        List<Property> properties = new List<Property>();
+        Property p = new Property();
+        properties = p.GetProductPropertiesInfo(email, productId);
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        string jsonString = js.Serialize(properties);
+        return jsonString;
+    }
 }

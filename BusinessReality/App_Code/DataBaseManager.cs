@@ -438,11 +438,11 @@ public class DataBaseManager
     /// <param name="managerEmail">manager's email for identification</param>
     /// <param name="productId">to select a specific product from the db</param>
     /// <returns>a list of the product info</returns>
-    public Dictionary<string, string> GetProductPropertiesInfo(string managerEmail, int productId)
+    public List<Property> GetProductPropertiesInfo(string managerEmail, int productId)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
-        Dictionary<string, string> properties = new Dictionary<string, string>();
-
+        List<Property> properties = new List<Property>();
+       
         try
         {
             paraList.Add(new SqlParameter("@emailAddress", managerEmail));
@@ -452,7 +452,9 @@ public class DataBaseManager
             {// Read till the end of the data into a row
                 // read first field from the row into the list collection
                 Property prop = new Property();
-                properties.Add(dr["propertyName"].ToString(), dr["propertyDescription"].ToString());
+                prop.Name = dr["Name"].ToString();
+                prop.Description = dr["description"].ToString();
+                properties.Add(prop);
             }
         }
 

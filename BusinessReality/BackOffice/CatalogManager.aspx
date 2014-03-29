@@ -379,72 +379,71 @@
             <h3 id="infoName" class="sprited">
             </h3>
             <div id="productInfo_form">
-                <table class="form">
-                    <tr>
-                        <td class="col1">
-                            <label>
-                                קטגוריה:</label>
-                        </td>
-                        <td class="col2">
-                            <asp:Label ID="lblCategory" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                מק"ט מוצר:</label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblproductID" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                תיאור המוצר:</label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblProductDescription" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                מחיר המוצר:</label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblProductPrice" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <asp:PlaceHolder ID="propertiesProductInfoPH" runat="server"></asp:PlaceHolder>
-                    <tr>
-                        <td>
-                            <label>
-                                מוצר במבצע:</label>
-                        </td>
-                        <td>
-                            <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                תמונה:</label>
-                        </td>
-                        <td>
-                            <asp:Image ID="Image1" runat="server" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                            <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
-                            <asp:Button ID="btnPrintCode" runat="server" Text="הדפס ברקוד" Width="100px" />
-                            <input id="btnCloseBox" type="button" value="ביטול" onclick="	()" />
-                        </td>
-                    </tr>
+                <table id="productInfoTB" class="form">
+                    <thead>
+                        <tr>
+                            <td class="col1">
+                                <label>
+                                    קטגוריה:</label>
+                            </td>
+                            <td class="col2">
+                                <asp:Label ID="lblCategory" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מק"ט מוצר:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblproductID" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    תיאור המוצר:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblProductDescription" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מחיר המוצר:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblProductPrice" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מוצר במבצע:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    תמונה:</label>
+                            </td>
+                            <td>
+                                <asp:Image ID="productInfoImage" runat="server" />
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
                 </table>
+                <div style="text-align: center">
+                    <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
+                    <asp:Button ID="btnPrintCode" runat="server" Text="הדפס ברקוד" Width="100px" />
+                    <input id="btnCloseBox" type="button" value="ביטול" onclick="	()" />
+                </div>
             </div>
             <%-- </div>--%>
             <div id="actions">

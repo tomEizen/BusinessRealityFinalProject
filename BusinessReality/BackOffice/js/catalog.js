@@ -60,11 +60,12 @@ $(function () {
 
 
 function getProductInfo(row_number) {
+    var email = 'aviv@gmail.com';
     var MyRows = $('table#productTable').find('tbody').find('tr');
     var productID = ($(MyRows[row_number]).find('td:eq(2)').text());
     $.ajax({ // ajax call starts
         url: 'WebService.asmx/getProductsInfo',   // JQuery loads serverside.php
-        data: '{productId:' + productID + '}',
+        data: '{productId:"' + productID + '",email:"' + email + '"}',
         type: 'POST',
         dataType: 'json', // Choosing a JSON datatype
         contentType: 'application/json; charset = utf-8',
@@ -78,6 +79,26 @@ function getProductInfo(row_number) {
         } // end of error
     }) // end of ajax call
 }
+
+function GetProductPropertiesInfo(productID) {
+    var email = 'aviv@gmail.com';
+    $.ajax({ // ajax call starts
+        url: 'WebService.asmx/GetProductPropertiesInfo',   // JQuery loads serverside.php
+        data: '{productId:"' + productID + '",email:"' + email + '"}',
+        type: 'POST',
+        dataType: 'json', // Choosing a JSON datatype
+        contentType: 'application/json; charset = utf-8',
+        success: function (data) // Variable data contains the data we get from serverside
+        {
+            p = $.parseJSON(data.d);
+            EnterProperties(p);
+        }, // end of success
+        error: function (e) {
+            alert(e.responseText);
+        } // end of error
+    }) // end of ajax call
+}
+
 //enter the details to the  product info window
 function EnterDetails(product) {
     RemoveDetailsFromProductInfoPage();
@@ -86,15 +107,27 @@ function EnterDetails(product) {
     $('#lblproductID').text(product.Id);
     $('#lblProductDescription').text(product.Description);
     $("#productInfoDiscount").text(product.Discount);
-    $("#lblProductPrice").text(product.Price +' ש"ח');
+    $("#lblProductPrice").text(product.Price + ' ש"ח');
+    $('#productInfoImage').attr("src", product.ImageUrl);
+    GetProductPropertiesInfo(product.Id);
 }
 
+//enter the proporties to the  product info window
+function EnterProperties(propeties) {
+    $.each(propeties, function (index, Property) {
+        $('#productInfoTB > tbody').append('<tr><th>' + Property.Name + '</th><td>' + Property.Description + '</td></tr>');
+    });
+
+
+
+}
 //empty all elements inside the product info window
 function RemoveDetailsFromProductInfoPage() {
     $('#infoName').empty();
     $('#lblCategory').empty();
     $('#lblproductID').empty();
     $('#lblProductDescription').empty();
+    $('#productInfoTB > tbody').empty();
 }
 
 function CloseLightBox() {
