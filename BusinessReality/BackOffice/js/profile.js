@@ -36,6 +36,13 @@ $(function () {
     $('table tr:nth-child(even)').addClass('stripe');
 });
 
+function CloseLightBox1() {
+    $('#sign_up').trigger('close');
+}
+
+function CloseLightBox2() {
+    $('#updatePassword').trigger('close');
+}
 
 
 

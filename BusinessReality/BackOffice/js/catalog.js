@@ -29,6 +29,12 @@ $('#tblOrders_filter')
        .filter(function () { return this.nodeType == 3 })
 
 
+function ValidateNewProduct() { 
+
+
+
+}
+
 
 //once a tr inside the products table is clicked a pop up window is open with the info about this product
 $(function () {

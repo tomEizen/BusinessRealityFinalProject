@@ -48,7 +48,7 @@
                         <ul class="inline-ul floatleft">
                             <li>שלום מנהל</li>
                             <li><a href="CompanyProfile.aspx">פרופיל</a></li>
-                            <li><a href="#">יציאה</a></li>
+                            <li><a href="Default.aspx">יציאה</a></li>
                         </ul>
                     </div>
                     <div class="floatleft">
@@ -120,6 +120,11 @@
                                         <asp:DropDownList ID="categoriesNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged1">
                                         </asp:DropDownList>
                                     </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="categoriesNamesDDLValidator" runat="server" ControlToValidate="categoriesNamesDDL"
+                                            InitialValue="בחר" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -128,6 +133,14 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="productIdTB" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="productIdTBValidator" ControlToValidate="productIdTB"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
+                                        <asp:RangeValidator ID="productIdTBValidator2" runat="server" ErrorMessage="יש להכניס ערך מספרי שלם בלבד"
+                                            ControlToValidate="productIdTB" MinimumValue="0" MaximumValue="100000000" Type="Integer"
+                                            ForeColor="Red"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -138,6 +151,11 @@
                                     <td>
                                         <asp:TextBox ID="productNameTB" runat="server"></asp:TextBox>
                                     </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="productNameTBValidator" ControlToValidate="productNameTB"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -145,7 +163,12 @@
                                             תיאור המוצר</label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="productDescriptionTB" class="large" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="productDescriptionTB" class="medium" runat="server" Rows="4"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="productDescriptionTBValidator" ControlToValidate="productDescriptionTB"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -155,6 +178,14 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="ProductPriceTB" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="ProductPriceTBValidator" ControlToValidate="ProductPriceTB"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
+                                        <asp:RangeValidator ID="ProductPriceTBValidator2" runat="server" ErrorMessage="יש להכניס ערך מספרי בלבד"
+                                            ControlToValidate="ProductPriceTB" MinimumValue="0" MaximumValue="1000000" Type="Double"
+                                            ForeColor="Red"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -431,10 +462,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td id="qrcodePrint">
-                            </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <label>
                                     תמונה:</label>
@@ -443,14 +470,21 @@
                                 <asp:Image ID="productInfoImage" runat="server" />
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                            <label>קוד:</label>
+                            </td>
+                            <td id="qrcodePrint">
+                            </td>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
                 <div style="text-align: center">
-                    <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
-                    <input type="button" id="btnPrintCode" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','6')" />
-                    <input id="btnCloseBox" type="button" value="ביטול" onclick="	()" />
+                    <input id="btnEditProduct" type="button" class="btn" value="ערוך מוצר" onclick="edit()" />
+                    <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','6')" />
+                    <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
                 </div>
             </div>
         </div>
