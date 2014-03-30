@@ -248,32 +248,54 @@
                             <h2>
                                 הוספת קטגוריה חדשה</h2>
                             <div>
-                                <label>
-                                    שם הקטגוריה</label>&nbsp;&nbsp;
-                                <input type="text" class="main" id="newCategoryName" />
-                                <br />
-                                <br />
-                                <label>
-                                    תיאור הקטגוריה</label>&nbsp;&nbsp;
-                                <input type="text" class="main" id="newCategoryDescruption" />
-                                <div class="block ">
-                                </div>
-                                <div class="btn-arrow-left">
-                                    <label>
-                                        בחר תכונה לקטגוריה</label>
-                                    <asp:DropDownList ID="NewCampaignProp" runat="server">
-                                    </asp:DropDownList>
-                                    <input type="button" id="addPropBtn" runat="server" text="הוסף תכונה" onclick="addPropBtn_Click" />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label>
-                                        הוספת תכונה חדשה</label>
-                                    <asp:TextBox ID="newPropTB" runat="server"></asp:TextBox>
-                                    <input type="button" id="addNewPropBtn" runat="server" text="הוסף תכונה" />
-                                </div>
+                                <table id="addCategoryTable">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label>
+                                                    שם הקטגוריה</label>
+                                            </th>
+                                            <td>
+                                                <input class="text" type="text" id="newCategoryName" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <label>
+                                                    תיאור הקטגוריה</label>
+                                            </th>
+                                            <td>
+                                                <input class="text" type="text" id="newCategoryDescruption" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <label>
+                                                    בחר תכונה לקטגוריה</label>
+                                            </th>
+                                            <td>
+                                                <asp:DropDownList class="text" ID="NewCampaignProp" runat="server">
+                                                </asp:DropDownList>
+                                                <input type="button" class="btn" id="addPropBtn" runat="server" value="הוסף תכונה"
+                                                    onclick="addPropBtn_Click" />
+                                            </td>
+                                            <th>
+                                                <label>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp; הוספת תכונה חדשה</label>
+                                            </th>
+                                            <td>
+                                                <asp:TextBox ID="newPropTB" class="text" runat="server"></asp:TextBox>
+                                            </td>
+                                            <td>
+                                                <input type="button" class="btn" id="addNewPropBtn" runat="server" value="הוסף תכונה" />
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                </table>
                                 <b>תכונות בקטגוריה</b>
                                 <table id="AddCategoryProperties" runat="server" class="form">
                                 </table>
-                                <input type="button" id="addCategoryBTN" text="הוסף" />
+                                <input type="button" class="btn" id="addCategoryBTN" value="הוסף קטגוריה" />
                             </div>
                         </div>
                     </div>
@@ -285,13 +307,23 @@
                         <div class="box round first fullpage">
                             <h2>
                                 ערוך קטגוריה</h2>
-                            <label>
-                                בחר קטגוריה לתצוגה</label>
-                            <asp:DropDownList ID="editCategoryCategoriesDDL" AutoPostBack="true" runat="server"
-                                OnSelectedIndexChanged="editCategoryCategoriesDDL_SelectedIndexChanged">
-                            </asp:DropDownList>
-                            <a class="menuitem" onclick="show('addCategory')" style="color: #0000FF; text-transform: capitalize;
-                                text-decoration: underline">הוסף קטגוריה חדשה</a>
+                            <table id="editCategoryTable">
+                                <tr>
+                                    <td>
+                                        <label>
+                                            בחר קטגוריה לתצוגה</label>
+                                    </td>
+                                    <td>
+                                        <asp:DropDownList class="text" ID="editCategoryCategoriesDDL" AutoPostBack="true" runat="server"
+                                            OnSelectedIndexChanged="editCategoryCategoriesDDL_SelectedIndexChanged">
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td>
+                                        <img alt="plusBtn" id="plusImg" title="הוסף קטגוריה חדשה" src="img/plus.png" onclick="show('addCategory')" />
+
+                                    </td>
+                                </tr>
+                            </table>
                             <div class="block">
                                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                     <ContentTemplate>
