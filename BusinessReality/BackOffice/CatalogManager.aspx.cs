@@ -177,7 +177,6 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     //insert the uploaded picture to the server dic'
     private void InsertPictureToDirectory()
     {
-
         if (uploadImgFU.HasFile)
             try
             {
@@ -193,6 +192,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
 
                         uploadImgFU.SaveAs(path + filename);
                         ProductpicPath = path + filename;
+                        
                     }
                 }
             }

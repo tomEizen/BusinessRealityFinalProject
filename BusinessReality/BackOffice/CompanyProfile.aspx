@@ -68,7 +68,8 @@
                     <div class="floatright">
                         <img src="img/logo.png" alt="Logo" /></div>
                     <div class="floatleft">
-                        <div class="floatleft marginleft10">
+                        <div class="floatleft
+    marginleft10">
                             <ul class="inline-ul floatleft">
                                 <li>שלום מנהל</li>
                                 <li><a href="CompanyProfile.aspx">פרופיל</a></li>
@@ -94,100 +95,105 @@
             </div>
             <div class="clear">
             </div>
-            <div class="grid_10">
-                <div class="box round first">
-                    <h2>
-                        פרטי החברה</h2>
-                    <div class="block" id="companyProfile">
-                        <!-- paragraphs -->
-                        <table class="form">
-                            <tr>
-                                <td>
-                                    <label>
-                                        שם האירגון:</label>
-                                </td>
-                                <td id="name" runat="server">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    שוק/תעשייה:
-                                </th>
-                                <td id="industry" runat="server">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    כתובת בית העסק:
-                                </th>
-                                <td id="address" runat="server">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    טלפון:
-                                </th>
-                                <td id="phone" runat="server">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    אודות בית העסק:
-                                </th>
-                                <td id="description" runat="server">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    עמוד פייסבוק:
-                                </th>
-                                <td>
-                                    <a id="fbPage" runat="server" href=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    אתר העסק:
-                                </th>
-                                <td>
-                                    <a id="website" runat="server" href=""></a>
-                                </td>
-                            </tr>
-                        </table>
-                        <section class="updateSection">
-                            <a href="#" id="try-1" class="btn">עדכן פרטים</a></section>
+            <div id="content">
+                <div id="wrapper">
+                    <div >
+                        <div class="box round first">
+                            <h2>
+                                פרטי החברה</h2>
+                            <div class="block" id="companyProfile">
+                                <!-- paragraphs -->
+                                <table class="form">
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                שם האירגון:</label>
+                                        </td>
+                                        <td id="name" runat="server">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            שוק/תעשייה:
+                                        </th>
+                                        <td id="industry" runat="server">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            כתובת בית העסק:
+                                        </th>
+                                        <td id="address" runat="server">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            טלפון:
+                                        </th>
+                                        <td id="phone" runat="server">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            אודות בית העסק:
+                                        </th>
+                                        <td id="description" runat="server">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            עמוד פייסבוק:
+                                        </th>
+                                        <td>
+                                            <a id="fbPage" runat="server" href=""></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            אתר העסק:
+                                        </th>
+                                        <td>
+                                            <a id="website" runat="server" href=""></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <section class="updateSection">
+                                    <a href="#" id="try-1" class="btn">עדכן פרטים</a></section>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
                     </div>
-                    <div class="clear">
+                    <div>
+                        <div class="box round first">
+                            <h2>
+                                פרטי המשתמש</h2>
+                            <table>
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        אימייל:
+                                    </th>
+                                    <td>
+                                        aviv@gmail.com
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        סיסמא:
+                                    </th>
+                                    <td>
+                                        *********
+                                    </td>
+                                </tr>
+                            </table>
+                            <section class="updateSection">
+                                <a href="#" id="try-2" class="btn">עדכן פרטים</a></section>
+                        </div>
+                        <div class="clear">
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="grid_10">
-                <div class="box round first">
-                    <h2>
-                        פרטי המשתמש</h2>
-                    <table>
-                    <tr></tr>
-                        <tr>
-                            <th>
-                                אימייל:
-                            </th>
-                            <td>
-                                aviv@gmail.com
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                סיסמא:
-                            </th>
-                            <td>
-                                *********
-                            </td>
-                        </tr>
-                    </table>
-                    <section class="updateSection">
-                        <a href="#" id="try-2" class="btn">עדכן פרטים</a></section>
-                </div>
-                <div class="clear">
                 </div>
             </div>
             <div class="clear">
@@ -230,7 +236,7 @@
                         <br />
                     </div>
                     <asp:Button ID="update" class="btn" runat="server" Text="עדכן" OnClick="update_Click" />
-                      <input id="Button1" type="button" class="btn" value="ביטול" onclick="CloseLightBox1()"/>
+                    <input id="Button1" type="button" class="btn" value="ביטול" onclick="CloseLightBox1()" />
                 </div>
             </div>
             <div id="updatePassword">
@@ -248,7 +254,7 @@
                         <input class="sprited" /></label>
                     <div id="Div3">
                         <a href="#" id="A1" class="btn">עדכן פרטים</a>
-                                              <input id="Button2" type="button" class="btn" value="ביטול" onclick="CloseLightBox2()"/>
+                        <input id="Button2" type="button" class="btn" value="ביטול" onclick="CloseLightBox2()" />
                     </div>
                 </div>
             </div>

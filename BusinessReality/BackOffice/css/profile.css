@@ -1,7 +1,15 @@
-﻿#companyProfile
+﻿content {
+text-align:center;
+}
+#wrapper {
+margin: 0 auto;
+width: 80%; /* Replace the xxxx with the the width of your site (eg 800px)*/
+text-align:right;
+}
+
+#companyProfile
 {
     text-align: right;
-
 }
 #companyProfile th
 {

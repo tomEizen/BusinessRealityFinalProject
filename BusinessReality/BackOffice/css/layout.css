@@ -62,6 +62,7 @@ h1 a {
 	text-align:right;
 	padding:2em 1em 1.6em 1em;
 	margin-bottom:0;
+
 }
 
 .header-repeat{background:url(../img/header-repeat.jpg) repeat-x;}
@@ -94,6 +95,7 @@ h2#page-heading {
 	margin-bottom:20px;
 	padding:10px 10px 10px 10px; margin-left:-8px;
 	direction:rtl;
+	
 }
 .box.grid{padding-bottom:40px;}
 .box.round{
@@ -253,7 +255,7 @@ ul.section li li a:active {
 	color:#000;
 	background:#fff;
 }
-ul.section ul li {
+    ul.section ul li {
 	text-transform:none;
 }
 ul.section ul.current li a {
