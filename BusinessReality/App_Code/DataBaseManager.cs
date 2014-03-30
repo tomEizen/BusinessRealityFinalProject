@@ -37,19 +37,19 @@ public class DataBaseManager
         connection.Open();
         return connection;
     }
+    /////////////////////////plots//////////////////////
 
     /// <summary>
-    ///gets the 5 most scaned categoreis 
+    ///gets all organization properties
     /// </summary>
     /// <returns> returen Dictionary</returns>
-    public Dictionary<string, int> getAllProp(string managerEmail)
+    public Dictionary<string, int> getAllProp()
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
         Dictionary<string, int> names = new Dictionary<string, int>();
         try
         {
-            paraList.Add(new SqlParameter("@email", managerEmail));
-            SqlDataReader dr = ActivateStoredProc("GetAllProperties", paraList);
+            SqlDataReader dr = ActivateStoredProc("getAllProperties", paraList);
             while (dr.Read())
             {// Read till the end of the data into a row
                 // read first field from the row into the list collection
@@ -67,7 +67,36 @@ public class DataBaseManager
         return names;
     }
 
-    /////////////////////////plots//////////////////////
+    /// <summary>
+    ///gets all organization properties
+    /// </summary>
+    /// <returns> returen Dictionary</returns>
+    public Dictionary<string, int> getAllProp(string managerEmail)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        Dictionary<string, int> names = new Dictionary<string, int>();
+        try
+        {
+            paraList.Add(new SqlParameter("@email", managerEmail));
+            SqlDataReader dr = ActivateStoredProc("GetAllPropertiesOrganization", paraList);
+            while (dr.Read())
+            {// Read till the end of the data into a row
+                // read first field from the row into the list collection
+                names.Add(dr["Name"].ToString(), Convert.ToInt32(dr["PropertyId"]));
+            }
+
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        return names;
+    }
+
+
     /// <summary>
     ///gets the catagories
     /// </summary>
@@ -192,10 +221,6 @@ public class DataBaseManager
         }
         return ages;
     }
-
-
-
-
 
 
     /// <summary>
@@ -442,7 +467,7 @@ public class DataBaseManager
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
         List<Property> properties = new List<Property>();
-       
+
         try
         {
             paraList.Add(new SqlParameter("@emailAddress", managerEmail));
@@ -466,9 +491,6 @@ public class DataBaseManager
         }
         return properties;
     }
-
-
-
 
     /// <summary>
     ///gets the catagories
@@ -494,7 +516,6 @@ public class DataBaseManager
         {
             // write to log
             throw (ex);
-
         }
         return names;
     }
@@ -632,6 +653,49 @@ public class DataBaseManager
     //    paraList.Add(new SqlParameter("@img", product.ImageUrl));
     //    paraList.Add(new SqlParameter("@Discount", product.Discount));
     //    paraList.Add(new SqlParameter("@CatagoryName", categoryID));   
+    private string GetProductCounter(string o, string p)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        string productCounter = "";
+        try
+        {
+            paraList.Add(new SqlParameter("@oragnizationId", o));
+            paraList.Add(new SqlParameter("@productID", p));
+            SqlDataReader dr = ActivateStoredProc("getProductCounter", paraList);
+            while (dr.Read())
+            {// Read till the end of the data into a row
+                // read first field from the row into the list collection
+                productCounter = dr["productCounter"].ToString();
+            }
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+        return productCounter;
+    }
+
+    private string getManagerId(string email)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        string organizaion = "";
+        try
+        {
+            paraList.Add(new SqlParameter("@emailAddress", email));
+            SqlDataReader dr = ActivateStoredProc("GetManagerOrganizationProc", paraList);
+            while (dr.Read())
+            {// Read till the end of the data into a row
+                // read first field from the row into the list collection
+                organizaion = dr["OrganizationID"].ToString();
+            }
+            return organizaion;
+        }
+        catch (Exception ex)
+        {
+            return organizaion;
+        }
+    }
     /// <summary>
     /// insert a new product into the db. also insert the properties description to the db
     /// </summary>
@@ -642,6 +706,7 @@ public class DataBaseManager
         string organizaion = "";
         try
         {
+            organizaion = getManagerId(emailManager);
             paraList.Add(new SqlParameter("@emailAddress", emailManager));
             SqlDataReader dr = ActivateStoredProc("GetManagerOrganizationProc", paraList);
             while (dr.Read())
@@ -674,25 +739,7 @@ public class DataBaseManager
         rowChangeProduct = insertCommand(command);
         if (rowChangeProduct > 0)
         {
-            paraList = new List<SqlParameter>();
-            string productCounter = "";
-            try
-            {
-                paraList.Add(new SqlParameter("@oragnizationId", organizaion));
-                paraList.Add(new SqlParameter("@productID", product.Id));
-                SqlDataReader dr = ActivateStoredProc("getProductCounter", paraList);
-                while (dr.Read())
-                {// Read till the end of the data into a row
-                    // read first field from the row into the list collection
-                    productCounter = dr["productCounter"].ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                // write to log
-                throw (ex);
-
-            }
+            string productCounter = GetProductCounter(organizaion, product.Id.ToString());
             foreach (KeyValuePair<int, string> pair in pp)
             {
                 sb.Clear();
@@ -711,6 +758,54 @@ public class DataBaseManager
         }
     }
 
+    public int insertNewCategory(Category c, string[] lProperty, string email)
+    {
+
+        try
+        {
+            Dictionary<string, int> categories = getCategoriesNames(email);
+            int rowChanged;
+            String command;
+            StringBuilder sb = new StringBuilder();
+            if (!categories.ContainsKey(c.Name))
+            {
+                sb.AppendFormat("Values('{0}', '{1}', '{2}')", c.Name, c.Description, email);
+                String prefix = "INSERT INTO Category " + "(Name, Description,Email_address)";
+                command = prefix + sb.ToString();
+                rowChanged = insertCommand(command);
+                if (rowChanged > 0)
+                {
+                    Dictionary<string, int> props = getAllProp();
+                    foreach (string p in lProperty)
+                    {
+
+                        if (!props.ContainsKey(p))
+                        {
+                            sb.Clear();
+                            sb.AppendFormat("Values('{0}')", p);
+                            prefix = "INSERT INTO Property " + "(Name)";
+                            command = prefix + sb.ToString();
+                            rowChanged = insertCommand(command);
+                        }
+                        props = getAllProp();
+                        categories = getCategoriesNames(email);
+                        sb.Clear();
+                        sb.AppendFormat("Values('{0}','{1}')", categories[c.Name], props[p]);
+                        prefix = "INSERT INTO Property_of_Category " + "(CatagoryId,PropertyId)";
+                        command = prefix + sb.ToString();
+                        rowChanged = insertCommand(command);
+                    }
+                    return 1;
+                }
+            }
+            return 0;
+        }
+        catch (Exception)
+        {
+            return 0;
+        }
+
+    }
     /// <summary>
     /// insert a new campaign into the db
     /// </summary>
@@ -728,22 +823,6 @@ public class DataBaseManager
         return rowChangedCampaign;
     }
 
-
-    /// <summary>
-    /// insert a new campaign into the db
-    /// </summary>
-    /// <param name="campaign">an object of a new campaign</param>
-    public int updateCompanyProfile(Organization org, string name)
-    {
-        int rowChangedCampaign;
-        String command;
-        StringBuilder sb = new StringBuilder();
-        sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}','{5}','{6}','{7}')", org.Name, org.Address, org.Description, org.FbWebsite, org.Industry, org.LogoSrc, org.PhoneNumber, org.WebSiteUrl);
-        String prefix = "UPDATE Organization set " + "(Name, Address, Description, FbWebsite,Industry,LogoSrc,PhoneNumber,WebSiteUrl) where Organization.Name=" + name;
-        command = prefix + sb.ToString();
-        rowChangedCampaign = insertCommand(command);
-        return rowChangedCampaign;
-    }
 
 
     /// <summary>

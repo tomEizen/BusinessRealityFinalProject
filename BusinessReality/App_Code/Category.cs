@@ -60,4 +60,9 @@ public class Category
         DataBaseManager db = new DataBaseManager();
         return db.GetAllCategoryProducts(id);
     }
+    public int insertNewCategory(Category c, string[] lProperty, string email)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.insertNewCategory(c, lProperty, email);
+    }
 }

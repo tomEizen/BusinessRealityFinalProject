@@ -132,7 +132,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             {
                 Session.Add("numOfRows", numOfRows);
                 Session.Add("product", product);
-                Response.Redirect("");
+                Response.Redirect("CatalogManager.aspx");
             }
         }
         catch (Exception)
@@ -250,7 +250,6 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     protected void addNewCategory_Click(object sender, EventArgs e)
     {
         Label lbl = Page.FindControl("addCategory1") as Label;
-
 
     }
 }

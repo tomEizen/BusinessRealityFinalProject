@@ -218,7 +218,11 @@
                         <div>
                             <label>
                                 שם הקטגוריה</label>&nbsp;&nbsp;
-                            <input type="text" class="main" />
+                            <input type="text" class="main" id="newCategoryName" />
+                            <br /><br />
+                                <label>
+                                תיאור הקטגוריה</label>&nbsp;&nbsp;
+                            <input type="text" class="main" id="newCategoryDescruption" />
                             <div class="block ">
                             </div>
                             <div class="btn-arrow-left">
@@ -236,7 +240,7 @@
                             <b>תכונות בקטגוריה</b>
                             <table id="AddCategoryProperties" runat="server" class="form">
                             </table>
-                            <asp:Button OnClick="addNewCategory_Click" ID="addNewCategory" runat="server" Text="Button" />
+                            <input type="button" id="addCategoryBTN" text="הוסף" />
                         </div>
                     </div>
                 </div>

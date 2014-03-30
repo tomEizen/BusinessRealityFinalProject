@@ -66,7 +66,7 @@ namespace BusinessReality.BackOffice
             {
                 org.LogoSrc = file_upload.Value;
             }
-            org.updateCompanyProfile(org, name.InnerHtml);
+          
         }
     }
 }

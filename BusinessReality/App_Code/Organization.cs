@@ -40,9 +40,5 @@ public class Organization
         Organization org = db.getComapnyProfile(emailAddress);
         return org;
     }
-    public int updateCompanyProfile(Organization org, string name)
-    {
-        DataBaseManager db = new DataBaseManager();
-        return db.updateCompanyProfile(org, name);
-    }
+
 }

@@ -105,6 +105,7 @@ function EnterDetails(product) {
     GetProductPropertiesInfo(product.Id);
 }
 
+
 //enter the proporties to the  product info window
 function EnterProperties(propeties) {
     $.each(propeties, function (index, Property) {
@@ -124,6 +125,44 @@ function RemoveDetailsFromProductInfoPage() {
     $('#qrcodePrint').empty();
 }
 
+function getNewCategoryDetails() {
+    var category = {};
+    var properties = new Array
+    category.Name = $('#newCategoryName').val();
+    category.Description = $('#newCategoryDescruption').val();
+    category.DateModified = $.now()
+    category.Email = 'aviv@gmail.com';
+    count = 0;
+    var rowCount = $('#AddCategoryProperties tr').length;
+    $('#AddCategoryProperties tr').each(function () {
+        properties[count] = $(this).find("td > label").html();
+        count++;
+    });
+    InsertNewCategory(category, properties);
+}
+function InsertNewCategory(category, properties) {
+    $.ajax({ // ajax call starts
+        url: 'WebService.asmx/insertNewCategory',
+        data: "{'categoryName':'" + category.Name + "', "
+       + "'Description':'" + category.Description + "',"
+       + "'DateModified':'" + category.DateModified + "',"
+         + "'properties':'" + properties + "',"
+       + "'Email':'" + category.Email + "'}",
+        type: 'POST',
+        dataType: 'json', // Choosing a JSON datatype
+        contentType: 'application/json; charset = utf-8',
+        success: function (data) // Variable data contains the data we get from serverside
+        {
+            var change = data.d;
+            if (change=="1") {
+                location.reload();
+            }
+        }, // end of success
+        error: function (e) {
+            alert(e.responseText);
+        } // end of error
+    }) // end of ajax call
+}
 function CloseLightBox() {
     $('#productInfo').trigger('close');
 }
@@ -182,7 +221,7 @@ function productInsertedToDb(url) {
     });
 }
 
-function addQrCode(url,div) {
+function addQrCode(url, div) {
     var qrcode = new QRCode(document.getElementById(div), {
         width: 100,
         height: 100
@@ -191,7 +230,7 @@ function addQrCode(url,div) {
 }
 function printDiv(divID, numberOfQR) {
     alert(divID);
-    addQrCode('www.one.co.il',divID);
+    addQrCode('www.one.co.il', divID);
     //Get the HTML of div
     var divElements = document.getElementById(divID).innerHTML;
     //Get the HTML of whole page
@@ -251,6 +290,13 @@ $(document).ready(function () {
             discountTBvisible(false)
         else
             discountTBvisible(true)
+    });
+    $("#AddCategoryProperties").delegate("tr", "click", function (e) {
+        //rest of the code here
+        $(this).remove();
+    });
+    $('#addCategoryBTN').click(function () {
+        getNewCategoryDetails();
     });
 
 });

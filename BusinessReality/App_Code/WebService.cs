@@ -62,4 +62,20 @@ public class WebService : System.Web.Services.WebService
         string jsonString = js.Serialize(properties);
         return jsonString;
     }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string insertNewCategory(string categoryName, string Description, string properties, string Email)
+    {
+        string[] propertiesList = properties.Split(',');
+        Category c = new Category();
+        c.Name = categoryName;
+        c.Description = Description;
+        int change = c.insertNewCategory(c, propertiesList, Email);
+        if (change==1)
+        {
+            return "1";
+        }
+        return "0";
+    }
 }
