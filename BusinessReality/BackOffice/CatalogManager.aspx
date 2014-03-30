@@ -120,6 +120,11 @@
                                         <asp:DropDownList ID="categoriesNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged1">
                                         </asp:DropDownList>
                                     </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="categoriesNamesDDLValidator" runat="server" ControlToValidate="categoriesNamesDDL"
+                                            InitialValue="בחר" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -128,6 +133,13 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="productIdTB" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="productIdTBValidator" ControlToValidate="productIdTB"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
+                                        <asp:RangeValidator ID="productIdTBValidator2" runat="server" ErrorMessage="יש להכניס ערך מספרי שלם בלבד"
+                                            ControlToValidate="productIdTB" MinimumValue="0" MaximumValue="100000000" type="Integer" ForeColor="Red"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -138,6 +150,11 @@
                                     <td>
                                         <asp:TextBox ID="productNameTB" runat="server"></asp:TextBox>
                                     </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="productNameTBValidator" ControlToValidate="productNameTB"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -145,7 +162,12 @@
                                             תיאור המוצר</label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="productDescriptionTB" class="large" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="productDescriptionTB" class="medium" runat="server" Rows="4"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="productDescriptionTBValidator" ControlToValidate="productDescriptionTB"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -155,6 +177,13 @@
                                     </td>
                                     <td>
                                         <asp:TextBox ID="ProductPriceTB" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:RequiredFieldValidator ID="ProductPriceTBValidator" ControlToValidate="ProductPriceTB"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
+                                        <asp:RangeValidator ID="ProductPriceTBValidator2" runat="server" ErrorMessage="יש להכניס ערך מספרי בלבד"
+                                            ControlToValidate="ProductPriceTB" MinimumValue="0" MaximumValue="1000000" type="Double" ForeColor="Red"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>

@@ -23,8 +23,7 @@ img{width:100%;}
 /*end reset*/
 body 
 {
-    background: url(http://localhost:54327/BusinessReality/BackOffice/img/LoginPage/bg.jpg);
-    background: url('http://localhost:54327/BusinessReality/BackOffice/img/LoginPage/bg.jpg') no-repeat;
+    background: url(../img/LoginPage/bg.jpg) no-repeat;
 	font-family: 'Open Sans', sans-serif;
 }
 .wrap
