@@ -71,8 +71,8 @@
                         <div class="floatleft marginleft10">
                             <ul class="inline-ul floatleft">
                                 <li>שלום מנהל</li>
-                                <li><a href="#">פרופיל</a></li>
-                                <li><a href="#">יציאה</a></li>
+                                <li><a href="CompanyProfile.aspx">פרופיל</a></li>
+                                <li><a href="Default.aspx">יציאה</a></li>
                             </ul>
                         </div>
                         <div class="floatleft">
@@ -94,45 +94,18 @@
             </div>
             <div class="clear">
             </div>
-            <div class="grid_6">
+            <div class="grid_10">
                 <div class="box round first">
-                    <h2 style="text-align: center">
-                        פרטי המשתמש</h2>
-                    <table>
-                        <tr>
-                            <th>
-                                אימייל:
-                            </th>
-                            <td>
-                                avivpaz43556@gmail.com
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                סיסמא:
-                            </th>
-                            <td>
-                                *********
-                            </td>
-                        </tr>
-                    </table>
-                    <section class="updateSection">
-                        <a href="#" id="try-2" class="myButton">עדכן פרטים</a></section>
-                </div>
-            </div>
-            <div class="grid_6">
-                <div class="box round first">
-                    <h2 style="text-align: center">
+                    <h2>
                         פרטי החברה</h2>
                     <div class="block" id="companyProfile">
                         <!-- paragraphs -->
-                        <div id="logoDiv">
-                            <img src="img/gallery/products/IMG_3988.JPG" runat="server" alt="comapanyLogo" id="comapanyLogo" /></div>
-                        <table>
+                        <table class="form">
                             <tr>
-                                <th>
-                                    שם האירגון
-                                </th>
+                                <td>
+                                    <label>
+                                        שם האירגון:</label>
+                                </td>
                                 <td id="name" runat="server">
                                 </td>
                             </tr>
@@ -182,8 +155,37 @@
                             </tr>
                         </table>
                         <section class="updateSection">
-                            <a href="#" id="try-1" class="myButton">עדכן פרטים</a></section>
+                            <a href="#" id="try-1" class="btn">עדכן פרטים</a></section>
                     </div>
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+            <div class="grid_10">
+                <div class="box round first">
+                    <h2>
+                        פרטי המשתמש</h2>
+                    <table>
+                    <tr></tr>
+                        <tr>
+                            <th>
+                                אימייל:
+                            </th>
+                            <td>
+                                aviv@gmail.com
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                סיסמא:
+                            </th>
+                            <td>
+                                *********
+                            </td>
+                        </tr>
+                    </table>
+                    <section class="updateSection">
+                        <a href="#" id="try-2" class="btn">עדכן פרטים</a></section>
                 </div>
                 <div class="clear">
                 </div>
@@ -227,7 +229,7 @@
                     <div id="actions">
                         <br />
                     </div>
-                    <asp:Button ID="update" runat="server" Text="עדכן" onclick="update_Click" />
+                    <asp:Button ID="update" class="btn" runat="server" Text="עדכן" OnClick="update_Click" />
                 </div>
             </div>
             <div id="updatePassword">
@@ -244,7 +246,7 @@
                         <strong>סיסמא חדשה:</strong>
                         <input class="sprited" /></label>
                     <div id="Div3">
-                        <a href="#" id="A1" class="myButton">עדכן פרטים</a>
+                        <a href="#" id="A1" class="btn">עדכן פרטים</a>
                     </div>
                 </div>
             </div>

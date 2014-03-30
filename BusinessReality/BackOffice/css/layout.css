@@ -896,7 +896,7 @@ td.details {
 .btn, .btn-icon, .btn-mini,
 .btn:visited, .btn-icon:visited, .btn-mini:visited {  background-image: url(../img/bg-lite.png); background-color: #339966; border-color: #336633; color: #FFF; }
 
-.btn:hover, .btn-icon:hover, .btn-mini:hover { background-color: #33CC66; color: #FFF; }
+.btn:hover, .btn-icon:hover, .btn-mini:hover { background-color: #339933; color: #FFF; }
 
 
 /* Colors */	

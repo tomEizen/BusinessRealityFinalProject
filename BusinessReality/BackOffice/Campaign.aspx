@@ -53,7 +53,7 @@
                         <ul class="inline-ul floatleft">
                             <li>שלום מנהל</li>
                             <li><a href="CompanyProfile.aspx">פרופיל</a></li>
-                            <li><a href="#">יציאה</a></li>
+                            <li><a href="Default.aspx">יציאה</a></li>
                         </ul>
                     </div>
                     <div class="floatleft">

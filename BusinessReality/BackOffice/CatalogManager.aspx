@@ -48,7 +48,7 @@
                         <ul class="inline-ul floatleft">
                             <li>שלום מנהל</li>
                             <li><a href="CompanyProfile.aspx">פרופיל</a></li>
-                            <li><a href="#">יציאה</a></li>
+                            <li><a href="Default.aspx">יציאה</a></li>
                         </ul>
                     </div>
                     <div class="floatleft">
@@ -444,9 +444,9 @@
                     </tbody>
                 </table>
                 <div style="text-align: center">
-                    <input id="btnEditProduct" type="button" value="ערוך מוצר" onclick="edit()" />
-                    <input type="button" id="btnPrintCode" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','6')" />
-                    <input id="btnCloseBox" type="button" value="ביטול" onclick="	()" />
+                    <input id="btnEditProduct" type="button" class="btn" value="ערוך מוצר" onclick="edit()" />
+                    <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','6')" />
+                    <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
                 </div>
             </div>
         </div>
