@@ -217,7 +217,7 @@
                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                     <ContentTemplate>
                                         <span><b>בחירת מוצר</b>:</span>
-                                        <asp:DropDownList ID="productNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="productNamesDDL_SelectedIndexChanged">
+                                        <asp:DropDownList ID="productNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="productNamesDDL_SelectedIndexChanged" Width="100px">
                                         </asp:DropDownList>
                                     </ContentTemplate>
                                     <Triggers>
@@ -234,7 +234,7 @@
                             <div class="grid_6">
                                 <div class="box round  ">
                                     <h2>
-                                        חמשת המאפיינים הבולטים</h2>
+                                        חמשת המאפיינים הנצפים ביותר</h2>
                                     <div class="block">
                                         <div id="Div2">
                                             <table class="tablecss">

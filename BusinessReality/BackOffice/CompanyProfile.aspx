@@ -230,6 +230,7 @@
                         <br />
                     </div>
                     <asp:Button ID="update" class="btn" runat="server" Text="עדכן" OnClick="update_Click" />
+                      <input id="Button1" type="button" class="btn" value="ביטול" onclick="CloseLightBox1()"/>
                 </div>
             </div>
             <div id="updatePassword">
@@ -237,16 +238,17 @@
                     עדכון סיסמא</h3>
                 <div id="updatePassword_form">
                     <label>
-                        <strong>אימייל:</strong>
+                        <strong>סיסמא ישנה:</strong>
                         <input class="sprited" /></label>
                     <label>
                         <strong>סיסמא חדשה:</strong>
                         <input class="sprited" /></label>
                     <label>
-                        <strong>סיסמא חדשה:</strong>
+                        <strong>אימות סיסמא חדשה:</strong>
                         <input class="sprited" /></label>
                     <div id="Div3">
                         <a href="#" id="A1" class="btn">עדכן פרטים</a>
+                                              <input id="Button2" type="button" class="btn" value="ביטול" onclick="CloseLightBox2()"/>
                     </div>
                 </div>
             </div>

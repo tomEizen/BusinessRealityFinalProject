@@ -139,7 +139,8 @@
                                             runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
                                             SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                         <asp:RangeValidator ID="productIdTBValidator2" runat="server" ErrorMessage="יש להכניס ערך מספרי שלם בלבד"
-                                            ControlToValidate="productIdTB" MinimumValue="0" MaximumValue="100000000" type="Integer" ForeColor="Red"></asp:RangeValidator>
+                                            ControlToValidate="productIdTB" MinimumValue="0" MaximumValue="100000000" Type="Integer"
+                                            ForeColor="Red"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -183,7 +184,8 @@
                                             runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
                                             SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                         <asp:RangeValidator ID="ProductPriceTBValidator2" runat="server" ErrorMessage="יש להכניס ערך מספרי בלבד"
-                                            ControlToValidate="ProductPriceTB" MinimumValue="0" MaximumValue="1000000" type="Double" ForeColor="Red"></asp:RangeValidator>
+                                            ControlToValidate="ProductPriceTB" MinimumValue="0" MaximumValue="1000000" Type="Double"
+                                            ForeColor="Red"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -456,16 +458,19 @@
                             </td>
                         </tr>
                         <tr>
-                            <td id="qrcodePrint">
-                            </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <label>
                                     תמונה:</label>
                             </td>
                             <td>
                                 <asp:Image ID="productInfoImage" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <label>קוד:</label>
+                            </td>
+                            <td id="qrcodePrint">
                             </td>
                         </tr>
                     </thead>
