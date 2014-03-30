@@ -37,7 +37,26 @@
         color: #536376;
         font-size: .9em;
     }
-  
+    #productInfo  #productInfoButtons
+    {
+      position:absolute;
+    bottom:10%;
+    right:25%;
+    left:50%;
+    margin-left:-150px;
+    }
+    #productInfo table 
+    {
+   position:absolute;
+   font-size:larger;
+    }
+    #productInfo img
+    {
+        
+      width:230px;
+      float:left;
+       height:230px;   
+    }
     #productInfo label input,textarea 
     { 
     font-family :Arial, sans-serif; 

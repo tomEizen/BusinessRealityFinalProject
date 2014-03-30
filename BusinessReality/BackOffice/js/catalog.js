@@ -107,8 +107,9 @@ function EnterDetails(product) {
     $("#productInfoDiscount").text(product.Discount);
     $("#lblProductPrice").text(product.Price + ' ש"ח');
     $('#productInfoImage').attr("src", product.ImageUrl);
-    addQrCode('www.one.co.il', 'qrcodePrint');
     GetProductPropertiesInfo(product.Id);
+    addQrCode('www.one.co.il', ' ');
+
 }
 
 

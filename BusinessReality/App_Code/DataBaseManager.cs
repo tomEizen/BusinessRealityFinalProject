@@ -727,13 +727,13 @@ public class DataBaseManager
         StringBuilder sb = new StringBuilder();
         if (product.Discount != null)
         {
-            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), product.Discount, organizaion, categoryID);
-            prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,Discount,OrganizationID,CatagoryId)";
+            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), product.Discount, organizaion, categoryID,product.ImageUrl);
+            prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,Discount,OrganizationID,CatagoryId,img)";
         }
         else
         {
-            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), organizaion, categoryID);
-            prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,OrganizationID,CatagoryId)";
+            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), organizaion, categoryID, product.ImageUrl);
+            prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,OrganizationID,CatagoryId,img)";
         }
         command = prefix + sb.ToString();
         rowChangeProduct = insertCommand(command);
@@ -743,6 +743,8 @@ public class DataBaseManager
             foreach (KeyValuePair<int, string> pair in pp)
             {
                 sb.Clear();
+                command = "";
+                prefix = "";
                 sb.AppendFormat("Values('{0}', '{1}', '{2}')", productCounter, pair.Key, pair.Value);
                 prefix = "INSERT INTO productPC " + "(productCounter,PCID,description)";
                 command = prefix + sb.ToString();

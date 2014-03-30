@@ -416,6 +416,7 @@
                 <h3 id="infoName" class="sprited">
                 </h3>
                 <div id="productInfo_form">
+                    <img id="productInfoImage" runat="server" />
                     <table id="productInfoTB" class="form">
                         <thead>
                             <tr>
@@ -466,15 +467,6 @@
                             <tr>
                                 <td>
                                     <label>
-                                        תמונה:</label>
-                                </td>
-                                <td>
-                                    <asp:Image ID="productInfoImage" runat="server" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
                                         קוד:</label>
                                 </td>
                                 <td id="qrcodePrint">
@@ -484,7 +476,7 @@
                         <tbody>
                         </tbody>
                     </table>
-                    <div style="text-align: center">
+                    <div style="text-align: center" id="productInfoButtons">
                         <input id="btnEditProduct" type="button" class="btn" value="ערוך מוצר" onclick="edit()" />
                         <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','6')" />
                         <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />

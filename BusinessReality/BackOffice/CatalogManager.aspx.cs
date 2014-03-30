@@ -122,7 +122,8 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             product.Description = productDescriptionTB.Text;
             DateTime currentTime = DateTime.Now;
             product.DateModified = currentTime;
-            product.ImageUrl = "assaas";
+            InsertPictureToDirectory();
+            product.ImageUrl = ProductpicPath;
             product.Price = Convert.ToDouble(ProductPriceTB.Text);
             if (discountTB.Text == "") { }
             else
@@ -191,8 +192,8 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
                     {
 
                         uploadImgFU.SaveAs(path + filename);
-                        ProductpicPath = path + filename;
-                        
+                        ProductpicPath = "img/gallery/products/" + filename;
+
                     }
                 }
             }
