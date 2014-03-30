@@ -179,19 +179,7 @@ function edit() {
     show("editProduct");
 }
 
-function addProperitesTB() {
-    var propertiesAmpunt = $("#propertiesTable tr").length;
-    if (propertiesAmpunt > 0) {
-        for (var i = 0; i < propertiesAmpunt + 1; i++) {
-            var row = $('#propertiesTable tr:nth-child(' + i + ' )');
-            alert(i);
-            row.append($('<td><input ID="propertyInput' + i + '" runat="server"/></</td>'));
-        }
-    }
-    function getPropertiesElemants() {
-        alert('SAsa');
-    }
-}
+
 
 function discountTBvisible(bool) {
     if (bool == false) {

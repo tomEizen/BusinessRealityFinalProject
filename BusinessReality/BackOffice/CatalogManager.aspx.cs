@@ -59,7 +59,6 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             properties = c.getCategoryProperties(categories[categoriesNamesDDL.SelectedValue.ToString()]);
             HtmlTable tb = new HtmlTable();
             tb.Style.Add("text-align", "right");
-            tb.Attributes.Add("class", "form");
             tb.Attributes.Add("runat", "Server");
             tb.ID = "propertiesTable";
             int counter = 1;
@@ -72,6 +71,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
                 HtmlTableCell tc1 = new HtmlTableCell();
                 TextBox tx = new TextBox();
                 tx.ID = "txProperty" + counter;
+                tx.CssClass = "text";
                 tc.Controls.Add(l);
                 tc1.Controls.Add(tx);
                 tr.Controls.Add(tc);

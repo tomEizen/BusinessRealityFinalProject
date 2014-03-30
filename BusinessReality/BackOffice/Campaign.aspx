@@ -119,14 +119,14 @@
                             צור קמפיין חדש
                         </h2>
                         <div class="block ">
-                            <table class="form" dir="rtl">
+                            <table dir="rtl" style="text-align:right">
                                 <tr>
-                                    <td class="col1">
+                                    <th class="col1">
                                         <label>
                                             שם הקמפיין</label>
-                                    </td>
+                                    </th>
                                     <td class="col2">
-                                        <asp:TextBox ID="txtCampaignName" runat="server" Rows="4"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignName" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RequiredFieldValidator ID="CampaignNameValidator" ControlToValidate="txtCampaignName"
@@ -135,12 +135,12 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="col1">
+                                    <th class="col1">
                                         <label>
                                             נוסח הקמפיין ברשת החברתית</label>
-                                    </td>
+                                    </th>
                                     <td class="col2">
-                                        <asp:TextBox ID="txtCampaignDescription" runat="server" class="large"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignDescription" runat="server" ></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RequiredFieldValidator ID="CampaignDescriptionValidator" ControlToValidate="txtCampaignDescription"
@@ -149,12 +149,12 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="col1">
+                                    <th class="col1">
                                         <label>
                                             ההטבה ללקוח</label>
-                                    </td>
+                                    </th>
                                     <td class="col2">
-                                        <asp:TextBox ID="txtVoucher" runat="server" Rows="4" class="medium"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtVoucher" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RequiredFieldValidator ID="txtVoucherValidator" ControlToValidate="txtVoucher"
@@ -163,12 +163,12 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <th>
                                         <label>
                                             תוקף ההטבה לאחר השיתוף</label>
-                                    </td>
+                                    </th>
                                     <td>
-                                        <asp:DropDownList ID="ddlExpirationTime" runat="server">
+                                        <asp:DropDownList class="text" ID="ddlExpirationTime" runat="server">
                                             <asp:ListItem Value="0">בחר</asp:ListItem>
                                             <asp:ListItem Value="1">שעה</asp:ListItem>
                                             <asp:ListItem Value="2">שעתיים</asp:ListItem>
@@ -185,20 +185,20 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <th>
                                         <label>
                                             צרף תמונה לקמפיין</label>
-                                    </td>
+                                    </th>
                                     <td>
-                                        <asp:FileUpload ID="uploadCampaignImgFU" runat="server" />
+                                        <asp:FileUpload class="text" ID="uploadCampaignImgFU" runat="server" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <th>
                                         <strong>צרף קישור לקמפיין</strong>
-                                    </td>
+                                    </th>
                                     <td>
-                                        <asp:TextBox ID="txtCampaignLink" runat="server"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignLink" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>

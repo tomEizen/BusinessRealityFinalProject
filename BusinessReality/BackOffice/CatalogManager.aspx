@@ -111,14 +111,14 @@
                             <h2>
                                 הוסף מוצר חדש</h2>
                             <div class="block ">
-                                <table class="form" id="addProductTable">
+                                <table id="addProductTable">
                                     <tr>
-                                        <td class="col1">
+                                        <th >
                                             <label>
                                                 בחר קטגוריה</label>
-                                        </td>
-                                        <td class="col2">
-                                            <asp:DropDownList ID="categoriesNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged1">
+                                        </th    >
+                                        <td >
+                                            <asp:DropDownList class="text" ID="categoriesNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged1">
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -128,12 +128,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <th>
                                             <label>
                                                 מק"ט מוצר</label>
-                                        </td>
+                                        </th>
                                         <td>
-                                            <asp:TextBox ID="productIdTB" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="productIdTB" class="text" runat="server"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RequiredFieldValidator ID="productIdTBValidator" ControlToValidate="productIdTB"
@@ -145,12 +145,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <th>
                                             <label>
                                                 שם המוצר</label>
-                                        </td>
+                                        </th>
                                         <td>
-                                            <asp:TextBox ID="productNameTB" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="productNameTB" class="text" runat="server"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RequiredFieldValidator ID="productNameTBValidator" ControlToValidate="productNameTB"
@@ -159,12 +159,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <th>
                                             <label>
                                                 תיאור המוצר</label>
-                                        </td>
+                                        </th>
                                         <td>
-                                            <asp:TextBox ID="productDescriptionTB" class="medium" runat="server" Rows="4"></asp:TextBox>
+                                            <asp:TextBox ID="productDescriptionTB" class="text" runat="server" Rows="4"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RequiredFieldValidator ID="productDescriptionTBValidator" ControlToValidate="productDescriptionTB"
@@ -173,12 +173,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <th>
                                             <label>
                                                 מחיר</label>
-                                        </td>
+                                        </th>
                                         <td>
-                                            <asp:TextBox ID="ProductPriceTB" runat="server"></asp:TextBox>
+                                            <asp:TextBox class="text" ID="ProductPriceTB" runat="server"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RequiredFieldValidator ID="ProductPriceTBValidator" ControlToValidate="ProductPriceTB"
@@ -190,27 +190,27 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <th>
                                             <label>
                                                 מוצר במבצע</label>
-                                        </td>
+                                        </th>
                                         <td>
-                                            <asp:RadioButtonList RepeatLayout="Flow" RepeatDirection="Horizontal" ID="RadioButtonList1"
+                                            <asp:RadioButtonList class="text" RepeatLayout="Flow" RepeatDirection="Horizontal" ID="RadioButtonList1"
                                                 runat="server">
                                                 <asp:ListItem Selected="True">לא</asp:ListItem>
                                                 <asp:ListItem>כן</asp:ListItem>
                                             </asp:RadioButtonList>
                                             <br />
-                                            <asp:TextBox ID="discountTB" class="large" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="discountTB" class="text"  runat="server"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <th>
                                             <label>
                                                 הוסף תמונה</label>
-                                        </td>
+                                        </th>
                                         <td>
-                                            <asp:FileUpload ID="uploadImgFU" runat="server" />
+                                            <asp:FileUpload class="text" ID="uploadImgFU" runat="server" />
                                         </td>
                                     </tr>
                                 </table>
@@ -365,7 +365,7 @@
                                                 בחר קטגוריה</label>
                                         </td>
                                         <td class="col2">
-                                            <asp:DropDownList ID="DropDownList1" runat="server">
+                                            <asp:DropDownList class="text"  ID="DropDownList1" runat="server">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -375,7 +375,7 @@
                                                 מק"ט מוצר</label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                                            <asp:TextBox  ID="TextBox8" runat="server"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -466,7 +466,7 @@
                                         מק"ט מוצר:</label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblproductID" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label  ID="lblproductID" runat="server" Text="Label"></asp:Label>
                                 </td>
                             </tr>
                             <tr>

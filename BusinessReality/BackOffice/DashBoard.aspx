@@ -209,15 +209,13 @@
                         <div class="block">
                             <div>
                                 <span><b>בחירת קטגוריה</b>:</span>
-                                <asp:DropDownList ID="categoriesNamesDDL" AutoPostBack="true" runat="server" OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged">
+                                <asp:DropDownList class="text" ID="categoriesNamesDDL" AutoPostBack="true" runat="server" OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged">
                                 </asp:DropDownList>
-                                <br />
-                                <br />
-                                <br />
+ 
                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                     <ContentTemplate>
                                         <span><b>בחירת מוצר</b>:</span>
-                                        <asp:DropDownList ID="productNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="productNamesDDL_SelectedIndexChanged" Width="100px">
+                                        <asp:DropDownList  class="text" ID="productNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="productNamesDDL_SelectedIndexChanged" Width="100px">
                                         </asp:DropDownList>
                                     </ContentTemplate>
                                     <Triggers>
