@@ -41,7 +41,7 @@ public class DataBaseManager
         return connection;
     }
 
-  
+
 
     /// <summary>
     ///gets the properties of all the existing organizations
@@ -71,11 +71,11 @@ public class DataBaseManager
         return names;
     }
 
-/// <summary>
-/// gets all the properties of a specific organizations
-/// </summary>
-/// <param name="managerEmail">manager email for identification</param>
-/// <returns>dictionary of property name and id</returns>
+    /// <summary>
+    /// gets all the properties of a specific organizations
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>dictionary of property name and id</returns>
     public Dictionary<string, int> getAllProp(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -101,13 +101,13 @@ public class DataBaseManager
         return names;
     }
 
-/////////////////////////////////////// plots /////////////////////////////////////
+    /////////////////////////////////////// plots /////////////////////////////////////
 
-/// <summary>
-/// get the general users gender statistic
-/// </summary>
-/// <param name="managerEmail">manager's email for identification</param>
-/// <returns>dictionary of male and female count</returns>
+    /// <summary>
+    /// get the general users gender statistic
+    /// </summary>
+    /// <param name="managerEmail">manager's email for identification</param>
+    /// <returns>dictionary of male and female count</returns>
     public Dictionary<string, int> getGenderStatistics(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -229,11 +229,11 @@ public class DataBaseManager
     }
 
 
-/// <summary>
-/// gets the 5 most scaned categoreis
-/// </summary>
-/// <param name="managerEmail">manager email for identification</param>
-/// <returns>a dictionary of category name and amount</returns>
+    /// <summary>
+    /// gets the 5 most scaned categoreis
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a dictionary of category name and amount</returns>
     public Dictionary<string, int> proc_5mostScanedCategories(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -370,6 +370,12 @@ public class DataBaseManager
         }
         return camp;
     }
+
+    /// <summary>
+    /// get all theexisting  products in a category
+    /// </summary>
+    /// <param name="id">the category id</param>
+    /// <returns>dictionary of product name and uniq id</returns>
     public Dictionary<string, int> GetAllCategoryProducts(string id)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -394,6 +400,12 @@ public class DataBaseManager
         }
         return names;
     }
+
+    /// <summary>
+    /// get the history of products scan by users
+    /// </summary>
+    /// <param name="productCounter">the uniq id of the organization's product</param>
+    /// <returns>a gridview of the details</returns>
     public GridView GetHistoryScan(int productCounter)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -415,7 +427,17 @@ public class DataBaseManager
         }
         return camp;
     }
-    ///////////////////endOfPlots/////////////////////////////
+
+    //////////////////////////////////////end of plots///////////////////////////////////////
+
+
+    ///////////////////////////////////// onload procedurs && functions /////////////////////
+
+    /// <summary>
+    /// get the profile info about the organization
+    /// </summary>
+    /// <param name="emailAddress">manager email for identification</param>
+    /// <returns>an organization object</returns>
     public Organization getComapnyProfile(string emailAddress)
     {
         Organization org = new Organization();
@@ -449,6 +471,11 @@ public class DataBaseManager
         return org;
     }
 
+    /// <summary>
+    /// get the basic info (not incude properties) of all the existing products of an organization
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a list of product objects</returns>
     public List<Product> GetAllProductInfoBasic(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -484,7 +511,7 @@ public class DataBaseManager
 
 
     /// <summary>
-    /// get the full info of a specific product from the db
+    /// get the properties info of a specific product from the db
     /// </summary>
     /// <param name="managerEmail">manager's email for identification</param>
     /// <param name="productId">to select a specific product from the db</param>
@@ -518,10 +545,12 @@ public class DataBaseManager
         return properties;
     }
 
-    /// <summary>
-    ///gets the catagories
-    /// </summary>
-    /// <returns> returen catagory</returns>
+
+/// <summary>
+    /// gets the existing catagories names
+/// </summary>
+/// <param name="managerEmail">manager email for identification</param>
+/// <returns>dictionary of category name and id</returns>
     public Dictionary<string, int> getCategoriesNames(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -547,9 +576,10 @@ public class DataBaseManager
     }
 
     /// <summary>
-    ///gets all the proporties of a catagory
+    /// gets all the proporties of an existing  catagory
     /// </summary>
-    /// <returns> returen a catagory</returns>
+    /// <param name="categoryID">id of the specific category</param>
+    /// <returns>dictionary of property name and id</returns>
     public Dictionary<string, int> getCategoryProperties(int categoryID)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -753,7 +783,7 @@ public class DataBaseManager
         StringBuilder sb = new StringBuilder();
         if (product.Discount != null)
         {
-            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), product.Discount, organizaion, categoryID,product.ImageUrl);
+            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), product.Discount, organizaion, categoryID, product.ImageUrl);
             prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,Discount,OrganizationID,CatagoryId,img)";
         }
         else

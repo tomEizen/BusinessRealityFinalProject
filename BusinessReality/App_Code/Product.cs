@@ -36,7 +36,12 @@ public class Product
         DataBaseManager db = new DataBaseManager();
         return db.insertNewProduct(product,categoryName, pp, emailManager);
     }
-    
+
+    /// <summary>
+    /// call the db class to get the basic info (not incude properties) of all the existing products of an organization
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a list of product objects</returns>
     public List<Product> GetAllProductInfoBasic(string email)
     {
         DataBaseManager db = new DataBaseManager();
@@ -64,6 +69,12 @@ public class Product
         DataBaseManager db = new DataBaseManager();
         return db.productPropertiesStatistics(productCounter);
     }
+
+    /// <summary>
+    /// call the db class to get the history of products scan by users
+    /// </summary>
+    /// <param name="productCounter">the uniq id of the organization's product</param>
+    /// <returns>a gridview of the details</returns>
     public GridView GetHistoryScan(int productCounter)
     {
         DataBaseManager db = new DataBaseManager();

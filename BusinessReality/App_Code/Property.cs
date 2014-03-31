@@ -44,6 +44,12 @@ public class Property
         return db.getAllProp(managerEmail);
     }
 
+    /// <summary>
+    /// call the db class to get the properties info of a specific product from the db
+    /// </summary>
+    /// <param name="managerEmail">manager's email for identification</param>
+    /// <param name="productId">to select a specific product from the db</param>
+    /// <returns>a list of the product info</returns>
     public List<Property> GetProductPropertiesInfo(string managerEmail, int productId)
     {
         DataBaseManager db = new DataBaseManager();
