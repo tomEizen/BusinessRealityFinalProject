@@ -223,22 +223,23 @@ function productInsertedToDb(url) {
 
 function addQrCode(url, div) {
     var qrcode = new QRCode(document.getElementById(div), {
-        width: 100,
-        height: 100
+        width: 60,
+        height: 60
     });
     qrcode.makeCode(url);
 }
-function printDiv(divID, numberOfQR) {
-    alert(divID);
+function printDiv(divID, name, numberOfQR) {
+    //alert(divID);
     addQrCode('www.one.co.il', divID);
     //Get the HTML of div
     var divElements = document.getElementById(divID).innerHTML;
+    var name = document.getElementById(name).innerHTML;
     //Get the HTML of whole page
     var oldPage = document.body.innerHTML;
     var div = "";
     //Reset the page's HTML with div's HTML only
     for (var i = 0; i < numberOfQR; i++) {
-        div += divElements;
+        div += name + divElements;
     }
     document.body.innerHTML =
               "<html><head><title></title></head><body>" +
@@ -251,6 +252,7 @@ function printDiv(divID, numberOfQR) {
 
     location.reload();
 }
+
 
 function productInfo(category) {
     alert(category);
