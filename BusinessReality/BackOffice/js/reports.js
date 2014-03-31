@@ -2,6 +2,7 @@
 var plot6
 var plot7
 
+//show a specific div in the page and hides the rest
 function show(target) {
     $('#general').hide();
     $('#demographics').hide();
@@ -14,8 +15,8 @@ function show(target) {
         plot7.replot();
     }
 }
-//Dashboard chart
 
+//show a specific div in the page and hides the rest
 function setupProductViews(containerElementId) {
     var s1 = [200, 300, 400, 500, 600, 700, 800, 900, 1000];
     var s2 = [190, 290, 390, 490, 590, 690, 790, 890, 990];
@@ -66,7 +67,7 @@ function setupProductViews(containerElementId) {
         }
     });
 }
-//draw donut chart
+//draw gender plot
 function drawGenderChart(containerElement, male, female) {
     var plot3 = $.jqplot(containerElement,
     [[['נשים', parseInt(female)], ['גברים', parseInt(male)]]],
@@ -202,6 +203,7 @@ function drawCampaignShareGenderChart(containerElement, male, female) {
   );
 }
 
+//onload 
 $(document).ready(function () {
     $('#demographicsBtn').click(function () {
         drawBubbleChart('bubble-chart');

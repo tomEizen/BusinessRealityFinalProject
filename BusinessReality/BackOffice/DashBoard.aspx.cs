@@ -32,12 +32,19 @@ namespace BusinessReality.BackOffice
             scriptActive();
         }
 
-
+        /// <summary>
+        /// sending the the js to the code
+        /// </summary>
         private void scriptActive()
         {
             script.Append("scanProduct();");
             Page.ClientScript.RegisterStartupScript(this.GetType(), "age", script.ToString(), true);
         }
+
+        
+        /// <summary>
+        ///calling the js function of the general details
+        /// </summary>
         private void updateGeneralDetails()
         {
             User us = new User();
@@ -88,6 +95,10 @@ namespace BusinessReality.BackOffice
             script.Append("drawAgesChart('ages','" + range1 + "','" + range2 + "','" + range3 + "','" + range4 + "','" + range5 + "','" + range6 + "','" + range7 + "','" + range8 + "' );");
 
         }
+
+        /// <summary>
+        /// get the 5 most scaned products
+        /// </summary>
         private void Top5ScanedProducts()
         {
             Product p = new Product();
@@ -109,6 +120,10 @@ namespace BusinessReality.BackOffice
                 counter++;
             }
         }
+
+        /// <summary>
+        /// get the 5 most scaned Categories
+        /// </summary>
         private void proc_5mostScanedCategories()
         {
             Category c = new Category();
@@ -130,6 +145,10 @@ namespace BusinessReality.BackOffice
                 counter++;
             }
         }
+
+        /// <summary>
+        /// get the campaign days statistics
+        /// </summary>
         private void getActiveCampaignStatistics()
         {
             Campaign cp = new Campaign();
@@ -165,6 +184,10 @@ namespace BusinessReality.BackOffice
             }
             dayCampaign.InnerHtml = day;
         }
+
+        /// <summary>
+        /// insert the General Details Plots
+        /// </summary>
         private void GeneralDetailsPlots()
         {
             Scan s = new Scan();
@@ -172,6 +195,10 @@ namespace BusinessReality.BackOffice
             campaignShareGeneral.InnerHtml = dv.Rows[0].Cells[0].Text;
             amountOfScans.InnerHtml = dv.Rows[0].Cells[1].Text;
         }
+
+        /// <summary>
+        /// insert the organization names
+        /// </summary>
         private void GetCategoriesNames()
         {
             Category c = new Category();
@@ -180,6 +207,10 @@ namespace BusinessReality.BackOffice
             foreach (KeyValuePair<string, int> pair in categories)
                 categoriesNamesDDL.Items.Add(pair.Key);
         }
+
+        /// <summary>
+        /// insert the selected categories products 
+        /// </summary>
         protected void categoriesNamesDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             productNamesDDL.Items.Clear();
@@ -197,6 +228,10 @@ namespace BusinessReality.BackOffice
                 productNamesDDL.Items.Add("בחר");
             }
         }
+
+        /// <summary>
+        /// insert the selected product statistics
+        /// </summary>
         protected void productNamesDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             Product p = new Product();

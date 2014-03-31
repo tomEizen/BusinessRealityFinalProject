@@ -15,6 +15,8 @@ namespace BusinessReality.BackOffice
             insertCompanyProfile();
             insertCompanyProfileIntoForm();
         }
+
+        //insert the comapany details
         protected void insertCompanyProfile()
         {
             Organization org = new Organization();
@@ -29,6 +31,8 @@ namespace BusinessReality.BackOffice
             website.InnerHtml = org.WebSiteUrl;
             website.HRef = org.WebSiteUrl;
         }
+
+        //insert the company information to the edit from
         protected void insertCompanyProfileIntoForm()
         {
             Organization org = new Organization();
@@ -51,7 +55,7 @@ namespace BusinessReality.BackOffice
             formWebsite.Value = org.WebSiteUrl;
         }
 
-
+        //update company profile
         protected void update_Click(object sender, EventArgs e)////לא מזהה לחיצה
         {
             Organization org = new Organization();

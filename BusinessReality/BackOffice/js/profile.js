@@ -1,4 +1,5 @@
 ﻿
+//open the edit comapny profile form
 $(function () {
     function launch() {
         $('#sign_up').lightbox_me({ centered: true, onLoad: function () { $('#sign_up').find('input:first').focus() } });
@@ -18,6 +19,7 @@ $(function () {
 });
 
 
+//open the new password profile form
 $(function () {
     function launch() {
         $('#updatePassword').lightbox_me({ centered: true, onLoad: function () { $('#updatePassword').find('input:first').focus() } });
