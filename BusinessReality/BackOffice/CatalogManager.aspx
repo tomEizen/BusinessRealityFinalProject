@@ -510,7 +510,7 @@
                     </table>
                     <div style="text-align: center" id="productInfoButtons">
                         <input id="btnEditProduct" type="button" class="btn" value="ערוך מוצר" onclick="edit()" />
-                        <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','6')" />
+                        <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','infoName','4')" />
                         <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
                     </div>
                 </div>
