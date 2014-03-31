@@ -999,8 +999,8 @@ public class DataBaseManager
         int rowChangedCampaign;
         String command;
         StringBuilder sb = new StringBuilder();
-        sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}','{5}','{6}','{7}','{8}','{9}')", campaign.Name, campaign.Description, campaign.Voucher, campaign.Expiration, campaign.ImageUrl, campaign.LinkUrl, campaign.ShareCount, campaign.DateCreated.ToString("yyyy-MM-dd HH:mm:ss"), emailManager, campaign.IsActive);
-        String prefix = "INSERT INTO Campaign " + "(Name, Description, Voucher, Expiration,Img,Link,ShareCount,DateCreated,Email_address,IsActive)";
+        sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}','{5}','{6}','{7}','{8}')", campaign.Name, campaign.Description, campaign.Voucher, campaign.Expiration, campaign.ImageUrl, campaign.LinkUrl,campaign.DateCreated.ToString("yyyy-MM-dd HH:mm:ss"), emailManager, campaign.IsActive);
+        String prefix = "INSERT INTO Campaign " + "(Name, Description, Voucher, Expiration,Img,Link,DateCreated,Email_address,IsActive)";
         command = prefix + sb.ToString();
         rowChangedCampaign = insertCommand(command);
 
