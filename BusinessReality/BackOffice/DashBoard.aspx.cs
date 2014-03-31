@@ -88,6 +88,10 @@ namespace BusinessReality.BackOffice
             script.Append("drawAgesChart('ages','" + range1 + "','" + range2 + "','" + range3 + "','" + range4 + "','" + range5 + "','" + range6 + "','" + range7 + "','" + range8 + "' );");
 
         }
+
+        /// <summary>
+        /// 5 most scaned products
+        /// </summary>
         private void Top5ScanedProducts()
         {
             try
@@ -117,7 +121,9 @@ namespace BusinessReality.BackOffice
                 throw;
             }
         }
-
+        /// <summary>
+        /// 5 most scaned categories
+        /// </summary>
         private void proc_5mostScanedCategories()
         {
             Category c = new Category();
@@ -139,6 +145,10 @@ namespace BusinessReality.BackOffice
                 counter++;
             }
         }
+
+        /// <summary>
+        /// insert the campaign statistics
+        /// </summary>
         private void getActiveCampaignStatistics()
         {
             try
@@ -201,6 +211,8 @@ namespace BusinessReality.BackOffice
                 throw;
             }
         }
+
+
         private void GetCategoriesNames()
         {
             Category c = new Category();
@@ -209,6 +221,7 @@ namespace BusinessReality.BackOffice
             foreach (KeyValuePair<string, int> pair in categories)
                 categoriesNamesDDL.Items.Add(pair.Key);
         }
+
         protected void categoriesNamesDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             productNamesDDL.Items.Clear();
@@ -226,6 +239,8 @@ namespace BusinessReality.BackOffice
                 productNamesDDL.Items.Add("בחר");
             }
         }
+
+
         protected void productNamesDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
