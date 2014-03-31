@@ -20,7 +20,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     {
         GetAllProductInfoBasic();
         GetCategoriesNames();
-        change();
+        insertCategoryProperties();
         InsertPictureToDirectory();
         addPropToDrop();
         if (Session["numOfRows"] != null)
@@ -29,14 +29,12 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             Page.ClientScript.RegisterStartupScript(this.GetType(), "callproductInsertedToDb", "productInsertedToDb('" + s + "')", true);
             Session["numOfRows"] = null;
         }
-        enterProductInfo();
     }
 
-    private void enterProductInfo()
-    {
-
-    }
-    //get the catagories to the addProduct form
+   
+    /// <summary>
+    /// insert the organization catagories to the addProduct form
+    /// </summary>
     private void GetCategoriesNames()
     {
         Category c = new Category();
@@ -50,7 +48,10 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         }
     }
 
-    protected void change()
+    /// <summary>
+    /// insert the category properties to the addProduct form
+    /// </summary>
+    protected void insertCategoryProperties()
     {
         Category c = new Category();
         properties = new Dictionary<string, int>();
@@ -86,13 +87,20 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             propertiesAddPH.Controls.Clear();
         }
     }
-    //add the currect properties 
+
+
+    /// <summary>
+    /// exist to activate the post back of the categories names ddl 
+    /// </summary>
     protected void categoriesNamesDDL_SelectedIndexChanged1(object sender, EventArgs e)
     {
 
     }
 
-    ////on click on the addProduct BTN
+
+    /// <summary>
+    /// adding a new product
+    /// </summary>
     protected void btnAddProduct_Click(object sender, EventArgs e)
     {
         try
@@ -142,6 +150,10 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
 
         }
     }
+
+    /// <summary>
+    /// insert the organization products to the products table
+    /// </summary>
     private void GetAllProductInfoBasic()
     {
         Product p = new Product();
@@ -176,7 +188,9 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     }
 
 
-    //insert the uploaded picture to the server dic'
+    /// <summary>
+    /// saving am uploaded image 
+    /// </summary>
     private void InsertPictureToDirectory()
     {
         if (uploadImgFU.HasFile)
@@ -207,18 +221,23 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         }
     }
 
-
+    /// <summary>
+    /// insert all the oranization properties
+    /// </summary>
     private void addPropToDrop()
     {
-        NewCampaignProp.Items.Clear();
+        NewCategoryProp.Items.Clear();
         Property p = new Property();
         allProp = p.getAllProp("aviv@gmail.com");
         foreach (KeyValuePair<string, int> pair in allProp)
         {
-            NewCampaignProp.Items.Add(pair.Key);
+            NewCategoryProp.Items.Add(pair.Key);
         }
     }
 
+    /// <summary>
+    /// insert the updateCategory properties to the table
+    /// </summary>
     protected void editCategoryCategoriesDDL_SelectedIndexChanged(object sender, EventArgs e)
     {
         EditCategoryPropTable.Controls.Clear();
@@ -247,11 +266,5 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
                 EditCategoryPropTable.Controls.Add(tr);
             }
         }
-    }
-
-    protected void addNewCategory_Click(object sender, EventArgs e)
-    {
-        Label lbl = Page.FindControl("addCategory1") as Label;
-
     }
 }

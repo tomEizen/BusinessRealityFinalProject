@@ -1,6 +1,7 @@
-﻿//show pages with fade
-var products;
+﻿var products;
 var propertyCount = 0;
+
+//show a specific div in the page and hides the rest
 function show(target) {
     $('#general').hide();
     $('#addProduct').hide();
@@ -10,6 +11,7 @@ function show(target) {
     $('#productInfo').hide();
     $('#' + target).fadeIn(1300);
 }
+
 
 //set the table header to hebrew
 $(document).ready(function () {
@@ -25,12 +27,8 @@ $(document).ready(function () {
     });
 });
 
-$('#tblOrders_filter')
-       .filter(function () { return this.nodeType == 3 })
 
-
-
-//once a tr inside the products table is clicked a pop up window is open with the info about this product
+//once a tr inside the products table is clicked a pop up window is open with the information about this product
 $(function () {
     function launch() {
         $('#productInfo').lightbox_me({ centered: true, onLoad: function () { $('#productInfo').find('input:first').focus() } });
@@ -50,7 +48,19 @@ $(function () {
     $('table tr:nth-child(even)').addClass('stripe');
 });
 
-//getting the selected product from the web server
+//adding the close pop uo trigger
+function CloseLightBox() {
+    $('#productInfo').trigger('close');
+}
+
+//open the edit product window once the edit product button is clicked
+function edit() {
+    $('#productInfo').trigger('close');
+    show("editProduct");
+}
+
+
+//getting the selected product informaiton from the db
 function getProductInfo(row_number) {
     var email = 'aviv@gmail.com';
     var MyRows = $('table#productTable').find('tbody').find('tr');
@@ -71,7 +81,9 @@ function getProductInfo(row_number) {
         } // end of error
     }) // end of ajax call
 }
-//getting the selected product properties from the web server
+
+
+//getting the selected product properties from the db
 function GetProductPropertiesInfo(productID) {
     var email = 'aviv@gmail.com';
     $.ajax({ // ajax call starts
@@ -91,7 +103,7 @@ function GetProductPropertiesInfo(productID) {
     }) // end of ajax call
 }
 
-//enter the details to the  product info window
+//insert the product information to the  product info window
 function EnterDetails(product) {
     RemoveDetailsFromProductInfoPage();
     $('#infoName').text(product.Name);
@@ -107,7 +119,7 @@ function EnterDetails(product) {
 }
 
 
-//enter the proporties to the  product info window
+//Insert the proporties to the  product info window
 function EnterProperties(propeties) {
     $.each(propeties, function (index, Property) {
         $('#productInfoTB > tbody').append('<tr><th><label>' + Property.Name + '</th><td>' + Property.Description + '</td></tr>');
@@ -126,6 +138,7 @@ function RemoveDetailsFromProductInfoPage() {
     $('#qrcodePrint').empty();
 }
 
+//getting the new category information from the new category form
 function getNewCategoryDetails() {
     var category = {};
     var properties = new Array
@@ -141,6 +154,8 @@ function getNewCategoryDetails() {
     });
     InsertNewCategory(category, properties);
 }
+
+//insert the new category to the db
 function InsertNewCategory(category, properties) {
     $.ajax({ // ajax call starts
         url: 'WebService.asmx/insertNewCategory',
@@ -164,17 +179,9 @@ function InsertNewCategory(category, properties) {
         } // end of error
     }) // end of ajax call
 }
-function CloseLightBox() {
-    $('#productInfo').trigger('close');
-}
-
-function edit() {
-    $('#productInfo').trigger('close');
-    show("editProduct");
-}
 
 
-
+//adding the discount information once the radio button moves to yes
 function discountTBvisible(bool) {
     if (bool == false) {
         $('#discountTB').hide();
@@ -184,7 +191,7 @@ function discountTBvisible(bool) {
         $('#discountTB').fadeIn(1300);
 }
 
-
+//open the new product successfully insert window
 $(function () {
     function launch() {
         $('#prodectInserted').lightbox_me({ centered: true, onLoad: function () { $('#prodectInserted').find('input:first').focus() } });
@@ -210,7 +217,7 @@ function productInsertedToDb(url) {
     });
 }
 
-
+//creating the qrCode
 function addQrCode(url, div) {
     var qrcode = new QRCode(document.getElementById(div), {
         width: 100,
@@ -219,6 +226,7 @@ function addQrCode(url, div) {
     qrcode.makeCode(url);
 }
 
+//printing only the qrcode in a new window
 function printDiv(divID, name) {
     alert(name);
     var productName = document.getElementById(name).innerHTML;
@@ -234,18 +242,19 @@ function printDiv(divID, name) {
 
 
 function productInfo(category) {
-    alert(category);
     $('#lblCategory').text = category;
 }
 
+//adding the chosen property to te new category table
 function addPropToTable() {
-    var text = $('#NewCampaignProp').val();
+    var text = $('#NewCategoryProp').val();
     if ($('#AddCategoryProperties').text().match(text)) { }
     else {
         $('#AddCategoryProperties').append('<tr  runat="server" class="odd gradeX"><td  runat="server"  ><label ID="addCategory' + propertyCount + '"  runat="server" >' + text + '</label></td></tr>');
     }
     propertyCount++;
 }
+//adding the new property to te new category table
 function addNewPropToTable() {
     var text = $('#newPropTB').val().trim();
     if ($('#AddCategoryProperties').text().match(text)) { }
@@ -255,7 +264,7 @@ function addNewPropToTable() {
     propertyCount++;
 }
 
-
+//onload
 $(document).ready(function () {
     setupLeftMenu();
     $('#addPropBtn').click(function () {
