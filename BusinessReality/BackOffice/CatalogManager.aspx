@@ -271,7 +271,7 @@
                                         <tr>
                                             <th>
                                                 <label>
-                                                    הוסף תכונה קיימת</label>
+                                                    בחר תכונה לקטגוריה</label>
                                             </th>
                                             <td>
                                                 <asp:DropDownList class="text" ID="NewCampaignProp" runat="server">
@@ -281,7 +281,7 @@
                                             </td>
                                             <th>
                                                 <label>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp; הוסף תכונה חדשה</label>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp; הוספת תכונה חדשה</label>
                                             </th>
                                             <td>
                                                 <asp:TextBox ID="newPropTB" class="text" runat="server"></asp:TextBox>
@@ -497,10 +497,6 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <label>
-                                        קוד:</label>
-                                </td>
                                 <td id="qrcodePrint">
                                 </td>
                             </tr>

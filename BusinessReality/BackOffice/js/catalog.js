@@ -29,12 +29,6 @@ $('#tblOrders_filter')
        .filter(function () { return this.nodeType == 3 })
 
 
-function ValidateNewProduct() {
-
-
-
-}
-
 
 //once a tr inside the products table is clicked a pop up window is open with the info about this product
 $(function () {
@@ -104,16 +98,11 @@ function EnterDetails(product) {
     $('#lblCategory').text(product.CategoryName);
     $('#lblproductID').text(product.Id);
     $('#lblProductDescription').text(product.Description);
-    if (product.Discount == '') {
-        $("#productInfoDiscount").text('לא');
-    } else {
-        $("#productInfoDiscount").text(product.Discount);
-    }
-
+    $("#productInfoDiscount").text(product.Discount);
     $("#lblProductPrice").text(product.Price + ' ש"ח');
     $('#productInfoImage').attr("src", product.ImageUrl);
     GetProductPropertiesInfo(product.Id);
-    addQrCode('www.one.co.il', ' ');
+    addQrCode('www.one.co.il', '');
 
 }
 
@@ -166,7 +155,7 @@ function InsertNewCategory(category, properties) {
         success: function (data) // Variable data contains the data we get from serverside
         {
             var change = data.d;
-            if (change == "1") {
+            if (change=="1") {
                 location.reload();
             }
         }, // end of success
@@ -223,8 +212,8 @@ function productInsertedToDb(url) {
 
 function addQrCode(url, div) {
     var qrcode = new QRCode(document.getElementById(div), {
-        width: 60,
-        height: 60
+        width: 70,
+        height: 70
     });
     qrcode.makeCode(url);
 }
