@@ -117,6 +117,7 @@ namespace BusinessReality.BackOffice
                 throw;
             }
         }
+
         private void proc_5mostScanedCategories()
         {
             Category c = new Category();
