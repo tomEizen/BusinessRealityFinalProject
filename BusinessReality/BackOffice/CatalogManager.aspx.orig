@@ -240,7 +240,7 @@
                         <div id="ProductInsertedName" runat="server">
                         </div>
                         <br />
-                        <input type="button" value="הדפסת הברקוד" onclick="printDiv('qrcode', 'ProductInsertedName')" />
+                        <input type="button" value="הדפסת הברקוד" onclick="printDiv('qrcode,ProductInsertedName')" />
                     </div>
                 </div>
             </div>
@@ -498,6 +498,13 @@
                                     <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
                                 </td>
                             </tr>
+<<<<<<< HEAD
+=======
+                            <tr>
+                                <td id="qrcodePrint">
+                                </td>
+                            </tr>
+>>>>>>> 6defcea59924cc860f3261d7c6805b86f407a652
                         </thead>
                         <tbody>
                         </tbody>
