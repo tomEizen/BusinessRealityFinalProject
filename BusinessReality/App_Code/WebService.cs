@@ -34,6 +34,12 @@ public class WebService : System.Web.Services.WebService
         return jsonString;
     }
 
+    /// <summary>
+    /// send the product basic info from js to code behind
+    /// </summary>
+    /// <param name="productId">product id</param>
+    /// <param name="email">manager email for identification</param>
+    /// <returns>a json string of the product info</returns>
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getProductsInfo(int productId, string email)
@@ -51,6 +57,12 @@ public class WebService : System.Web.Services.WebService
         return jsonString;
     }
 
+    /// <summary>
+    /// send the properties of a product from js to code behind
+    /// </summary>
+    /// <param name="productId">product id</param>
+    /// <param name="email">manager email for identification</param>
+    /// <returns>a json string of the properties</returns>
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string GetProductPropertiesInfo(int productId, string email)
@@ -63,6 +75,14 @@ public class WebService : System.Web.Services.WebService
         return jsonString;
     }
 
+    /// <summary>
+    /// insert a new category according to manager input in the form
+    /// </summary>
+    /// <param name="categoryName">the name of the new category</param>
+    /// <param name="Description">the description of the new category</param>
+    /// <param name="properties">properties string of the new category</param>
+    /// <param name="Email">email for identification</param>
+    /// <returns>num of rows changed</returns>
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertNewCategory(string categoryName, string Description, string properties, string Email)

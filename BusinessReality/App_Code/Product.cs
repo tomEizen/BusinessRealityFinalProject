@@ -29,30 +29,60 @@ public class Product
     public string ImageUrl { get { return this.imageUrl; } set { this.imageUrl = value; } }
     public DateTime DateModified { get { return this.dateModified; } set { this.dateModified = value; } }
     public Category Category { get { return this.category; } set { this.category = value; } }
-    
-    
-    public int insertNewProduct(Product product,int categoryName, Dictionary<int, string> pp, string emailManager)
+
+
+    /// <summary>
+    /// call the db class to insert a new product into the db && the properties description to the db
+    /// </summary>
+    /// <param name="product">new product's object</param>
+    /// <param name="categoryID">the category to which the product belong</param>
+    /// <param name="pp">the properties of the product</param>
+    /// <param name="emailManager">manager email for identification</param>
+    /// <returns>num of rows changed</returns>
+    public int insertNewProduct(Product product, int categoryName, Dictionary<int, string> pp, string emailManager)
     {
         DataBaseManager db = new DataBaseManager();
-        return db.insertNewProduct(product,categoryName, pp, emailManager);
+        return db.insertNewProduct(product, categoryName, pp, emailManager);
     }
-    
+
+    /// <summary>
+    /// call the db class to get the basic info (not incude properties) of all the existing products of an organization
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a list of product objects</returns>
     public List<Product> GetAllProductInfoBasic(string email)
     {
         DataBaseManager db = new DataBaseManager();
         return db.GetAllProductInfoBasic(email);
     }
 
+    /// <summary>
+    /// gets the 5 most scaned products
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a dictionary of product name and amount</returns>
     public Dictionary<string, int> Top5ScanedProducts(string managerEmail)
     {
         DataBaseManager db = new DataBaseManager();
         return db.Top5ScanedProducts(managerEmail);
     }
+
+    /// <summary>
+    /// call the db class to get product most viewed properties
+    /// </summary>
+    /// <param name="productCounter">the uniq id of the organization's product</param>
+    /// <returns>grid view of the details</returns>
     public GridView productPropertiesStatistics(int productCounter)
     {
         DataBaseManager db = new DataBaseManager();
         return db.productPropertiesStatistics(productCounter);
     }
+
+    /// <summary>
+    /// call the db class to get the history of products scan by users
+    /// </summary>
+    /// <param name="productCounter">the uniq id of the organization's product</param>
+    /// <returns>a gridview of the details</returns>
     public GridView GetHistoryScan(int productCounter)
     {
         DataBaseManager db = new DataBaseManager();

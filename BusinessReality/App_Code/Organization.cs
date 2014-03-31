@@ -34,6 +34,12 @@ public class Organization
     public string LogoSrc { get { return this.logoSrc; } set { this.logoSrc = value; } }
     public string Description { get { return this.description; } set { this.description = value; } }
     public string FbWebsite { get { return this.fbWebsite; } set { this.fbWebsite = value; } }
+
+    /// <summary>
+    /// call the db class to get the profile info about the organization
+    /// </summary>
+    /// <param name="emailAddress">manager email for identification</param>
+    /// <returns>an organization object</returns>
     public Organization getComapnyProfile(string emailAddress)
     {
         DataBaseManager db = new DataBaseManager();

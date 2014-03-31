@@ -26,6 +26,12 @@ public class User
     public string City { get { return this.city; } set { this.city = value; } }
     public int Age { get { return this.age; } set { this.age = value; } }
 
+
+    /// <summary>
+    ///call the db class to get the general users gender statistic
+    /// </summary>
+    /// <param name="managerEmail">manager's email for identification</param>
+    /// <returns>dictionary of male and female count</returns>
     public Dictionary<string, int> getGenderStatistics(string email)
     {
         DataBaseManager db = new DataBaseManager();
@@ -41,8 +47,8 @@ public class User
     public Dictionary<string, int> getAgesStatistics(string email)
     {
         DataBaseManager db = new DataBaseManager();
-        return db.getAgeStatistics(email);   
-    
+        return db.getAgeStatistics(email);
+
     }
 
     /// <summary>
@@ -56,6 +62,11 @@ public class User
         return db.GetCampignsShareAges(email);
     }
 
+    /// <summary>
+    /// call the db class to get a gender count from the db of the users who shared a campiagn
+    /// </summary>
+    /// <param name="managerEmail">the manager's email for identification</param>
+    /// <returns>dictionary of male and female count</returns>
     public Dictionary<string, int> GetCampignsShareGender(string email)
     {
         DataBaseManager db = new DataBaseManager();

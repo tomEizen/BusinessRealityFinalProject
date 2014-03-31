@@ -82,7 +82,7 @@ public class Campaign
     }
 
     /// <summary>
-    /// calls the db class to get the list of campaigns 
+    /// calls the db class to get a list of fb campaigns and their info from the db to show at the campaign table
     /// </summary>
     /// <param name="email">manager's email for identification</param>
     /// <returns>a list of campaigns objects</returns>

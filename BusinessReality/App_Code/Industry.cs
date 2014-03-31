@@ -26,6 +26,11 @@ public class Industry
         get { return this.name; }
         set { this.name = value; }
     }
+
+    /// <summary>
+    ///call the db class to get all the existing industries
+    /// </summary>
+    /// <returns> returen a list of industries</returns>
     public List<Industry> GetAllIndustries()
     {
         DataBaseManager db = new DataBaseManager();

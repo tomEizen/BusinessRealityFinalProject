@@ -15,6 +15,9 @@ using System.Web.UI.WebControls;
 /// </summary>
 public class DataBaseManager
 {
+
+    /////////////////////////connection/////////////////////
+
     /// <summary>
     /// the connection string to the database
     /// </summary>
@@ -37,70 +40,18 @@ public class DataBaseManager
         connection.Open();
         return connection;
     }
-    /////////////////////////plots//////////////////////
+
+    ///////////////////////////////////  End of connection ///////////////////////////
+
+
+
+    /////////////////////////////////////// plots /////////////////////////////////////
 
     /// <summary>
-    ///gets all organization properties
+    /// get the general users gender statistic
     /// </summary>
-    /// <returns> returen Dictionary</returns>
-    public Dictionary<string, int> getAllProp()
-    {
-        List<SqlParameter> paraList = new List<SqlParameter>();
-        Dictionary<string, int> names = new Dictionary<string, int>();
-        try
-        {
-            SqlDataReader dr = ActivateStoredProc("getAllProperties", paraList);
-            while (dr.Read())
-            {// Read till the end of the data into a row
-                // read first field from the row into the list collection
-                names.Add(dr["Name"].ToString(), Convert.ToInt32(dr["PropertyId"]));
-            }
-
-        }
-
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-
-        }
-        return names;
-    }
-
-    /// <summary>
-    ///gets all organization properties
-    /// </summary>
-    /// <returns> returen Dictionary</returns>
-    public Dictionary<string, int> getAllProp(string managerEmail)
-    {
-        List<SqlParameter> paraList = new List<SqlParameter>();
-        Dictionary<string, int> names = new Dictionary<string, int>();
-        try
-        {
-            paraList.Add(new SqlParameter("@email", managerEmail));
-            SqlDataReader dr = ActivateStoredProc("GetAllPropertiesOrganization", paraList);
-            while (dr.Read())
-            {// Read till the end of the data into a row
-                // read first field from the row into the list collection
-                names.Add(dr["Name"].ToString(), Convert.ToInt32(dr["PropertyId"]));
-            }
-
-        }
-
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-
-        }
-        return names;
-    }
-
-
-    /// <summary>
-    ///gets the catagories
-    /// </summary>
-    /// <returns> returen catagory</returns>
+    /// <param name="managerEmail">manager's email for identification</param>
+    /// <returns>dictionary of male and female count</returns>
     public Dictionary<string, int> getGenderStatistics(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -128,10 +79,10 @@ public class DataBaseManager
     }
 
     /// <summary>
-    /// get a list of gender from the db of the users who shared a campiagn
+    /// get a gender count from the db of the users who shared a campiagn
     /// </summary>
     /// <param name="managerEmail">the manager's email for identification</param>
-    /// <returns>a list of users gender</returns>
+    /// <returns>dictionary of male and female count</returns>
     public Dictionary<string, int> GetCampaignShareGender(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -159,12 +110,11 @@ public class DataBaseManager
     }
 
 
-
     /// <summary>
-    /// gets the users ages list
+    /// gets all the users ages list
     /// </summary>
     /// <param name="managerEmail">the manager's email for identification</param>
-    /// <returns>users ages list</returns>
+    /// <returns>dictionary of ages</returns>
     public Dictionary<string, int> getAgeStatistics(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -195,7 +145,7 @@ public class DataBaseManager
     /// get a list of ages from the db of the users who shared a campiagn
     /// </summary>
     /// <param name="managerEmail">the email of the organization's manager</param>
-    /// <returns>a list od ages</returns>
+    /// <returns>a dictionary of ages</returns>
     public Dictionary<string, int> GetCampignsShareAges(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -224,9 +174,10 @@ public class DataBaseManager
 
 
     /// <summary>
-    ///gets the 5 most scaned categoreis 
+    /// gets the 5 most scaned categoreis
     /// </summary>
-    /// <returns> returen Dictionary</returns>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a dictionary of category name and amount</returns>
     public Dictionary<string, int> proc_5mostScanedCategories(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -253,9 +204,10 @@ public class DataBaseManager
     }
 
     /// <summary>
-    ///gets the 5 most scaned categoreis 
+    /// gets the 5 most scaned products
     /// </summary>
-    /// <returns> returen Dictionary</returns>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a dictionary of product name and amount</returns>
     public Dictionary<string, int> Top5ScanedProducts(string managerEmail)
     {
 
@@ -281,6 +233,12 @@ public class DataBaseManager
         }
         return names;
     }
+
+    /// <summary>
+    /// get info about the current active campaign
+    /// </summary>
+    /// <param name="managerEmail">manager's email for identification</param>
+    /// <returns>a grid of data about the active campaign</returns>
     public GridView getActiveCampaignStatistics(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -302,6 +260,12 @@ public class DataBaseManager
         }
         return camp;
     }
+
+    /// <summary>
+    /// get product most viewed properties
+    /// </summary>
+    /// <param name="productCounter">the uniq id of the organization's product</param>
+    /// <returns>grid view of the details</returns>
     public GridView productPropertiesStatistics(int productCounter)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -323,6 +287,12 @@ public class DataBaseManager
         }
         return camp;
     }
+
+    /// <summary>
+    /// get general details about the users
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>gridview of details</returns>
     public GridView GeneralDetailsPlots(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -344,6 +314,12 @@ public class DataBaseManager
         }
         return camp;
     }
+
+    /// <summary>
+    /// get all theexisting  products in a category
+    /// </summary>
+    /// <param name="id">the category id</param>
+    /// <returns>dictionary of product name and uniq id</returns>
     public Dictionary<string, int> GetAllCategoryProducts(string id)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -368,6 +344,12 @@ public class DataBaseManager
         }
         return names;
     }
+
+    /// <summary>
+    /// get the history of products scan by users
+    /// </summary>
+    /// <param name="productCounter">the uniq id of the organization's product</param>
+    /// <returns>a gridview of the details</returns>
     public GridView GetHistoryScan(int productCounter)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -389,7 +371,77 @@ public class DataBaseManager
         }
         return camp;
     }
-    ///////////////////endOfPlots/////////////////////////////
+
+    //////////////////////////////////////End of plots///////////////////////////////////////
+
+
+    ///////////////////////////////////// Onload procedurs && functions /////////////////////
+
+
+    /// <summary>
+    ///gets the properties of all the existing organizations
+    /// </summary>
+    /// <returns> Dictionary of property name and id</returns>
+    public Dictionary<string, int> getAllProp()
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        Dictionary<string, int> names = new Dictionary<string, int>();
+        try
+        {
+            SqlDataReader dr = ActivateStoredProc("getAllProperties", paraList);
+            while (dr.Read())
+            {// Read till the end of the data into a row
+                // read first field from the row into the list collection
+                names.Add(dr["Name"].ToString(), Convert.ToInt32(dr["PropertyId"]));
+            }
+
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        return names;
+    }
+
+    /// <summary>
+    /// gets all the properties of a specific organizations
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>dictionary of property name and id</returns>
+    public Dictionary<string, int> getAllProp(string managerEmail)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        Dictionary<string, int> names = new Dictionary<string, int>();
+        try
+        {
+            paraList.Add(new SqlParameter("@email", managerEmail));
+            SqlDataReader dr = ActivateStoredProc("GetAllPropertiesOrganization", paraList);
+            while (dr.Read())
+            {// Read till the end of the data into a row
+                // read first field from the row into the list collection
+                names.Add(dr["Name"].ToString(), Convert.ToInt32(dr["PropertyId"]));
+            }
+
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        return names;
+    }
+
+
+    /// <summary>
+    /// get the profile info about the organization
+    /// </summary>
+    /// <param name="emailAddress">manager email for identification</param>
+    /// <returns>an organization object</returns>
     public Organization getComapnyProfile(string emailAddress)
     {
         Organization org = new Organization();
@@ -423,6 +475,11 @@ public class DataBaseManager
         return org;
     }
 
+    /// <summary>
+    /// get the basic info (not incude properties) of all the existing products of an organization
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a list of product objects</returns>
     public List<Product> GetAllProductInfoBasic(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -458,7 +515,7 @@ public class DataBaseManager
 
 
     /// <summary>
-    /// get the full info of a specific product from the db
+    /// get the properties info of a specific product from the db
     /// </summary>
     /// <param name="managerEmail">manager's email for identification</param>
     /// <param name="productId">to select a specific product from the db</param>
@@ -492,10 +549,12 @@ public class DataBaseManager
         return properties;
     }
 
+
     /// <summary>
-    ///gets the catagories
+    /// gets the existing catagories names
     /// </summary>
-    /// <returns> returen catagory</returns>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>dictionary of category name and id</returns>
     public Dictionary<string, int> getCategoriesNames(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -521,9 +580,10 @@ public class DataBaseManager
     }
 
     /// <summary>
-    ///gets all the proporties of a catagory
+    /// gets all the proporties of an existing  catagory
     /// </summary>
-    /// <returns> returen a catagory</returns>
+    /// <param name="categoryID">id of the specific category</param>
+    /// <returns>dictionary of property name and id</returns>
     public Dictionary<string, int> getCategoryProperties(int categoryID)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -549,7 +609,7 @@ public class DataBaseManager
 
 
     /// <summary>
-    ///gets all the industries
+    ///gets all the existing industries
     /// </summary>
     /// <returns> returen a list of industries</returns>
     public List<Industry> GetAllIndustries()
@@ -579,7 +639,7 @@ public class DataBaseManager
 
 
     /// <summary>
-    /// get a list of campaigns and their info from the db
+    /// get a list of fb campaigns and their info from the db to show at the campaign table
     /// </summary>
     /// <param name="email">the manager email</param>
     /// <returns>a list of the campaigns</returns>
@@ -643,16 +703,12 @@ public class DataBaseManager
         return campaigns;
     }
 
-    //SqlCommand cmd = new SqlCommand("addNewProduct", con);
-    //    paraList.Add(new SqlParameter("@ProductId", product.Id));
-    //    paraList.Add(new SqlParameter("@email", emailManager));
-    //    paraList.Add(new SqlParameter("@Name", product.Name));
-    //    paraList.Add(new SqlParameter("@ShortDescription", product.Description));
-    //    paraList.Add(new SqlParameter("@Price", product.Price));
-    //    paraList.Add(new SqlParameter("@DateModified", product.DateModified.ToString("yyyy-MM-dd HH:mm:ss")));
-    //    paraList.Add(new SqlParameter("@img", product.ImageUrl));
-    //    paraList.Add(new SqlParameter("@Discount", product.Discount));
-    //    paraList.Add(new SqlParameter("@CatagoryName", categoryID));   
+    /// <summary>
+    ///  create a uniq id for an organization product
+    /// </summary>
+    /// <param name="o">org id</param>
+    /// <param name="p">product id</param>
+    /// <returns>the product counter string</returns>
     private string GetProductCounter(string o, string p)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -676,6 +732,11 @@ public class DataBaseManager
         return productCounter;
     }
 
+    /// <summary>
+    /// get the manager id by his email to match organization
+    /// </summary>
+    /// <param name="email">email for identification</param>
+    /// <returns>string represent the organization</returns>
     private string getManagerId(string email)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -696,10 +757,16 @@ public class DataBaseManager
             return organizaion;
         }
     }
+
+
     /// <summary>
-    /// insert a new product into the db. also insert the properties description to the db
+    /// insert a new product into the db && the properties description to the db
     /// </summary>
-    /// <param name="campaign">an object of the new product, the properties and the manager email</param>
+    /// <param name="product">new product's object</param>
+    /// <param name="categoryID">the category to which the product belong</param>
+    /// <param name="pp">the properties of the product</param>
+    /// <param name="emailManager">manager email for identification</param>
+    /// <returns>num of rows changed</returns>
     public int insertNewProduct(Product product, int categoryID, Dictionary<int, string> pp, string emailManager)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -727,7 +794,7 @@ public class DataBaseManager
         StringBuilder sb = new StringBuilder();
         if (product.Discount != null)
         {
-            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), product.Discount, organizaion, categoryID,product.ImageUrl);
+            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", product.Id.ToString(), product.Name, product.Description, product.Price.ToString(), product.DateModified.ToString("yyyy-MM-dd HH:mm:ss"), product.Discount, organizaion, categoryID, product.ImageUrl);
             prefix = "INSERT INTO Product " + "(ProductId,Name,ShortDescription,Price,DateModified,Discount,OrganizationID,CatagoryId,img)";
         }
         else
@@ -760,6 +827,13 @@ public class DataBaseManager
         }
     }
 
+    /// <summary>
+    /// insert a new category to the db
+    /// </summary>
+    /// <param name="c">object of the new category</param>
+    /// <param name="lProperty">an array of the properties</param>
+    /// <param name="email">manager email for identification</param>
+    /// <returns>num of rows changed</returns>
     public int insertNewCategory(Category c, string[] lProperty, string email)
     {
 
@@ -808,10 +882,14 @@ public class DataBaseManager
         }
 
     }
+
+
     /// <summary>
     /// insert a new campaign into the db
     /// </summary>
     /// <param name="campaign">an object of a new campaign</param>
+    /// <param name="emailManager">manager email for identification</param>
+    /// <returns>num of rows changed</returns>
     public int insertNewCampaign(Campaign campaign, string emailManager)
     {
         int rowChangedCampaign;
@@ -825,12 +903,18 @@ public class DataBaseManager
         return rowChangedCampaign;
     }
 
+    ///////////////////////////////////////End of onlaod procedurs && functions /////////////////////
+
+
+    /////////////////////////////////////// Execution of commands && procedures  ///////////////////
 
 
     /// <summary>
-    ///activate stored proc and
+    /// activate stored procedure
     /// </summary>
-    /// <returns> returen sqlreader</returns>
+    /// <param name="procName">procedure name</param>
+    /// <param name="parametersList">a list of input parameters for the procedure</param>
+    /// <returns>sqlreader object</returns>
     private SqlDataReader ActivateStoredProc(string procName, List<SqlParameter> parametersList)
     {
         SqlConnection con;
@@ -868,10 +952,12 @@ public class DataBaseManager
         }
         return dr;
     }
+
     /// <summary>
-    ///activate the insert command 
+    /// insert the command
     /// </summary>
-    /// <returns> returen number of rows that was added</returns>
+    /// <param name="command">command string</param>
+    /// <returns>num of rows changed</returns>
     private int insertCommand(string command)
     {
 
@@ -913,7 +999,13 @@ public class DataBaseManager
             }
         }
     }
-    //creating the command
+
+    /// <summary>
+    /// create the command
+    /// </summary>
+    /// <param name="CommandSTR">command string</param>
+    /// <param name="con">connetion string</param>
+    /// <returns>sqlcommand object</returns>
     private SqlCommand CreateCommand(String CommandSTR, SqlConnection con)
     {
 
@@ -930,6 +1022,6 @@ public class DataBaseManager
         return cmd;
     }
 
-
+    ////////////////////////////////////// End of Execution of commands && procedures  ///////////////////
 
 }//class
