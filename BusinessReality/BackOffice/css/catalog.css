@@ -52,10 +52,10 @@
     }
     #productInfo img
     {
-        
-      width:230px;
+      border:solid 1px #ccc; 
+      width:250px;
       float:left;
-       height:230px;   
+      height:250px;   
     }
     #productInfo label input,textarea 
     { 

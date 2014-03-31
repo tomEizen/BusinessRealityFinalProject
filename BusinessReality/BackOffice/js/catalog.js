@@ -29,7 +29,7 @@ $('#tblOrders_filter')
        .filter(function () { return this.nodeType == 3 })
 
 
-function ValidateNewProduct() { 
+function ValidateNewProduct() {
 
 
 
@@ -104,7 +104,12 @@ function EnterDetails(product) {
     $('#lblCategory').text(product.CategoryName);
     $('#lblproductID').text(product.Id);
     $('#lblProductDescription').text(product.Description);
-    $("#productInfoDiscount").text(product.Discount);
+    if (product.Discount == '') {
+        $("#productInfoDiscount").text('לא');
+    } else {
+        $("#productInfoDiscount").text(product.Discount);
+    }
+
     $("#lblProductPrice").text(product.Price + ' ש"ח');
     $('#productInfoImage').attr("src", product.ImageUrl);
     GetProductPropertiesInfo(product.Id);
@@ -161,7 +166,7 @@ function InsertNewCategory(category, properties) {
         success: function (data) // Variable data contains the data we get from serverside
         {
             var change = data.d;
-            if (change=="1") {
+            if (change == "1") {
                 location.reload();
             }
         }, // end of success
