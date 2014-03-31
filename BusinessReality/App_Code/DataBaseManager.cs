@@ -968,7 +968,7 @@ public class DataBaseManager
         {
             con = GetOpenConnection(); // create a connection to the database using the connection String defined in the web config file
         }
-        catch (Exception ex)
+        catch (Exception ex)    
         {
             // write to log
             throw (ex);
