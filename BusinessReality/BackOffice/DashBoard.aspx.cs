@@ -90,23 +90,31 @@ namespace BusinessReality.BackOffice
         }
         private void Top5ScanedProducts()
         {
-            Product p = new Product();
-            Dictionary<string, int> mostScaned = p.Top5ScanedProducts("aviv@gmail.com");
-            int counter = 1;
-            foreach (KeyValuePair<string, int> product in mostScaned)
+            try
             {
-                HtmlTableRow tr = new HtmlTableRow();
-                HtmlTableCell tc = new HtmlTableCell();
-                HtmlTableCell tc1 = new HtmlTableCell();
-                HtmlTableCell tc2 = new HtmlTableCell();
-                tc2.InnerHtml = counter.ToString();
-                tc.InnerHtml = product.Key;
-                tc1.InnerHtml = product.Value.ToString();
-                tr.Controls.Add(tc2);
-                tr.Controls.Add(tc);
-                tr.Controls.Add(tc1);
-                mostScanedTbody.Controls.Add(tr);
-                counter++;
+                Product p = new Product();
+                Dictionary<string, int> mostScaned = p.Top5ScanedProducts("aviv@gmail.com");
+                int counter = 1;
+                foreach (KeyValuePair<string, int> product in mostScaned)
+                {
+                    HtmlTableRow tr = new HtmlTableRow();
+                    HtmlTableCell tc = new HtmlTableCell();
+                    HtmlTableCell tc1 = new HtmlTableCell();
+                    HtmlTableCell tc2 = new HtmlTableCell();
+                    tc2.InnerHtml = counter.ToString();
+                    tc.InnerHtml = product.Key;
+                    tc1.InnerHtml = product.Value.ToString();
+                    tr.Controls.Add(tc2);
+                    tr.Controls.Add(tc);
+                    tr.Controls.Add(tc1);
+                    mostScanedTbody.Controls.Add(tr);
+                    counter++;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
         private void proc_5mostScanedCategories()
@@ -132,46 +140,65 @@ namespace BusinessReality.BackOffice
         }
         private void getActiveCampaignStatistics()
         {
-            Campaign cp = new Campaign();
-            GridView dt = cp.getActiveCampaignStatistics("aviv@gmail.com");
-            hourCampaign.InnerHtml = dt.Rows[0].Cells[0].Text;
-            ageCampaign.InnerHtml = dt.Rows[0].Cells[2].Text;
-            string day = "";
-            switch (dt.Rows[0].Cells[1].Text)
+            try
             {
-                case "1":
-                    day = "ראשון";
-                    break;
-                case "2":
-                    day = "שני";
-                    break;
-                case "3":
-                    day = "שלישי";
-                    break;
-                case "4":
-                    day = "רביעי";
-                    break;
-                case "5":
-                    day = "חמישי";
-                    break;
-                case "6":
-                    day = "שישי";
-                    break;
-                case "7":
-                    day = "שבת";
-                    break;
-                default:
-                    break;
+                Campaign cp = new Campaign();
+                GridView dt = cp.getActiveCampaignStatistics("aviv@gmail.com");
+                hourCampaign.InnerHtml = dt.Rows[0].Cells[0].Text;
+                ageCampaign.InnerHtml = dt.Rows[0].Cells[2].Text;
+                string day = "";
+                switch (dt.Rows[0].Cells[1].Text)
+                {
+                    case "1":
+                        day = "ראשון";
+                        break;
+                    case "2":
+                        day = "שני";
+                        break;
+                    case "3":
+                        day = "שלישי";
+                        break;
+                    case "4":
+                        day = "רביעי";
+                        break;
+                    case "5":
+                        day = "חמישי";
+                        break;
+                    case "6":
+                        day = "שישי";
+                        break;
+                    case "7":
+                        day = "שבת";
+                        break;
+                    default:
+                        break;
+                }
+                dayCampaign.InnerHtml = day;
+
             }
-            dayCampaign.InnerHtml = day;
+            catch (Exception)
+            {
+
+        
+            }
         }
         private void GeneralDetailsPlots()
         {
-            Scan s = new Scan();
-            GridView dv = s.GeneralDetailsPlots("aviv@gmail.com");
-            campaignShareGeneral.InnerHtml = dv.Rows[0].Cells[0].Text;
-            campignTotalShare.InnerHtml = dv.Rows[0].Cells[0].Text;
-            amountOfScans.InnerHtml = dv.Rows[0].Cells[1].Text;
+            try
+            {
+
+                Scan s = new Scan();
+                GridView dv = s.GeneralDetailsPlots("aviv@gmail.com");
+                campaignShareGeneral.InnerHtml = dv.Rows[0].Cells[0].Text;
+                campignTotalShare.InnerHtml = dv.Rows[0].Cells[0].Text;
+                amountOfScans.InnerHtml = dv.Rows[0].Cells[1].Text;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         private void GetCategoriesNames()
         {
@@ -200,49 +227,59 @@ namespace BusinessReality.BackOffice
         }
         protected void productNamesDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Product p = new Product();
-            GridView gvProperties = new GridView();
-            Category c = new Category();
-            categoryProducts = c.GetAllCategoryProducts(categories[categoriesNamesDDL.Text].ToString());
-            gvProperties = p.productPropertiesStatistics(categoryProducts[productNamesDDL.Text]);
-            foreach (GridViewRow row in gvProperties.Rows)
-            {
-                HtmlTableRow tr = new HtmlTableRow();
-                HtmlTableCell tc = new HtmlTableCell();
-                HtmlTableCell tc1 = new HtmlTableCell();
-                HtmlTableCell tc2 = new HtmlTableCell();
-                tc.InnerHtml = row.Cells[0].Text;
-                tc1.InnerHtml = row.Cells[1].Text;
-                tc2.InnerHtml = '%' + row.Cells[2].Text;
-                tr.Controls.Add(tc);
-                tr.Controls.Add(tc1);
-                tr.Controls.Add(tc2);
-                productPropertiesStatistics.Controls.Add(tr);
-            }
-            GridView productHistory = p.GetHistoryScan(categoryProducts[productNamesDDL.Text]);
-            int count = 0;
-            foreach (GridViewRow row in productHistory.Rows)
+            try
             {
 
-                for (int i = 0; i < row.Cells.Count - 2; i++)
-                {
-                    count += Convert.ToInt32(row.Cells[i].Text);
-                }
-                for (int i = 0; i < row.Cells.Count - 2; i++)
+
+                Product p = new Product();
+                GridView gvProperties = new GridView();
+                Category c = new Category();
+                categoryProducts = c.GetAllCategoryProducts(categories[categoriesNamesDDL.Text].ToString());
+                gvProperties = p.productPropertiesStatistics(categoryProducts[productNamesDDL.Text]);
+                foreach (GridViewRow row in gvProperties.Rows)
                 {
                     HtmlTableRow tr = new HtmlTableRow();
                     HtmlTableCell tc = new HtmlTableCell();
                     HtmlTableCell tc1 = new HtmlTableCell();
                     HtmlTableCell tc2 = new HtmlTableCell();
-                    tc.InnerHtml = DateTime.Now.AddMonths(-i).Month.ToString() + "/" + DateTime.Now.AddMonths(-i).Year.ToString();
-                    tc1.InnerHtml = row.Cells[i].Text;
-                    int ss = Convert.ToInt32(row.Cells[i].Text);
-                    tc2.InnerHtml = '%' + ((Convert.ToDouble(row.Cells[i].Text) / count) * 100).ToString();
+                    tc.InnerHtml = row.Cells[0].Text;
+                    tc1.InnerHtml = row.Cells[1].Text;
+                    tc2.InnerHtml = '%' + row.Cells[2].Text;
                     tr.Controls.Add(tc);
                     tr.Controls.Add(tc1);
                     tr.Controls.Add(tc2);
-                    prodyctHistoryStatistics.Controls.Add(tr);
+                    productPropertiesStatistics.Controls.Add(tr);
                 }
+                GridView productHistory = p.GetHistoryScan(categoryProducts[productNamesDDL.Text]);
+                int count = 0;
+                foreach (GridViewRow row in productHistory.Rows)
+                {
+
+                    for (int i = 0; i < row.Cells.Count - 2; i++)
+                    {
+                        count += Convert.ToInt32(row.Cells[i].Text);
+                    }
+                    for (int i = 0; i < row.Cells.Count - 2; i++)
+                    {
+                        HtmlTableRow tr = new HtmlTableRow();
+                        HtmlTableCell tc = new HtmlTableCell();
+                        HtmlTableCell tc1 = new HtmlTableCell();
+                        HtmlTableCell tc2 = new HtmlTableCell();
+                        tc.InnerHtml = DateTime.Now.AddMonths(-i).Month.ToString() + "/" + DateTime.Now.AddMonths(-i).Year.ToString();
+                        tc1.InnerHtml = row.Cells[i].Text;
+                        int ss = Convert.ToInt32(row.Cells[i].Text);
+                        tc2.InnerHtml = '%' + ((Convert.ToDouble(row.Cells[i].Text) / count) * 100).ToString();
+                        tr.Controls.Add(tc);
+                        tr.Controls.Add(tc1);
+                        tr.Controls.Add(tc2);
+                        prodyctHistoryStatistics.Controls.Add(tr);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -317,10 +354,19 @@ namespace BusinessReality.BackOffice
         /// </summary>
         private void UpdateCampaignShareGender()
         {
-            User us = new User();
-            Dictionary<string, int> gender = us.GetCampignsShareGender("aviv@gmail.com");
-            script.Append("drawCampaignShareGenderChart('campaignsGender','" + gender["male"] + "','" + gender["female"] + "');");
+            try
+            {
 
+
+                User us = new User();
+                Dictionary<string, int> gender = us.GetCampignsShareGender("aviv@gmail.com");
+                script.Append("drawCampaignShareGenderChart('campaignsGender','" + gender["male"] + "','" + gender["female"] + "');");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }
