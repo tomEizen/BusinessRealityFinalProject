@@ -41,6 +41,16 @@ public class DataBaseManager
         return connection;
     }
 
+    private void closeConnection()
+    {
+        SqlConnection con = GetOpenConnection();
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+    
+    }
     ///////////////////////////////////  End of connection ///////////////////////////
 
 
@@ -75,6 +85,11 @@ public class DataBaseManager
             throw (ex);
 
         }
+
+        finally
+        {
+            closeConnection();
+        }
         return names;
     }
 
@@ -105,6 +120,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return names;
     }
@@ -138,6 +157,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return ages;
     }
 
@@ -168,6 +191,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return ages;
     }
@@ -200,6 +227,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return names;
     }
 
@@ -231,6 +262,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return names;
     }
 
@@ -257,6 +292,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return camp;
     }
@@ -285,6 +324,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return camp;
     }
 
@@ -311,6 +354,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return camp;
     }
@@ -342,6 +389,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return names;
     }
 
@@ -368,6 +419,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return camp;
     }
@@ -403,6 +458,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return names;
     }
 
@@ -432,6 +491,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return names;
     }
@@ -472,6 +535,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return org;
     }
 
@@ -510,6 +577,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return products;
     }
 
@@ -546,6 +617,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return properties;
     }
 
@@ -576,6 +651,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
         }
+        finally
+        {
+            closeConnection();
+        }
         return names;
     }
 
@@ -603,6 +682,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return names;
     }
@@ -633,6 +716,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return names;
     }
@@ -671,6 +758,10 @@ public class DataBaseManager
             throw (ex);
 
         }
+        finally
+        {
+            closeConnection();
+        }
         return campaigns;
     }
 
@@ -699,6 +790,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
 
+        }
+        finally
+        {
+            closeConnection();
         }
         return campaigns;
     }
@@ -729,6 +824,10 @@ public class DataBaseManager
             // write to log
             throw (ex);
         }
+        finally
+        {
+            closeConnection();
+        }
         return productCounter;
     }
 
@@ -755,6 +854,10 @@ public class DataBaseManager
         catch (Exception ex)
         {
             return organizaion;
+        }
+        finally
+        {
+            closeConnection();
         }
     }
 
@@ -825,6 +928,7 @@ public class DataBaseManager
         {
             return 0;
         }
+
     }
 
     /// <summary>
@@ -950,6 +1054,7 @@ public class DataBaseManager
             throw (ex);
 
         }
+
         return dr;
     }
 
@@ -968,7 +1073,7 @@ public class DataBaseManager
         {
             con = GetOpenConnection(); // create a connection to the database using the connection String defined in the web config file
         }
-        catch (Exception ex)    
+        catch (Exception ex)
         {
             // write to log
             throw (ex);

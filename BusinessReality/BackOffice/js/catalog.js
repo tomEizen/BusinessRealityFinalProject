@@ -233,7 +233,6 @@ function addQrCode(url, div) {
 
 //printing only the qrcode in a new window
 function printDiv(divID, name) {
-    alert(name);
     var productName = document.getElementById(name).innerHTML;
     var divToPrint = document.getElementById(divID);
     divToPrint.innerHTML = "";

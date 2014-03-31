@@ -116,5 +116,9 @@ public class Campaign
         return db.getActiveCampaignStatistics(managerEmail);
     }
 
- 
+    public int insertNewCampaign(Campaign campaign, string email)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.insertNewCampaign(campaign, email);
+    }
 }

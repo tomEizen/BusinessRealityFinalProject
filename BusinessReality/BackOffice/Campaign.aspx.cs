@@ -34,7 +34,7 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
                         string filename = Path.GetFileName(uploadCampaignImgFU.FileName);
                         string path = Server.MapPath("~/BackOffice/img/gallery/campaigns/");
                         uploadCampaignImgFU.SaveAs(path + filename);
-                        return path + filename;
+                        return "img/gallery/campaigns/" + filename;
                     }
 
                 }
@@ -53,7 +53,7 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
     /// <param name="e"></param>
     protected void btnSaveCampaign_Click(object sender, EventArgs e)
     {
-        DataBaseManager db = new DataBaseManager();
+
         Campaign campaign = new Campaign();
         campaign.Name = txtCampaignName.Text;
         campaign.Description = txtCampaignDescription.Text;
@@ -64,7 +64,7 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
         campaign.ImageUrl = InsertPictureToDirectory();
         campaign.DateCreated = DateTime.Now;
         campaign.IsActive = true;
-        db.insertNewCampaign(campaign, "aviv@gmail.com");
+        campaign.insertNewCampaign(campaign, "aviv@gmail.com");
         Response.Redirect("Campaign.aspx");
 
     }
@@ -91,7 +91,10 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
             tc2.InnerHtml = c.Description;
             tc3.InnerHtml = c.Voucher;
             tc4.InnerHtml = c.ShareCount.ToString();
-            tc5.InnerHtml = c.IsActive.ToString();
+            if (c.IsActive == true)
+                tc5.InnerHtml = "פעיל";
+            else
+                tc5.InnerHtml = "לא פעיל";
             tr.Cells.Add(tc);
             tr.Cells.Add(tc1);
             tr.Cells.Add(tc2);
