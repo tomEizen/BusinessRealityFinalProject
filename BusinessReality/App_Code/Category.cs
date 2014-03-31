@@ -50,6 +50,12 @@ public class Category
         return dbs.getCategoryProperties(categoryID);
 
     }
+
+    /// <summary>
+    /// gets the 5 most scaned categoreis
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a dictionary of category name and amount</returns>
     public Dictionary<string, int> proc_5mostScanedCategories(string email)
     {
         DataBaseManager db = new DataBaseManager();

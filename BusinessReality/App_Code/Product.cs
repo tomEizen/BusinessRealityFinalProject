@@ -43,11 +43,22 @@ public class Product
         return db.GetAllProductInfoBasic(email);
     }
 
+    /// <summary>
+    /// gets the 5 most scaned products
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a dictionary of product name and amount</returns>
     public Dictionary<string, int> Top5ScanedProducts(string managerEmail)
     {
         DataBaseManager db = new DataBaseManager();
         return db.Top5ScanedProducts(managerEmail);
     }
+
+    /// <summary>
+    /// call the db class to get product most viewed properties
+    /// </summary>
+    /// <param name="productCounter">the uniq id of the organization's product</param>
+    /// <returns>grid view of the details</returns>
     public GridView productPropertiesStatistics(int productCounter)
     {
         DataBaseManager db = new DataBaseManager();

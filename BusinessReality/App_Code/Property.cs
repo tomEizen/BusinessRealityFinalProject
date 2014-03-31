@@ -32,14 +32,16 @@ public class Property
     }
 
 
+    /// <summary>
+    /// call the db class to gets all the properties of a specific organizations
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>dictionary of property name and id</returns>
     public Dictionary<string, int> getAllProp(string managerEmail)
     {
 
         DataBaseManager db = new DataBaseManager();
         return db.getAllProp(managerEmail);
-
-
-
     }
 
     public List<Property> GetProductPropertiesInfo(string managerEmail, int productId)

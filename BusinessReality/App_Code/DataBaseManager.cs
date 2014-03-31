@@ -15,6 +15,9 @@ using System.Web.UI.WebControls;
 /// </summary>
 public class DataBaseManager
 {
+
+    /////////////////////////connection/////////////////////
+
     /// <summary>
     /// the connection string to the database
     /// </summary>
@@ -37,12 +40,13 @@ public class DataBaseManager
         connection.Open();
         return connection;
     }
-    /////////////////////////plots//////////////////////
+
+  
 
     /// <summary>
-    ///gets all organization properties
+    ///gets the properties of all the existing organizations
     /// </summary>
-    /// <returns> returen Dictionary</returns>
+    /// <returns> Dictionary of property name and id</returns>
     public Dictionary<string, int> getAllProp()
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -67,10 +71,11 @@ public class DataBaseManager
         return names;
     }
 
-    /// <summary>
-    ///gets all organization properties
-    /// </summary>
-    /// <returns> returen Dictionary</returns>
+/// <summary>
+/// gets all the properties of a specific organizations
+/// </summary>
+/// <param name="managerEmail">manager email for identification</param>
+/// <returns>dictionary of property name and id</returns>
     public Dictionary<string, int> getAllProp(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -96,11 +101,13 @@ public class DataBaseManager
         return names;
     }
 
+/////////////////////////////////////// plots /////////////////////////////////////
 
-    /// <summary>
-    ///gets the catagories
-    /// </summary>
-    /// <returns> returen catagory</returns>
+/// <summary>
+/// get the general users gender statistic
+/// </summary>
+/// <param name="managerEmail">manager's email for identification</param>
+/// <returns>dictionary of male and female count</returns>
     public Dictionary<string, int> getGenderStatistics(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -128,10 +135,10 @@ public class DataBaseManager
     }
 
     /// <summary>
-    /// get a list of gender from the db of the users who shared a campiagn
+    /// get a gender count from the db of the users who shared a campiagn
     /// </summary>
     /// <param name="managerEmail">the manager's email for identification</param>
-    /// <returns>a list of users gender</returns>
+    /// <returns>dictionary of male and female count</returns>
     public Dictionary<string, int> GetCampaignShareGender(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -159,12 +166,11 @@ public class DataBaseManager
     }
 
 
-
     /// <summary>
-    /// gets the users ages list
+    /// gets all the users ages list
     /// </summary>
     /// <param name="managerEmail">the manager's email for identification</param>
-    /// <returns>users ages list</returns>
+    /// <returns>dictionary of ages</returns>
     public Dictionary<string, int> getAgeStatistics(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -195,7 +201,7 @@ public class DataBaseManager
     /// get a list of ages from the db of the users who shared a campiagn
     /// </summary>
     /// <param name="managerEmail">the email of the organization's manager</param>
-    /// <returns>a list od ages</returns>
+    /// <returns>a dictionary of ages</returns>
     public Dictionary<string, int> GetCampignsShareAges(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -223,10 +229,11 @@ public class DataBaseManager
     }
 
 
-    /// <summary>
-    ///gets the 5 most scaned categoreis 
-    /// </summary>
-    /// <returns> returen Dictionary</returns>
+/// <summary>
+/// gets the 5 most scaned categoreis
+/// </summary>
+/// <param name="managerEmail">manager email for identification</param>
+/// <returns>a dictionary of category name and amount</returns>
     public Dictionary<string, int> proc_5mostScanedCategories(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -253,9 +260,10 @@ public class DataBaseManager
     }
 
     /// <summary>
-    ///gets the 5 most scaned categoreis 
+    /// gets the 5 most scaned products
     /// </summary>
-    /// <returns> returen Dictionary</returns>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>a dictionary of product name and amount</returns>
     public Dictionary<string, int> Top5ScanedProducts(string managerEmail)
     {
 
@@ -281,6 +289,12 @@ public class DataBaseManager
         }
         return names;
     }
+
+    /// <summary>
+    /// get info about the current active campaign
+    /// </summary>
+    /// <param name="managerEmail">manager's email for identification</param>
+    /// <returns>a grid of data about the active campaign</returns>
     public GridView getActiveCampaignStatistics(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -302,6 +316,12 @@ public class DataBaseManager
         }
         return camp;
     }
+
+    /// <summary>
+    /// get product most viewed properties
+    /// </summary>
+    /// <param name="productCounter">the uniq id of the organization's product</param>
+    /// <returns>grid view of the details</returns>
     public GridView productPropertiesStatistics(int productCounter)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -323,6 +343,12 @@ public class DataBaseManager
         }
         return camp;
     }
+
+    /// <summary>
+    /// get general details about the users
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>gridview of details</returns>
     public GridView GeneralDetailsPlots(string managerEmail)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
