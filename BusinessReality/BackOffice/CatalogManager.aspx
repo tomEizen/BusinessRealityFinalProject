@@ -113,12 +113,13 @@
                             <div class="block ">
                                 <table id="addProductTable">
                                     <tr>
-                                        <th >
+                                        <th>
                                             <label>
                                                 בחר קטגוריה</label>
-                                        </th    >
-                                        <td >
-                                            <asp:DropDownList class="text" ID="categoriesNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged1">
+                                        </th>
+                                        <td>
+                                            <asp:DropDownList class="text" ID="categoriesNamesDDL" runat="server" AutoPostBack="true"
+                                                OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged1">
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -195,13 +196,13 @@
                                                 מוצר במבצע</label>
                                         </th>
                                         <td>
-                                            <asp:RadioButtonList class="text" RepeatLayout="Flow" RepeatDirection="Horizontal" ID="RadioButtonList1"
-                                                runat="server">
+                                            <asp:RadioButtonList class="text" RepeatLayout="Flow" RepeatDirection="Horizontal"
+                                                ID="RadioButtonList1" runat="server">
                                                 <asp:ListItem Selected="True">לא</asp:ListItem>
                                                 <asp:ListItem>כן</asp:ListItem>
                                             </asp:RadioButtonList>
                                             <br />
-                                            <asp:TextBox ID="discountTB" class="text"  runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="discountTB" class="text" runat="server"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -236,8 +237,10 @@
                     <div id="Div3">
                         <div id="qrcode" style="width: 100px; height: 100px; margin-top: 15px;">
                         </div>
+                        <div id="ProductInsertedName" runat="server">
+                        </div>
                         <br />
-                        <input type="button" value="הדפסת הברקוד" onclick="printDiv('qrcode')" />
+                        <input type="button" value="הדפסת הברקוד" onclick="printDiv('qrcode,ProductInsertedName')" />
                     </div>
                 </div>
             </div>
@@ -314,13 +317,12 @@
                                             בחר קטגוריה לתצוגה</label>
                                     </td>
                                     <td>
-                                        <asp:DropDownList class="text" ID="editCategoryCategoriesDDL" AutoPostBack="true" runat="server"
-                                            OnSelectedIndexChanged="editCategoryCategoriesDDL_SelectedIndexChanged">
+                                        <asp:DropDownList class="text" ID="editCategoryCategoriesDDL" AutoPostBack="true"
+                                            runat="server" OnSelectedIndexChanged="editCategoryCategoriesDDL_SelectedIndexChanged">
                                         </asp:DropDownList>
                                     </td>
                                     <td>
                                         <img alt="plusBtn" id="plusImg" title="הוסף קטגוריה חדשה" src="img/plus.png" onclick="show('addCategory')" />
-
                                     </td>
                                 </tr>
                             </table>
@@ -365,7 +367,7 @@
                                                 בחר קטגוריה</label>
                                         </td>
                                         <td class="col2">
-                                            <asp:DropDownList class="text"  ID="DropDownList1" runat="server">
+                                            <asp:DropDownList class="text" ID="DropDownList1" runat="server">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -375,7 +377,7 @@
                                                 מק"ט מוצר</label>
                                         </td>
                                         <td>
-                                            <asp:TextBox  ID="TextBox8" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -466,7 +468,7 @@
                                         מק"ט מוצר:</label>
                                 </td>
                                 <td>
-                                    <asp:Label  ID="lblproductID" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="lblproductID" runat="server" Text="Label"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -496,21 +498,13 @@
                                     <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        קוד:</label>
-                                </td>
-                                <td id="qrcodePrint">
-                                </td>
-                            </tr>
                         </thead>
                         <tbody>
                         </tbody>
                     </table>
                     <div style="text-align: center" id="productInfoButtons">
                         <input id="btnEditProduct" type="button" class="btn" value="ערוך מוצר" onclick="edit()" />
-                        <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcodePrint','infoName','4')" />
+                        <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcode','infoName')" />
                         <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
                     </div>
                 </div>

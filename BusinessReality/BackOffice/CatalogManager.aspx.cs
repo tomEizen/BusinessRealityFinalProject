@@ -26,7 +26,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         if (Session["numOfRows"] != null)
         {
             string s = "www.one.co.il";
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "callproductInsertedToDb", "productInsertedToDb('" + s + ")", true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "callproductInsertedToDb", "productInsertedToDb('" + s + "')", true);
             Session["numOfRows"] = null;
         }
         enterProductInfo();
@@ -131,6 +131,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             int numOfRows = product.insertNewProduct(product, categories[categoriesNamesDDL.SelectedValue.ToString()], propertiesOfCategory, "aviv@gmail.com");
             if (numOfRows > 0)//מוציא הודעה האם המוצר הוכנס כמו שצריך
             {
+                ProductInsertedName.InnerHtml = product.Name;
                 Session.Add("numOfRows", numOfRows);
                 Session.Add("product", product);
                 Response.Redirect("CatalogManager.aspx");
