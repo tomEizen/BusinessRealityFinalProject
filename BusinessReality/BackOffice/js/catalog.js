@@ -214,7 +214,7 @@ $(function () {
 });
 
 function productInsertedToDb(url) {
-    addQrCode(url);
+    addQrCode(url, 'qrcode');
     $("#prodectInserted").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
         $("#prodectInserted").find("input:first").focus();
     }

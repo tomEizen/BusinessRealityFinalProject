@@ -26,7 +26,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         if (Session["numOfRows"] != null)
         {
             string s = "www.one.co.il";
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "callproductInsertedToDb", "productInsertedToDb('" + s + "',3)", true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "callproductInsertedToDb", "productInsertedToDb('" + s + ")", true);
             Session["numOfRows"] = null;
         }
         enterProductInfo();
