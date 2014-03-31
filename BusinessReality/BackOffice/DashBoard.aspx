@@ -11,8 +11,6 @@
     <link rel="stylesheet" type="text/css" href="css/grid.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
-    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
-    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
     <link href="css/table/demo_page.css" rel="stylesheet" type="text/css" />
     <!-- BEGIN: load jquery -->
     <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
@@ -45,25 +43,6 @@
     <script type="text/javascript" src="js/jqPlot/plugins/jqplot.bubbleRenderer.min.js"></script>
     <!-- END: load jqplot -->
     <script src="js/setup.js" type="text/javascript"></script>
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            $('#demographicsBtn').click(function () {
-                drawBubbleChart('bubble-chart');
-            });
-            //            $('#campaignBtn').click(function () {
-            //                drawPointsChart('points-chart');
-            //            });
-            setupLeftMenu();
-            setSidebarHeight();
-        });
-    </script>
-    <style type="text/css">
-        .style1
-        {
-            width: 299px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -98,7 +77,7 @@
                         <li class="ic-dashboard"><a href="DashBoard.aspx"><span>הפקת דוחות</span></a> </li>
                         <li class="ic-form-style"><a href="CatalogManager.aspx"><span>ניהול קטלוג מוצרים</span></a>
                         </li>
-                        <li class="ic-typography"><a href="Campaign.aspx"><span> ניהול קמפיין פייסבוק</span></a></li>
+                        <li class="ic-typography"><a href="Campaign.aspx"><span>ניהול קמפיין פייסבוק</span></a></li>
                     </ul>
                 </div>
                 <div class="clear">
@@ -209,13 +188,14 @@
                         <div class="block">
                             <div>
                                 <span><b>בחירת קטגוריה</b>:</span>
-                                <asp:DropDownList class="text" ID="categoriesNamesDDL" AutoPostBack="true" runat="server" OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged">
+                                <asp:DropDownList class="text" ID="categoriesNamesDDL" AutoPostBack="true" runat="server"
+                                    OnSelectedIndexChanged="categoriesNamesDDL_SelectedIndexChanged">
                                 </asp:DropDownList>
- 
                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                     <ContentTemplate>
                                         <span><b>בחירת מוצר</b>:</span>
-                                        <asp:DropDownList  class="text" ID="productNamesDDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="productNamesDDL_SelectedIndexChanged" Width="100px">
+                                        <asp:DropDownList class="text" ID="productNamesDDL" runat="server" AutoPostBack="true"
+                                            OnSelectedIndexChanged="productNamesDDL_SelectedIndexChanged" Width="100px">
                                         </asp:DropDownList>
                                     </ContentTemplate>
                                     <Triggers>
@@ -320,7 +300,6 @@
                             </div>
                         </div>
                     </div>
-                    <%--<div class="grid_10">--%>
                     <div class="box round first">
                         <h2>
                             חמשת הקמפיינים המובילים בשיתוף</h2>
@@ -328,37 +307,29 @@
                             <div id="campaignsShare">
                             </div>
                         </div>
-                    </div>
-                    <%-- </div>--%>
-                    <div class="grid_6">
-                        <div class="box round">
-                            <h2>
-                                גילאי משתפי הקמפיין</h2>
-                            <div id="campaignsAges">
+                        <div class="grid_6">
+                            <div class="box round">
+                                <h2>
+                                    גילאי משתפי הקמפיין</h2>
+                                <div id="campaignsAges">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid_6">
+                            <div class="box round">
+                                <h2>
+                                    מגדר משתפי הקמפיין</h2>
+                                <div id="campaignsGender">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="grid_6">
-                        <div class="box round">
-                            <h2>
-                                מגדר משתפי הקמפיין</h2>
-                            <div id="campaignsGender">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="grid_2">
                 <div class="box sidemenu">
                     <div class="block" id="section-menu">
                         <ul class="section menu">
-                            <li><a class="menuitem" onclick="show('general')">דו"ח סקירה כללי</a>
-                                <%--     להשתמש במידה ורוצים אקורדיון--%>
-                                <%--                           <ul class="submenu">
-                                    <li><a>Submenu 1</a> </li>
-                                    <li><a>Submenu 2</a> </li>
-                                </ul>--%>
-                            </li>
+                            <li><a class="menuitem" onclick="show('general')">דו"ח סקירה כללי</a> </li>
                             <li><a class="menuitem " id="actBtn" onclick="show('act')">דו"ח התנהגותי</a> </li>
                             <li><a class="menuitem " id="campaignBtn" onclick="show('campaign')">דו"ח קמפיין</a>
                             </li>

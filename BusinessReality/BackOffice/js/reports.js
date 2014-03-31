@@ -1,5 +1,4 @@
-﻿
-var plot5
+﻿var plot5
 var plot6
 var plot7
 
@@ -202,3 +201,11 @@ function drawCampaignShareGenderChart(containerElement, male, female) {
     }
   );
 }
+
+$(document).ready(function () {
+    $('#demographicsBtn').click(function () {
+        drawBubbleChart('bubble-chart');
+    });
+    setupLeftMenu();
+    setSidebarHeight();
+});

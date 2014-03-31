@@ -31,6 +31,8 @@ namespace BusinessReality.BackOffice
             proc_5mostScanedCategories();
             scriptActive();
         }
+
+
         private void scriptActive()
         {
             script.Append("scanProduct();");
