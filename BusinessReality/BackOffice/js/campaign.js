@@ -11,6 +11,8 @@ function BuildCampaignTable(name,description,voucher,dateCreated,isActive,shareC
    // $('#CampaignTable > tbody:last').append('<tr><td>' + name + '</td><td>' + dateCreated + '</td><td>' + description + '</td><td>' + voucher + '</td><td>' + shareCount + '</td><td>' + isActive + '</td></tr>');
     $("#CampaignTable").last().append('<tr><td>' + name + '</td><td>' + dateCreated + '</td><td>' + description + '</td><td>' + voucher + '</td><td>' + shareCount + '</td><td>' + isActive + '</td></tr>');
 }
+
+//onload
 $(document).ready(function () {
     $('#CampaignTable').dataTable({
         "oLanguage": {

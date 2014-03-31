@@ -16,7 +16,9 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
         ShowCampaignTable();
     }
 
-    // insert the uploaded picture to the server dic'
+    /// <summary>
+    /// saving the uploaded picture 
+    /// </summary>
     private string InsertPictureToDirectory()
     {
         if (uploadCampaignImgFU.HasFile)

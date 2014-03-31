@@ -79,7 +79,7 @@
             <div class="grid_10">
                 <div class="box round first grid">
                     <h2>
-                        ניהול קמפיין</h2> 
+                        ניהול קמפיין</h2>
                     <div class="block">
                         <table class="data display datatable" id="CampaignTable">
                             <thead>
@@ -119,7 +119,7 @@
                             צור קמפיין חדש
                         </h2>
                         <div class="block ">
-                            <table dir="rtl" style="text-align:right">
+                            <table dir="rtl" style="text-align: right">
                                 <tr>
                                     <th class="col1">
                                         <label>
@@ -140,7 +140,7 @@
                                             נוסח הקמפיין ברשת החברתית</label>
                                     </th>
                                     <td class="col2">
-                                        <asp:TextBox class="text" ID="txtCampaignDescription" runat="server" ></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignDescription" runat="server"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RequiredFieldValidator ID="CampaignDescriptionValidator" ControlToValidate="txtCampaignDescription"
@@ -203,15 +203,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                  
                                     </td>
                                     <td>
-                                        
                                     </td>
                                 </tr>
                             </table>
-                              <asp:Button ID="btnSaveCampaign" class="btn" runat="server" Text="שמור קמפיין"  OnClick="btnSaveCampaign_Click" />
-                         <input id="Button1" type="button" class="btn" value="ביטול" onclick="show('general')" />
+                            <asp:Button ID="btnSaveCampaign" class="btn" runat="server" Text="שמור קמפיין" OnClick="btnSaveCampaign_Click" />
+                            <input id="Button1" type="button" class="btn" value="ביטול" onclick="show('general')" />
                         </div>
                     </div>
                 </div>
@@ -235,3 +233,18 @@
     </form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

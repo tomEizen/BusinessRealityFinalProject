@@ -270,7 +270,7 @@
                     </asp:UpdatePanel>
                 </div>
             </div>
-            <div id="campaign" class="displayNone">
+             <div id="campaign" class="displayNone">
                 <div class="grid_10">
                     <div class="box round" id="Div1">
                         <h2>
@@ -300,6 +300,7 @@
                             </div>
                         </div>
                     </div>
+                    <%--<div class="grid_10">--%>
                     <div class="box round first">
                         <h2>
                             חמשת הקמפיינים המובילים בשיתוף</h2>
@@ -307,29 +308,37 @@
                             <div id="campaignsShare">
                             </div>
                         </div>
-                        <div class="grid_6">
-                            <div class="box round">
-                                <h2>
-                                    גילאי משתפי הקמפיין</h2>
-                                <div id="campaignsAges">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_6">
-                            <div class="box round">
-                                <h2>
-                                    מגדר משתפי הקמפיין</h2>
-                                <div id="campaignsGender">
-                                </div>
+                    </div>
+                    <%-- </div>--%>
+                    <div class="grid_6">
+                        <div class="box round">
+                            <h2>
+                                גילאי משתפי הקמפיין</h2>
+                            <div id="campaignsAges">
                             </div>
                         </div>
                     </div>
+                    <div class="grid_6">
+                        <div class="box round">
+                            <h2>
+                                מגדר משתפי הקמפיין</h2>
+                            <div id="campaignsGender">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="grid_2">
                 <div class="box sidemenu">
                     <div class="block" id="section-menu">
                         <ul class="section menu">
-                            <li><a class="menuitem" onclick="show('general')">דו"ח סקירה כללי</a> </li>
+                            <li><a class="menuitem" onclick="show('general')">דו"ח סקירה כללי</a>
+                                <%--     להשתמש במידה ורוצים אקורדיון--%>
+                                <%--                           <ul class="submenu">
+                                    <li><a>Submenu 1</a> </li>
+                                    <li><a>Submenu 2</a> </li>
+                                </ul>--%>
+                            </li>
                             <li><a class="menuitem " id="actBtn" onclick="show('act')">דו"ח התנהגותי</a> </li>
                             <li><a class="menuitem " id="campaignBtn" onclick="show('campaign')">דו"ח קמפיין</a>
                             </li>

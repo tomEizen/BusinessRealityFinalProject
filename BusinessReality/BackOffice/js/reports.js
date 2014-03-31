@@ -67,6 +67,8 @@ function setupProductViews(containerElementId) {
         }
     });
 }
+
+
 //draw gender plot
 function drawGenderChart(containerElement, male, female) {
     var plot3 = $.jqplot(containerElement,
@@ -113,11 +115,11 @@ function drawAgesChart(containerElement, range1, range2, range3, range4, range5,
 //draw a bar chart to represent the top 5 campaign
 function drawCamgaignShareChart(containerElement, name1, share1, name2, share2, name3, share3, name4, share4, name5, share5) {
 
-   $.jqplot.config.enablePlugins = true;
-   var line1 = [[name1.toString(), parseInt(share1)], [name2.toString(), parseInt(share2)], [name3.toString(), parseInt(share3)],
+    $.jqplot.config.enablePlugins = true;
+    var line1 = [[name1.toString(), parseInt(share1)], [name2.toString(), parseInt(share2)], [name3.toString(), parseInt(share3)],
   [name4.toString(), parseInt(share4)], [name5.toString(), parseInt(share5)]];
 
-   plot5 = $.jqplot(containerElement, [line1],
+    plot5 = $.jqplot(containerElement, [line1],
    {
        width: '700px',
        title: '',
@@ -154,8 +156,8 @@ function drawCamgaignShareChart(containerElement, name1, share1, name2, share2, 
        }
    }
   );
-  }
-  
+}
+
 
 //draw pie chart to represent the age ranges of the useres who shared a campaign
 function drawCampaignShareAgesChart(containerElement, range1, range2, range3, range4, range5, range6, range7, range8) {
@@ -203,7 +205,8 @@ function drawCampaignShareGenderChart(containerElement, male, female) {
   );
 }
 
-//onload 
+//onload
+
 $(document).ready(function () {
     $('#demographicsBtn').click(function () {
         drawBubbleChart('bubble-chart');
