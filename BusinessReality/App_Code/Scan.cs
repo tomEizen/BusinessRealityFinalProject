@@ -23,6 +23,13 @@ public class Scan
         get { return this.timeOfScan; }
         set { this.timeOfScan = value; }
     }
+
+
+    /// <summary>
+    /// call the db class to get general details about the users
+    /// </summary>
+    /// <param name="managerEmail">manager email for identification</param>
+    /// <returns>gridview of details</returns>
     public GridView GeneralDetailsPlots(string managerEmail)
     {
         DataBaseManager db = new DataBaseManager();

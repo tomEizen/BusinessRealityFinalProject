@@ -62,6 +62,11 @@ public class User
         return db.GetCampignsShareAges(email);
     }
 
+    /// <summary>
+    /// call the db class to get a gender count from the db of the users who shared a campiagn
+    /// </summary>
+    /// <param name="managerEmail">the manager's email for identification</param>
+    /// <returns>dictionary of male and female count</returns>
     public Dictionary<string, int> GetCampignsShareGender(string email)
     {
         DataBaseManager db = new DataBaseManager();
