@@ -292,9 +292,9 @@
                                 </p>
                             </div>
                             <div class="stat-col">
-                                <span>כמות סריקות חודשיות</span>
-                                <p class="blue">
-                                    99.9%</p>
+                                <span>סה"כ שיתופי קמפיין</span>
+                                <p id="campignTotalShare" runat="server" class="red">
+                                </p>
                             </div>
                             <div class="clear">
                             </div>

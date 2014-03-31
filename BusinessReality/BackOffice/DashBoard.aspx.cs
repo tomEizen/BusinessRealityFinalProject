@@ -170,6 +170,7 @@ namespace BusinessReality.BackOffice
             Scan s = new Scan();
             GridView dv = s.GeneralDetailsPlots("aviv@gmail.com");
             campaignShareGeneral.InnerHtml = dv.Rows[0].Cells[0].Text;
+            campignTotalShare.InnerHtml = dv.Rows[0].Cells[0].Text;
             amountOfScans.InnerHtml = dv.Rows[0].Cells[1].Text;
         }
         private void GetCategoriesNames()
