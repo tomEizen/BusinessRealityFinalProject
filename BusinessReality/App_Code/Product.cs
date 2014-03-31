@@ -29,12 +29,20 @@ public class Product
     public string ImageUrl { get { return this.imageUrl; } set { this.imageUrl = value; } }
     public DateTime DateModified { get { return this.dateModified; } set { this.dateModified = value; } }
     public Category Category { get { return this.category; } set { this.category = value; } }
-    
-    
-    public int insertNewProduct(Product product,int categoryName, Dictionary<int, string> pp, string emailManager)
+
+
+    /// <summary>
+    /// call the db class to insert a new product into the db && the properties description to the db
+    /// </summary>
+    /// <param name="product">new product's object</param>
+    /// <param name="categoryID">the category to which the product belong</param>
+    /// <param name="pp">the properties of the product</param>
+    /// <param name="emailManager">manager email for identification</param>
+    /// <returns>num of rows changed</returns>
+    public int insertNewProduct(Product product, int categoryName, Dictionary<int, string> pp, string emailManager)
     {
         DataBaseManager db = new DataBaseManager();
-        return db.insertNewProduct(product,categoryName, pp, emailManager);
+        return db.insertNewProduct(product, categoryName, pp, emailManager);
     }
 
     /// <summary>

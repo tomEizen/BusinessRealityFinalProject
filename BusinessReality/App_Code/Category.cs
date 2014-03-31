@@ -81,7 +81,13 @@ public class Category
         return db.GetAllCategoryProducts(id);
     }
 
-
+    /// <summary>
+    /// call the db class to insert a new category to the db
+    /// </summary>
+    /// <param name="c">object of the new category</param>
+    /// <param name="lProperty">an array of the properties</param>
+    /// <param name="email">manager email for identification</param>
+    /// <returns>num of rows changed</returns>
     public int insertNewCategory(Category c, string[] lProperty, string email)
     {
         DataBaseManager db = new DataBaseManager();
