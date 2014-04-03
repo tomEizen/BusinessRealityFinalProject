@@ -1,5 +1,6 @@
 ﻿var products;
 var propertyCount = 0;
+var QRurl;
 
 //show a specific div in the page and hides the rest
 function show(target) {
@@ -119,8 +120,30 @@ function EnterDetails(product) {
     $("#lblProductPrice").text(product.Price + ' ש"ח');
     $('#productInfoImage').attr("src", product.ImageUrl);
     GetProductPropertiesInfo(product.Id);
-    addQrCode('www.one.co.il', '');
+    getProductCounter(product.Id);
 
+
+}
+
+//getting the selected product properties from the db
+function getProductCounter(productID) {
+    var email = 'aviv@gmail.com';
+    $.ajax({ // ajax call starts
+        url: 'WebService.asmx/getProductCounter',   // JQuery loads serverside.php
+        data: '{productId:"' + productID + '",email:"' + email + '"}',
+        type: 'POST',
+        dataType: 'json', // Choosing a JSON datatype
+        contentType: 'application/json; charset = utf-8',
+        success: function (data) // Variable data contains the data we get from serverside
+        {
+            p = $.parseJSON(data.d);
+            QRurl = 'proj.ruppin.ac.il/bgroup16/Test2/ShowProduct.htm?productCounter=' + p;
+            addQrCode(QRurl, '');
+        }, // end of success
+        error: function (e) {
+            alert(e.responseText);
+        } // end of error
+    }) // end of ajax call
 }
 
 
@@ -214,8 +237,8 @@ $(function () {
     $('table tr:nth-child(even)').addClass('stripe');
 });
 
-function productInsertedToDb(url) {
-    addQrCode(url, 'qrcode');
+function productInsertedToDb(productId) {
+    getProductCounter(productId);
     $("#prodectInserted").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
         $("#prodectInserted").find("input:first").focus();
     }
@@ -236,7 +259,7 @@ function printDiv(divID, name) {
     var productName = document.getElementById(name).innerHTML;
     var divToPrint = document.getElementById(divID);
     divToPrint.innerHTML = "";
-    addQrCode('www.one.co.il', divID);
+    addQrCode(QRurl, divID);
     var popupWin = window.open('', '_blank', 'width=600,height=600');
     popupWin.document.open();
     popupWin.document.write('<html><body>' + productName + divToPrint.innerHTML + '</html>');

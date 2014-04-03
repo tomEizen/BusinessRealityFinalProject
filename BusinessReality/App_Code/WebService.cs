@@ -98,4 +98,19 @@ public class WebService : System.Web.Services.WebService
         }
         return "0";
     }
+
+    /// <summary>
+    /// gets the product counter
+    /// </summary>
+    /// <param name="orgID">The id of the organization</param>
+    /// <param name="Email">email for identification</param>
+    /// <returns>product counter</returns>
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getProductCounter(string email, string productId)
+    {
+        Product p = new Product();
+        string productCounter = p.GetProductCounter(email, productId);
+        return productCounter;
+    }
 }

@@ -88,6 +88,11 @@ public class Product
         DataBaseManager db = new DataBaseManager();
         return db.GetHistoryScan(productCounter);
     }
+    public string GetProductCounter(string email, string productID)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.GetProductCounterWithEmail(email, productID);
+    }
 }
 
 

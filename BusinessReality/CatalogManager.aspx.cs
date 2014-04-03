@@ -25,13 +25,13 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         addPropToDrop();
         if (Session["numOfRows"] != null)
         {
-            string s = "www.one.co.il";
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "callproductInsertedToDb", "productInsertedToDb('" + s + "')", true);
+            Product p =(Product) Session["product"];
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "callproductInsertedToDb", "productInsertedToDb('" + p.Id + "')", true);
             Session["numOfRows"] = null;
         }
     }
 
-   
+
     /// <summary>
     /// insert the organization catagories to the addProduct form
     /// </summary>
@@ -207,7 +207,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
                     {
 
                         uploadImgFU.SaveAs(path + filename);
-                        ProductpicPath = "img/gallery/products/" + filename;
+                        ProductpicPath = "BackOffice/img/gallery/products/" + filename;
 
                     }
                 }

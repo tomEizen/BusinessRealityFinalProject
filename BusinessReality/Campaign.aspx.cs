@@ -34,7 +34,7 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
                         string filename = Path.GetFileName(uploadCampaignImgFU.FileName);
                         string path = Server.MapPath("~/BackOffice/img/gallery/campaigns/");
                         uploadCampaignImgFU.SaveAs(path + filename);
-                        return "img/gallery/campaigns/" + filename;
+                        return "BackOffice/img/gallery/campaigns/" + filename;
                     }
 
                 }

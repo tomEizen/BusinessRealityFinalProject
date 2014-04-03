@@ -798,6 +798,40 @@ public class DataBaseManager
         return campaigns;
     }
 
+
+    /// <summary>
+    ///  gets the productcCounter
+    /// </summary>
+    /// <param name="o">email</param>
+    /// <param name="p">product id</param>
+    /// <returns>the product counter string</returns>
+    public string GetProductCounterWithEmail(string email, string productId)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        string productCounter = "";
+        try
+        {
+            paraList.Add(new SqlParameter("@email", email));
+            paraList.Add(new SqlParameter("@productID", productId));
+            SqlDataReader dr = ActivateStoredProc("getProductCounterWithEmail", paraList);
+            while (dr.Read())
+            {// Read till the end of the data into a row
+                // read first field from the row into the list collection
+                productCounter = dr["productCounter"].ToString();
+            }
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+        finally
+        {
+            closeConnection();
+        }
+        return productCounter;
+    }
+
     /// <summary>
     ///  create a uniq id for an organization product
     /// </summary>
