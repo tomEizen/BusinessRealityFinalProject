@@ -207,7 +207,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
                     {
 
                         uploadImgFU.SaveAs(path + filename);
-                        ProductpicPath = "BackOffice/img/gallery/products/" + filename;
+                        ProductpicPath = "http://proj.ruppin.ac.il/bgroup16/prod/BackOffice/img/gallery/products/" + filename;
 
                     }
                 }
