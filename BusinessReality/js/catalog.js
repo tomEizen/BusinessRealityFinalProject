@@ -137,7 +137,7 @@ function getProductCounter(productID) {
         success: function (data) // Variable data contains the data we get from serverside
         {
             p = $.parseJSON(data.d);
-            QRurl = 'proj.ruppin.ac.il/bgroup16/Test2/ShowProduct.htm?productCounter=' + p;
+            QRurl = 'proj.ruppin.ac.il/bgroup16/Test2/FbLogin.htm?productCounter=' + p;
             addQrCode(QRurl, '');
         }, // end of success
         error: function (e) {
