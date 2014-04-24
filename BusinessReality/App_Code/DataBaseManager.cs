@@ -309,7 +309,6 @@ public class DataBaseManager
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
         GridView camp = new GridView();
-
         try
         {
             paraList.Add(new SqlParameter("@productCounter", productCounter.ToString()));
