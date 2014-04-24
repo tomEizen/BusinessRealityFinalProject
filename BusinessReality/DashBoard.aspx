@@ -91,16 +91,11 @@
                         <div class="block">
                             <div class="stat-col">
                                 <span>סה"כ ביקורים</span>
-                                <p id="totalVisit" class="purple">
-                                    500</p>
-                            </div>
-                            <div class="stat-col">
-                                <span>סה"כ סריקות החודש</span>
                                 <p id="amountOfScans" runat="server" class="yellow">
                                 </p>
                             </div>
                             <div class="stat-col">
-                                <span>סה"כ שיתופי קמפיין</span>
+                                <span>סה"כ שיתופי קמפיין נוכחי</span>
                                 <p id="campaignShareGeneral" runat="server" class="green">
                                 </p>
                             </div>
@@ -270,7 +265,7 @@
                     </asp:UpdatePanel>
                 </div>
             </div>
-             <div id="campaign" class="displayNone">
+            <div id="campaign" class="displayNone">
                 <div class="grid_10">
                     <div class="box round" id="Div1">
                         <h2>
@@ -294,6 +289,11 @@
                             <div class="stat-col">
                                 <span>סה"כ שיתופי קמפיין</span>
                                 <p id="campignTotalShare" runat="server" class="red">
+                                </p>
+                            </div>
+                            <div class="stat-col">
+                                <span>יחס המרה</span>
+                                <p id="P1" runat="server" class="blue">
                                 </p>
                             </div>
                             <div class="clear">

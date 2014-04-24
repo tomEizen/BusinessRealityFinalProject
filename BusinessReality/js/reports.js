@@ -10,6 +10,7 @@ function show(target) {
     $('#campaign').hide();
     $('#' + target).fadeIn(1300);
     if (target == 'campaign') {
+
         plot5.replot();
         plot6.replot();
         plot7.replot();
@@ -114,10 +115,16 @@ function drawAgesChart(containerElement, range1, range2, range3, range4, range5,
 
 //draw a bar chart to represent the top 5 campaign
 function drawCamgaignShareChart(containerElement, name1, share1, name2, share2, name3, share3, name4, share4, name5, share5) {
-
+    var names = [name1, name2, name3, name4, name5];
+    var shares = [share1, share2, share3, share4, share5];
     $.jqplot.config.enablePlugins = true;
-    var line1 = [[name1.toString(), parseInt(share1)], [name2.toString(), parseInt(share2)], [name3.toString(), parseInt(share3)],
-  [name4.toString(), parseInt(share4)], [name5.toString(), parseInt(share5)]];
+    var line1 = new Array();
+    for (var i = 0; i < 5; i++) {
+        if (names[i] != null && typeof shares[i] != null && names[i] != '' && shares[i] != '') {
+            line1.push([names[i], shares[i]]);
+        }
+    }
+
 
     plot5 = $.jqplot(containerElement, [line1],
    {

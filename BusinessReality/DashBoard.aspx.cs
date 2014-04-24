@@ -246,7 +246,6 @@ namespace BusinessReality.BackOffice
             try
             {
 
-
                 Product p = new Product();
                 GridView gvProperties = new GridView();
                 Category c = new Category();
