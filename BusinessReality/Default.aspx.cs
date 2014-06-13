@@ -14,10 +14,26 @@ public partial class BackOffice_Default : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        Response.Redirect("DashBoard.aspx");
+        if (txtEmail.Text != null & txtEmail.Text != null)
+        {
+            string email = txtEmail.Text;
+            string passHTML = txtPassword.Text;
+            DataBaseManager d = new DataBaseManager();
+
+            if (d.VerifyUserPass(email, passHTML))//(sql==txtPassword.Text)
+            {
+                Session["Email"] = email;
+                Response.Redirect("DashBoard.aspx");
+
+            }
+            else
+            {
+                Response.Write("<script LANGUAGE='JavaScript' >alert('שגיעת התחברות. נסה שנית..')</script>");
+            }
+
+        }
+
     }
-
-
     protected void SubmitNewProfile_Click(object sender, EventArgs e)
     {
         if (MP==MP2)

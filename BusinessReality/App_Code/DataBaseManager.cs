@@ -1106,6 +1106,23 @@ public class DataBaseManager
         return 0;
     }
 
+    public bool VerifyUserPass(string userName, string passFromUser)
+    {
+        List<SqlParameter> TempUser = new List<SqlParameter>();
+        string LocalPassFromDB = "NOT_VALID";
+        TempUser.Add(new SqlParameter("@email", userName));
+
+        SqlDataReader PassFromDB = ActivateStoredProc("getUserPassword", TempUser);
+        while (PassFromDB.Read())
+        {
+            LocalPassFromDB = Convert.ToString(PassFromDB["Password"]);
+            LocalPassFromDB = LocalPassFromDB.Trim();
+        }
+        if (LocalPassFromDB == passFromUser)
+            return true;
+        else
+            return false;
+    }
     ///////////////////////////////////////End of onlaod procedurs && functions /////////////////////
 
 
