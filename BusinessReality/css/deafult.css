@@ -684,3 +684,14 @@ FOOTER
 	position: relative;
 	bottom: -1px;
 }
+#register,#companyRegister
+{
+     display:none;  
+    position:relative;
+}
+.registerBtn
+{
+  background-color:inherit;
+   color:White;
+   cursor:pointer;
+}

@@ -234,6 +234,15 @@ public class DataBaseManager
         return names;
     }
 
+
+
+    public string deleteProduct(string email, string productId)
+    {
+        string pc = GetProductCounterWithEmail(email, productId);
+        return "";
+    }
+
+
     /// <summary>
     /// gets the 5 most scaned products
     /// </summary>
@@ -247,6 +256,8 @@ public class DataBaseManager
         try
         {
             paraList.Add(new SqlParameter("@email", managerEmail));
+
+
             SqlDataReader dr = ActivateStoredProc("proc_top5_most_scaned", paraList);
             while (dr.Read())
             {// Read till the end of the data into a row
@@ -1038,6 +1049,61 @@ public class DataBaseManager
         rowChangedCampaign = insertCommand(command);
 
         return rowChangedCampaign;
+    }
+
+    public bool CheckIfOrgExist(Organization org)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        SqlDataReader dr = ActivateStoredProc("getAllOrg", paraList);
+        while (dr.Read())
+        {
+            if (dr["Name"].ToString() == org.Name)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public string GetOrgId(string name)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        paraList.Add(new SqlParameter("@orgName", name));
+        SqlDataReader dr = ActivateStoredProc("GetOrgId", paraList);
+        while (dr.Read())
+        {
+            return dr["OrganizationID"].ToString();
+        }
+        return "";
+    }
+
+    /// <summary>
+    /// insert a new org into the db
+    /// </summary>
+    /// <returns>num of rows changed</returns>
+    public int insertNewOrg(Manager m, Organization org)
+    {
+        int rowChangedCampaign;
+        string prefix;
+        if (CheckIfOrgExist(org))
+        {
+
+            String command;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}','{5}','{6}')", org.Name, org.LogoSrc, org.Description, org.Address, org.WebSiteUrl, org.PhoneNumber, org.FbWebsite);
+            prefix = "INSERT INTO Organization " + "(Name, LogoURL, Description, Address,Website,PhoneNumber,FbWebsite)";
+            command = prefix + sb.ToString();
+            rowChangedCampaign = insertCommand(command);
+            if (rowChangedCampaign > 0)
+            {
+                StringBuilder sb1 = new StringBuilder();
+                sb1.AppendFormat("Values('{0}', '{1}', '{2}', '{3}', '{4}')", m.EmailAdress, m.Lname, m.Fname, m.PassWord, GetOrgId(org.Name));
+                prefix = "INSERT INTO Manager " + "(Email_address, Last_Name, First_Name, Password,OrganizationID)";
+                command = prefix + sb1.ToString();
+                rowChangedCampaign = insertCommand(command);
+                return rowChangedCampaign;
+            }
+        }
+        return 0;
     }
 
     ///////////////////////////////////////End of onlaod procedurs && functions /////////////////////

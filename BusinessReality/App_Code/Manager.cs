@@ -25,4 +25,9 @@ public class Manager
     public string Fname { get { return this.fName; } set { this.fName = value; } }
     public string Lname { get { return this.lName; } set { this.lName = value; } }
 
+    public int insertNewOrg(Manager m, Organization o)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.insertNewOrg(m, o);
+    }
 }

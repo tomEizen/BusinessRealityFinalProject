@@ -61,6 +61,28 @@ function edit() {
 }
 
 
+function DeleteProduct() {
+    if (confirm('האם אתה בטוח שברצונך למחוק מוצר זה?')) {
+        $.ajax({ // ajax call starts
+            url: 'WebService.asmx/getProductsInfo',   // JQuery loads serverside.php
+            data: '{productId:"' + $('#lblproductID').val() + '",email:"' + email + '"}',
+            type: 'POST',
+            dataType: 'json', // Choosing a JSON datatype
+            contentType: 'application/json; charset = utf-8',
+            success: function (data) // Variable data contains the data we get from serverside
+            {
+                p = $.parseJSON(data.d);
+                EnterDetails(p);
+            }, // end of success
+            error: function (e) {
+                alert(e.responseText);
+            } // end of error
+        }) // end of ajax call
+    } else {
+        // Do nothing!
+    }
+}
+
 //getting the selected product informaiton from the db
 function getProductInfo(row_number) {
     var email = 'aviv@gmail.com';

@@ -113,4 +113,19 @@ public class WebService : System.Web.Services.WebService
         string productCounter = p.GetProductCounter(email, productId);
         return productCounter;
     }
+
+    /// <summary>
+    /// gets the product counter
+    /// </summary>
+    /// <param name="orgID">The id of the organization</param>
+    /// <param name="Email">email for identification</param>
+    /// <returns>product counter</returns>
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string deleteProduct(string email, string productId)
+    {
+        Product p = new Product();
+        string productCounter = p.deleteProduct(email, productId);
+        return productCounter;
+    }
 }

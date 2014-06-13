@@ -93,6 +93,12 @@ public class Product
         DataBaseManager db = new DataBaseManager();
         return db.GetProductCounterWithEmail(email, productID);
     }
+
+    public string deleteProduct(string email, string productId)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.deleteProduct(email, productId);
+    }
 }
 
 

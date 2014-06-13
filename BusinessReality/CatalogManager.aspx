@@ -503,6 +503,7 @@
                     <input id="btnEditProduct" type="button" class="btn" value="ערוך מוצר" onclick="edit()" />
                     <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcode','infoName')" />
                     <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
+                    <input id="btnDelete" type="button" class="btnRed" value="מחיקת המוצר" onclick="DeleteProduct()"/>
                 </div>
             </div>
         </div>
