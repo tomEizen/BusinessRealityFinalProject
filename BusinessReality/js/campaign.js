@@ -2,6 +2,8 @@
 function show(target) {
     $('#general').hide();
     $('#addCampaign').hide();
+    $('#productInfo').hide();
+    $('#editCampaign').hide();
     $('#' + target).fadeIn(1300);
 }
 
@@ -25,3 +27,35 @@ $(document).ready(function () {
         }
     });
 });
+
+
+//once a tr inside the campaign table is clicked a pop up window is open with the information about this campaign
+$(function () {
+    function launch() {
+        $('#productInfo').lightbox_me({ centered: true, onLoad: function () { $('#productInfo').find('input:first').focus() } });
+    }
+
+    $('.tableData tr').click(function (e) {
+//        getProductInfo($(this).index());
+        $("#productInfo").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
+            $("#productInfo").find("input:first").focus();
+        }
+        });
+
+        e.preventDefault();
+    });
+
+
+    $('table tr:nth-child(even)').addClass('stripe');
+});
+
+////adding the close pop uo trigger
+function CloseLightBox() {
+    $('#productInfo').trigger('close');
+}
+
+////open the edit product window once the edit product button is clicked
+function edit() {
+    $('#productInfo').trigger('close');
+    show("editCampaign");
+}

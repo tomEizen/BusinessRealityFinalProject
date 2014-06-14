@@ -215,6 +215,102 @@
                 </div>
             </div>
         </div>
+            <div id="editCampaign" class="displayNone">
+            <div class="container_12">
+                <div class="grid_10">
+                    <div class="box round first fullpage">
+                        <h2 dir="rtl" class="style1">
+                            ערוך קמפיין
+                        </h2>
+                        <div class="block ">
+                            <table dir="rtl" style="text-align: right">
+                                <tr>
+                                    <th class="col1">
+                                        <label>
+                                            שם הקמפיין</label>
+                                    </th>
+                                    <td class="col2">
+                                        <asp:TextBox class="text" ID="TextBox1" runat="server" Rows="4"></asp:TextBox>
+                                    </td>
+                                    <td>
+     
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="col1">
+                                        <label>
+                                            נוסח הקמפיין ברשת החברתית</label>
+                                    </th>
+                                    <td class="col2">
+                                        <asp:TextBox class="text" ID="TextBox2" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="col1">
+                                        <label>
+                                            ההטבה ללקוח</label>
+                                    </th>
+                                    <td class="col2">
+                                        <asp:TextBox class="text" ID="TextBox3" runat="server" Rows="4"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                     
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label>
+                                            תוקף ההטבה לאחר השיתוף</label>
+                                    </th>
+                                    <td>
+                                        <asp:DropDownList class="text" ID="DropDownList1" runat="server">
+                                            <asp:ListItem Value="0">בחר</asp:ListItem>
+                                            <asp:ListItem Value="1">שעה</asp:ListItem>
+                                            <asp:ListItem Value="2">שעתיים</asp:ListItem>
+                                            <asp:ListItem Value="4">ארבע שעות</asp:ListItem>
+                                            <asp:ListItem Value="6">שש שעות</asp:ListItem>
+                                            <asp:ListItem Value="8">שמונה שעות</asp:ListItem>
+                                            <asp:ListItem Value="24">יממה</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td>
+                                
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label>
+                                            צרף תמונה לקמפיין</label>
+                                    </th>
+                                    <td>
+                                        <asp:FileUpload class="text" ID="FileUpload1" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <strong>צרף קישור לקמפיין</strong>
+                                    </th>
+                                    <td>
+                                        <asp:TextBox class="text" ID="TextBox4" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                            <asp:Button ID="Button2" class="btn" runat="server" Text="שמור שינויים " OnClick="btnSaveCampaign_Click" />
+                            <input id="Button3" type="button" class="btn" value="ביטול" onclick="show('general')" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="grid_2">
             <div class="box sidemenu">
                 <div class="block" id="Div1">
@@ -225,6 +321,60 @@
             </div>
         </div>
         <div class="clear">
+        </div>
+          <div id="productInfo" class="displayNone">
+                        <h3 id="infoName" class="sprited">
+            </h3>
+            <div id="productInfo_form">
+                <img id="productInfoImage" runat="server" />
+                <table id="productInfoTB" class="form">
+                    <thead>
+                        <tr>
+                            <td class="col1">
+                                <label>
+                                    נוסח הקמפיין בפייסבוק:</label>
+                            </td>
+                            <td class="col2">
+                                <asp:Label ID="lblCampaignDescription" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                   ההטבה ללקוח:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblVoucher" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                   תוקף ההטבה לאחר השיתוף:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblExpirationTime" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    קישור מצורף:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblCampaignLink" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div style="text-align: center" id="productInfoButtons">
+                    <input id="btnEditProduct" type="button" class="btn" value="ערוך קמפיין" onclick="edit()" />
+                    <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
+                    <input id="btnDelete" type="button" class="btnRed" value="מחיקת הקמפיין"  onclick="DeleteProduct()"/>
+                </div>
+            </div>
         </div>
         <div id="actions">
         </div>
