@@ -12,11 +12,13 @@ namespace BusinessReality.BackOffice
 {
     public partial class DashBoard : System.Web.UI.Page
     {
+        string email;
         StringBuilder script;
         Dictionary<string, int> categories;
         Dictionary<string, int> categoryProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
+            email = Session["Email"].ToString();
             categoryProducts = new Dictionary<string, int>();
             script = new StringBuilder();
             updateGeneralDetails();
@@ -41,7 +43,7 @@ namespace BusinessReality.BackOffice
         private void updateGeneralDetails()
         {
             User us = new User();
-            Dictionary<string, int> gender = us.getGenderStatistics("aviv@gmail.com");
+            Dictionary<string, int> gender = us.getGenderStatistics(email);
             script.Append("drawGenderChart('gender','" + gender["male"] + "','" + gender["female"] + "');");
 
         }
@@ -52,7 +54,7 @@ namespace BusinessReality.BackOffice
         private void UpdateAgesStatistics()
         {
             User us = new User();
-            Dictionary<string, int> ages = us.getAgesStatistics("aviv@gmail.com");
+            Dictionary<string, int> ages = us.getAgesStatistics(email);
 
             int range1 = 0;
             int range2 = 0;
@@ -97,7 +99,7 @@ namespace BusinessReality.BackOffice
             try
             {
                 Product p = new Product();
-                Dictionary<string, int> mostScaned = p.Top5ScanedProducts("aviv@gmail.com");
+                Dictionary<string, int> mostScaned = p.Top5ScanedProducts(email);
                 int counter = 1;
                 foreach (KeyValuePair<string, int> product in mostScaned)
                 {
@@ -127,7 +129,7 @@ namespace BusinessReality.BackOffice
         private void proc_5mostScanedCategories()
         {
             Category c = new Category();
-            Dictionary<string, int> mostScaned = c.proc_5mostScanedCategories("aviv@gmail.com");
+            Dictionary<string, int> mostScaned = c.proc_5mostScanedCategories(email);
             int counter = 1;
             foreach (KeyValuePair<string, int> product in mostScaned)
             {
@@ -154,7 +156,7 @@ namespace BusinessReality.BackOffice
             try
             {
                 Campaign cp = new Campaign();
-                GridView dt = cp.getActiveCampaignStatistics("aviv@gmail.com");
+                GridView dt = cp.getActiveCampaignStatistics(email);
                 hourCampaign.InnerHtml = dt.Rows[0].Cells[0].Text;
                 ageCampaign.InnerHtml = dt.Rows[0].Cells[2].Text;
                 string day = "";
@@ -199,7 +201,7 @@ namespace BusinessReality.BackOffice
             {
 
                 Scan s = new Scan();
-                GridView dv = s.GeneralDetailsPlots("aviv@gmail.com");
+                GridView dv = s.GeneralDetailsPlots(email);
                 campaignShareGeneral.InnerHtml = dv.Rows[0].Cells[0].Text;
                 campignTotalShare.InnerHtml = dv.Rows[0].Cells[0].Text;
                 amountOfScans.InnerHtml = dv.Rows[0].Cells[1].Text;
@@ -217,7 +219,7 @@ namespace BusinessReality.BackOffice
         {
             Category c = new Category();
             categoriesNamesDDL.Items.Add("בחר");
-            categories = c.getCategoriesNames("aviv@gmail.com");//צריך zלעשות משתנה של משתמש 
+            categories = c.getCategoriesNames(email);//צריך zלעשות משתנה של משתמש 
             foreach (KeyValuePair<string, int> pair in categories)
                 categoriesNamesDDL.Items.Add(pair.Key);
         }
@@ -304,7 +306,7 @@ namespace BusinessReality.BackOffice
         private void getCamapaignsShareStatistics()
         {
             Campaign cam = new Campaign();
-            Dictionary<string, int> camList = cam.getCampaignsShare("aviv@gmail.com");
+            Dictionary<string, int> camList = cam.getCampaignsShare(email);
             string paramList = "";
 
             for (int i = 0; i < camList.Count; i++)
@@ -326,7 +328,7 @@ namespace BusinessReality.BackOffice
         private void UpdateCampaignShareAgesStatistics()
         {
             User us = new User();
-            Dictionary<string, int> ages = us.GetCampignsShareAges("aviv@gmail.com");
+            Dictionary<string, int> ages = us.GetCampignsShareAges(email);
 
             int range1 = 0;
             int range2 = 0;
@@ -374,7 +376,7 @@ namespace BusinessReality.BackOffice
 
 
                 User us = new User();
-                Dictionary<string, int> gender = us.GetCampignsShareGender("aviv@gmail.com");
+                Dictionary<string, int> gender = us.GetCampignsShareGender(email);
                 script.Append("drawCampaignShareGenderChart('campaignsGender','" + gender["male"] + "','" + gender["female"] + "');");
             }
             catch (Exception)

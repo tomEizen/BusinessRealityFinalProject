@@ -1,7 +1,6 @@
 ﻿var products;
 var propertyCount = 0;
 var QRurl;
-
 //show a specific div in the page and hides the rest
 function show(target) {
     $('#general').hide();
@@ -85,7 +84,6 @@ function DeleteProduct() {
 
 //getting the selected product informaiton from the db
 function getProductInfo(row_number) {
-    var email = 'aviv@gmail.com';
     var MyRows = $('table#productTable').find('tbody').find('tr');
     var productID = ($(MyRows[row_number]).find('td:eq(2)').text());
     $.ajax({ // ajax call starts
@@ -108,7 +106,6 @@ function getProductInfo(row_number) {
 
 //getting the selected product properties from the db
 function GetProductPropertiesInfo(productID) {
-    var email = 'aviv@gmail.com';
     $.ajax({ // ajax call starts
         url: 'WebService.asmx/GetProductPropertiesInfo',   // JQuery loads serverside.php
         data: '{productId:"' + productID + '",email:"' + email + '"}',
@@ -149,7 +146,6 @@ function EnterDetails(product) {
 
 //getting the selected product properties from the db
 function getProductCounter(productID) {
-    var email = 'aviv@gmail.com';
     $.ajax({ // ajax call starts
         url: 'WebService.asmx/getProductCounter',   // JQuery loads serverside.php
         data: '{productId:"' + productID + '",email:"' + email + '"}',
@@ -195,7 +191,7 @@ function getNewCategoryDetails() {
     category.Name = $('#newCategoryName').val();
     category.Description = $('#newCategoryDescruption').val();
     category.DateModified = $.now()
-    category.Email = 'aviv@gmail.com';
+    category.Email = email;
     count = 0;
     var rowCount = $('#AddCategoryProperties tr').length;
     $('#AddCategoryProperties tr').each(function () {

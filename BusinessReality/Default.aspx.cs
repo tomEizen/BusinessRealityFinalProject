@@ -36,7 +36,7 @@ public partial class BackOffice_Default : System.Web.UI.Page
     }
     protected void SubmitNewProfile_Click(object sender, EventArgs e)
     {
-        if (MP==MP2)
+        if (MP == MP2)
         {
             Manager m = new Manager();
             m.Lname = MName.Text;
@@ -95,4 +95,3 @@ public partial class BackOffice_Default : System.Web.UI.Page
     }
 
 }
-

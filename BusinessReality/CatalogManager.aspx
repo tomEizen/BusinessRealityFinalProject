@@ -31,6 +31,7 @@
     <!-- END: load jquery -->
     <script type="text/javascript" src="js/table/jquery.dataTables.min.js"></script>
     <script src="js/setup.js" type="text/javascript"></script>
+    <script type="text/ecmascript">        var email = "<%=email%>";</script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -503,7 +504,7 @@
                     <input id="btnEditProduct" type="button" class="btn" value="ערוך מוצר" onclick="edit()" />
                     <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcode','infoName')" />
                     <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
-                    <input id="btnDelete" type="button" class="btnRed" value="מחיקת המוצר"  onclick="DeleteProduct()"/>
+                    <input id="btnDelete" type="button" class="btnRed" value="מחיקת המוצר" onclick="DeleteProduct()" />
                 </div>
             </div>
         </div>

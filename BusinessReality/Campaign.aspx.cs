@@ -11,8 +11,10 @@ using System.Text;
 
 public partial class BackOffice_Campaign : System.Web.UI.Page
 {
+    string email;
     protected void Page_Load(object sender, EventArgs e)
     {
+        email = Session["Email"].ToString();
         ShowCampaignTable();
     }
 
@@ -64,7 +66,7 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
         campaign.ImageUrl = InsertPictureToDirectory();
         campaign.DateCreated = DateTime.Now;
         campaign.IsActive = true;
-        campaign.insertNewCampaign(campaign, "aviv@gmail.com");
+        campaign.insertNewCampaign(campaign,email);
         Response.Redirect("Campaign.aspx");
 
     }
@@ -75,7 +77,7 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
     protected void ShowCampaignTable()
     {
         Campaign cam = new Campaign();
-        List<Campaign> campaigns = cam.GetCampaignList("Aviv@gmail.com");
+        List<Campaign> campaigns = cam.GetCampaignList(email);
 
         foreach (Campaign c in campaigns)
         {

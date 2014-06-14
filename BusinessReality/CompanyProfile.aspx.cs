@@ -10,8 +10,10 @@ namespace BusinessReality.BackOffice
 {
     public partial class CompanyProfile : System.Web.UI.Page
     {
+        string email;
         protected void Page_Load(object sender, EventArgs e)
         {
+            email = Session["Email"].ToString();
             insertCompanyProfile();
             insertCompanyProfileIntoForm();
         }
@@ -20,7 +22,7 @@ namespace BusinessReality.BackOffice
         protected void insertCompanyProfile()
         {
             Organization org = new Organization();
-            org = org.getComapnyProfile("aviv@gmail.com");
+            org = org.getComapnyProfile(email);
             name.InnerHtml = org.Name;
             industry.InnerHtml = org.Industry;
             description.InnerHtml = org.Description;
@@ -36,7 +38,7 @@ namespace BusinessReality.BackOffice
         protected void insertCompanyProfileIntoForm()
         {
             Organization org = new Organization();
-            org = org.getComapnyProfile("aviv@gmail.com");
+            org = org.getComapnyProfile(email);
             List<Industry> indList = new List<Industry>();
             indList.AddRange((new Industry()).GetAllIndustries());
             foreach (Industry ind in indList)

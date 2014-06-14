@@ -16,8 +16,10 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     Dictionary<int, string> propertiesOfCategory;
     Dictionary<string, int> allProp;
     string ProductpicPath;
+    public string email;
     protected void Page_Load(object sender, EventArgs e)
     {
+        email = Session["Email"].ToString();
         GetAllProductInfoBasic();
         GetCategoriesNames();
         insertCategoryProperties();
@@ -25,7 +27,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         addPropToDrop();
         if (Session["numOfRows"] != null)
         {
-            Product p =(Product) Session["product"];
+            Product p = (Product)Session["product"];
             Page.ClientScript.RegisterStartupScript(this.GetType(), "callproductInsertedToDb", "productInsertedToDb('" + p.Id + "')", true);
             Session["numOfRows"] = null;
         }
@@ -40,7 +42,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
         Category c = new Category();
         categoriesNamesDDL.Items.Add("בחר");
         editCategoryCategoriesDDL.Items.Add("בחר");
-        categories = c.getCategoriesNames("aviv@gmail.com");//צריך zלעשות משתנה של משתמש 
+        categories = c.getCategoriesNames(email);
         foreach (KeyValuePair<string, int> pair in categories)
         {
             categoriesNamesDDL.Items.Add(pair.Key);
@@ -136,7 +138,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             if (discountTB.Text == "") { }
             else
                 product.Discount = discountTB.Text;
-            int numOfRows = product.insertNewProduct(product, categories[categoriesNamesDDL.SelectedValue.ToString()], propertiesOfCategory, "aviv@gmail.com");
+            int numOfRows = product.insertNewProduct(product, categories[categoriesNamesDDL.SelectedValue.ToString()], propertiesOfCategory, "Email");
             if (numOfRows > 0)//מוציא הודעה האם המוצר הוכנס כמו שצריך
             {
                 ProductInsertedName.InnerHtml = product.Name;
@@ -157,7 +159,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     private void GetAllProductInfoBasic()
     {
         Product p = new Product();
-        List<Product> lProduct = p.GetAllProductInfoBasic("aviv@gmail.com");
+        List<Product> lProduct = p.GetAllProductInfoBasic(email);
         foreach (Product product in lProduct)
         {
             HtmlTableRow tr = new HtmlTableRow();
@@ -228,7 +230,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
     {
         NewCategoryProp.Items.Clear();
         Property p = new Property();
-        allProp = p.getAllProp("aviv@gmail.com");
+        allProp = p.getAllProp(email);
         foreach (KeyValuePair<string, int> pair in allProp)
         {
             NewCategoryProp.Items.Add(pair.Key);
