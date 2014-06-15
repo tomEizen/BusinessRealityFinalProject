@@ -62,7 +62,7 @@ public class WebService : System.Web.Services.WebService
     /// </summary>
     /// <param name="productId">product id</param>
     /// <param name="email">manager email for identification</param>
-    /// <returns>a json string of the properties</returns>
+    /// <returns>a json string of the3  properties</returns>
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string GetProductPropertiesInfo(int productId, string email)
@@ -128,4 +128,30 @@ public class WebService : System.Web.Services.WebService
         string productCounter = p.deleteProduct(email, productId);
         return productCounter;
     }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="campaignId"></param>
+    /// <param name="email"></param>
+    /// <returns></returns>
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getCampaignInfo(int campaignId, string email)
+    {
+        List<Campaign> campaigns = new List<Campaign>();
+        Campaign c = new Campaign();
+        campaigns = c.GetCampaignList(email);
+        foreach (Campaign cc in campaigns)
+        {
+            if (cc.Id == campaignId)
+                c = cc;
+        }
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        string jsonString = js.Serialize(c);
+        return jsonString;
+    }
+
+
 }

@@ -753,11 +753,15 @@ public class DataBaseManager
             {// Read till the end of the data into a row
                 Campaign cam = new Campaign();
                 cam.Name = dr["Name"].ToString();
+                cam.Id = Convert.ToInt32(dr["CampaignID"]);
                 cam.Description = dr["Description"].ToString();
                 cam.Voucher = dr["Voucher"].ToString();
                 cam.ShareCount = Convert.ToInt32(dr["ShareCount"]);
                 cam.DateCreated = Convert.ToDateTime(dr["DateCreated"]);
                 cam.IsActive = Convert.ToBoolean(dr["IsActive"]);
+                cam.Expiration = Convert.ToInt32(dr["Expiration"]);
+                cam.LinkUrl = dr["Link"].ToString();
+                cam.ImageUrl = dr["Img"].ToString();
                 campaigns.Add(cam);
             }
             //Name, Description, Voucher,ShareCount,DateCreated,IsActive

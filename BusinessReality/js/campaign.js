@@ -1,4 +1,6 @@
-﻿//show pages with fade
+﻿var email = 'aviv@gmail.com';
+
+//show pages with fade
 function show(target) {
     $('#general').hide();
     $('#addCampaign').hide();
@@ -7,12 +9,6 @@ function show(target) {
     $('#' + target).fadeIn(1300);
 }
 
-//build the campaign table
-function BuildCampaignTable(name,description,voucher,dateCreated,isActive,shareCount) {
-
-   // $('#CampaignTable > tbody:last').append('<tr><td>' + name + '</td><td>' + dateCreated + '</td><td>' + description + '</td><td>' + voucher + '</td><td>' + shareCount + '</td><td>' + isActive + '</td></tr>');
-    $("#CampaignTable").last().append('<tr><td>' + name + '</td><td>' + dateCreated + '</td><td>' + description + '</td><td>' + voucher + '</td><td>' + shareCount + '</td><td>' + isActive + '</td></tr>');
-}
 
 //onload
 $(document).ready(function () {
@@ -36,7 +32,7 @@ $(function () {
     }
 
     $('.tableData tr').click(function (e) {
-//        getProductInfo($(this).index());
+        GetCampaignInfo($(this).index());
         $("#productInfo").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
             $("#productInfo").find("input:first").focus();
         }
@@ -58,4 +54,70 @@ function CloseLightBox() {
 function edit() {
     $('#productInfo').trigger('close');
     show("editCampaign");
+}
+
+
+//getting the selected cmpaign informaiton from the db
+function GetCampaignInfo(row_number) {
+    var MyRows = $('table#CampaignTable').find('tbody').find('tr');
+    var campaignID = ($(MyRows[row_number]).find('td:eq(2)').text());
+    $.ajax({ // ajax call starts
+        url: 'WebService.asmx/getCampaignInfo',   // JQuery loads serverside.php
+        data: '{campaignId:"' + campaignID + '",email:"' + email + '"}',
+        type: 'POST',
+        dataType: 'json', // Choosing a JSON datatype
+        contentType: 'application/json; charset = utf-8',
+        success: function (data) // Variable data contains the data we get from serverside
+        {
+            p = $.parseJSON(data.d);
+            EnterDetails(p);
+        }, // end of success
+        error: function (e) {
+            alert(e.responseText);
+        } // end of error
+    }) // end of ajax call
+}
+
+
+//insert the campaign information to the  campaign info window
+function EnterDetails(campaign) {
+    RemoveDetailsFromCampaignInfoPage();
+    $('#infoCampaignName').text(campaign.Name);
+    $('#lblCampsignId').text(campaign.Id);
+    $('#lblCampaignDescription').text(campaign.Description);
+    $('#lblVoucher').text(campaign.Voucher);
+    $("#lblExpirationTime").text(campaign.Expiration + ' שעות');
+    $('#lblShareCount').text(campaign.ShareCount);
+    if (campaign.ImageUrl == "") {
+        $('#productInfoImage').attr("src", "BackOffice/img/gallery/campaigns/noPicAvailable.jpg");
+    }
+    else {
+        $('#productInfoImage').attr("src", campaign.ImageUrl);
+    }
+    if (campaign.LinkUrl == "") {
+        $("#lblCampaignLink").text('אין קישור מצורף');
+    }
+    else {
+        $("#lblCampaignLink").text(campaign.LinkUrl);
+    }
+    if (campaign.isActive == true) {
+        $("#lblIsActive").text('פעיל');
+    }
+    else {
+        $("#lblIsActive").text('לא פעיל');
+    }
+
+
+}
+
+//empty all elements inside the campaign info window
+function RemoveDetailsFromCampaignInfoPage() {
+    $('#infoName').empty();
+    $('#lblCampsignId').empty();
+    $('#lblCampaignDescription').empty();
+    $('#lblVoucher').empty();
+    $('#lblProductDescription').empty();
+    $("#lblExpirationTime").empty();
+    $('#lblCampaignLink').empty();
+    $('#productInfoImage').empty();
 }

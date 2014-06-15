@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 public class Campaign
 {
     private string name;
+    private int id;
     private string description;
     private string imageUrl;
     private string linkUrl;
@@ -32,6 +33,14 @@ public class Campaign
         get { return this.name; }
         set { this.name = value; }
     }
+
+    public int Id
+    {
+        get { return this.id; }
+        set { this.id = value; }
+    }
+
+    
 
     public string Description
     {

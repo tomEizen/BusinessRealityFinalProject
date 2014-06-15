@@ -11,7 +11,7 @@ using System.Text;
 
 public partial class BackOffice_Campaign : System.Web.UI.Page
 {
-    string email;
+    public string email;
     protected void Page_Load(object sender, EventArgs e)
     {
         email = Session["Email"].ToString();
@@ -90,7 +90,7 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
             HtmlTableCell tc5 = new HtmlTableCell();
             tc.InnerHtml = c.Name;
             tc1.InnerHtml = c.DateCreated.ToString();
-            tc2.InnerHtml = c.Description;
+            tc2.InnerHtml = c.Id.ToString();
             tc3.InnerHtml = c.Voucher;
             tc4.InnerHtml = c.ShareCount.ToString();
             if (c.IsActive == true)

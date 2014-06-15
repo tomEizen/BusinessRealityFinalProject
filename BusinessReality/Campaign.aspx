@@ -91,7 +91,7 @@
                                         תאריך הוספה
                                     </th>
                                     <th style="text-align: right">
-                                        נוסח הקמפיין
+                                        מק"ט
                                     </th>
                                     <th style="text-align: right">
                                         תיאור ההטבה
@@ -323,12 +323,21 @@
         <div class="clear">
         </div>
           <div id="productInfo" class="displayNone">
-                        <h3 id="infoName" class="sprited">
+            <h3 id="infoCampaignName" class="sprited">
             </h3>
             <div id="productInfo_form">
                 <img id="productInfoImage" runat="server" />
                 <table id="productInfoTB" class="form">
                     <thead>
+                                            <tr>
+                            <td>
+                                <label>
+                                   מק"ט:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblCampsignId" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
                         <tr>
                             <td class="col1">
                                 <label>
@@ -363,6 +372,24 @@
                             </td>
                             <td>
                                 <asp:Label ID="lblCampaignLink" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td>
+                                <label>
+                                    סטטוס:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblIsActive" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                                                                        <tr>
+                            <td>
+                                <label>
+                                    מספר השיתופים:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblShareCount" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
                     </thead>
