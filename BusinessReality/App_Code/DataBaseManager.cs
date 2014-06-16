@@ -437,6 +437,7 @@ public class DataBaseManager
         return camp;
     }
 
+
     //////////////////////////////////////End of plots///////////////////////////////////////
 
 
@@ -1126,6 +1127,37 @@ public class DataBaseManager
             return true;
         else
             return false;
+    }
+
+    /// <summary>
+    /// delete a selected campaign from the db
+    /// </summary>
+    /// <param name="campaignId">the selected campaign id</param>
+    /// <returns>num of rows changed</returns>
+    public int DeleteCampaign(int campaignId)
+    {
+        int numberOfRowsChanged;
+
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        try
+        {
+            paraList.Add(new SqlParameter("@campaignId", campaignId));
+            SqlDataReader dr = ActivateStoredProc("proc_DeleteCampaign", paraList);
+
+            
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            closeConnection();
+        }
+        return 0;
     }
     ///////////////////////////////////////End of onlaod procedurs && functions /////////////////////
 

@@ -130,4 +130,10 @@ public class Campaign
         DataBaseManager db = new DataBaseManager();
         return db.insertNewCampaign(campaign, email);
     }
+
+    public int DeleteCampaign(int campaignId)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return 0;
+    }
 }

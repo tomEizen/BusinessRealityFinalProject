@@ -1,4 +1,5 @@
 ﻿var email = 'aviv@gmail.com';
+var campaignID
 
 //show pages with fade
 function show(target) {
@@ -37,7 +38,7 @@ $(function () {
             $("#productInfo").find("input:first").focus();
         }
         });
-
+   
         e.preventDefault();
     });
 
@@ -60,7 +61,7 @@ function edit() {
 //getting the selected cmpaign informaiton from the db
 function GetCampaignInfo(row_number) {
     var MyRows = $('table#CampaignTable').find('tbody').find('tr');
-    var campaignID = ($(MyRows[row_number]).find('td:eq(2)').text());
+    campaignID = ($(MyRows[row_number]).find('td:eq(2)').text());
     $.ajax({ // ajax call starts
         url: 'WebService.asmx/getCampaignInfo',   // JQuery loads serverside.php
         data: '{campaignId:"' + campaignID + '",email:"' + email + '"}',
@@ -113,8 +114,7 @@ function EnterDetails(campaign) {
     else {
         $("#lblIsActive").text('לא פעיל');
     }
-
-
+    
 }
 
 //empty all elements inside the campaign info window
@@ -128,3 +128,30 @@ function RemoveDetailsFromCampaignInfoPage() {
     $('#lblCampaignLink').empty();
     $('#productInfoImage').empty();
 }
+
+//call web service function to delete the campaign according to his id
+function DeleteCampaign() {
+
+    if (confirm('האם הינך משוכנע שברצונך למחוק את הקמפיין?')) {
+        $.ajax({ // ajax call starts
+            url: 'WebService.asmx/DeleteCampaign',   // JQuery loads serverside.php
+            data: '{campaignID:"' + campaignID + '"}',
+            type: 'POST',
+            dataType: 'json', // Choosing a JSON datatype
+            contentType: 'application/json; charset = utf-8',
+            success: function (data) // Variable data contains the data we get from serverside
+            {
+                p = $.parseJSON(data.d);
+                EnterDetails(p);
+            }, // end of success
+            error: function (e) {
+                alert(e.responseText);
+            } // end of error
+        }) // end of ajax call
+        
+    } else {
+     
+        // Do nothing!
+    }
+    
+ }

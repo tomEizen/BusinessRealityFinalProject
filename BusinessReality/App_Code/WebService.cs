@@ -131,11 +131,11 @@ public class WebService : System.Web.Services.WebService
 
 
     /// <summary>
-    /// 
+    /// get the chosen campaign info from the data base
     /// </summary>
-    /// <param name="campaignId"></param>
-    /// <param name="email"></param>
-    /// <returns></returns>
+    /// <param name="campaignId">the chosen campaign id</param>
+    /// <param name="email">for identification</param>
+    /// <returns>an object of the chosen campaign</returns>
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getCampaignInfo(int campaignId, string email)
@@ -151,6 +151,20 @@ public class WebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();
         string jsonString = js.Serialize(c);
         return jsonString;
+    }
+
+    /// <summary>
+    /// delete the chosen campiagn from the db
+    /// </summary>
+    /// <param name="campaignId">the chosen campaign id</param>
+    /// <returns>num of row change</returns>
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public int deleteCampaign(int campaignId)
+    {
+        Campaign c=new Campaign();
+        int camp=c.DeleteCampaign(campaignId);
+        return camp;
     }
 
 
