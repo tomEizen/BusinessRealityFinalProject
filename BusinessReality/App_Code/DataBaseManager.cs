@@ -449,6 +449,7 @@ public class DataBaseManager
         return camp;
     }
 
+
     //////////////////////////////////////End of plots///////////////////////////////////////
 
 
@@ -765,11 +766,15 @@ public class DataBaseManager
             {// Read till the end of the data into a row
                 Campaign cam = new Campaign();
                 cam.Name = dr["Name"].ToString();
+                cam.Id = Convert.ToInt32(dr["CampaignID"]);
                 cam.Description = dr["Description"].ToString();
                 cam.Voucher = dr["Voucher"].ToString();
                 cam.ShareCount = Convert.ToInt32(dr["ShareCount"]);
                 cam.DateCreated = Convert.ToDateTime(dr["DateCreated"]);
                 cam.IsActive = Convert.ToBoolean(dr["IsActive"]);
+                cam.Expiration = Convert.ToInt32(dr["Expiration"]);
+                cam.LinkUrl = dr["Link"].ToString();
+                cam.ImageUrl = dr["Img"].ToString();
                 campaigns.Add(cam);
             }
             //Name, Description, Voucher,ShareCount,DateCreated,IsActive
@@ -1134,6 +1139,37 @@ public class DataBaseManager
             return true;
         else
             return false;
+    }
+
+    /// <summary>
+    /// delete a selected campaign from the db
+    /// </summary>
+    /// <param name="campaignId">the selected campaign id</param>
+    /// <returns>num of rows changed</returns>
+    public int DeleteCampaign(int campaignId)
+    {
+        int numberOfRowsChanged;
+
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        try
+        {
+            paraList.Add(new SqlParameter("@campaignId", campaignId));
+            SqlDataReader dr = ActivateStoredProc("proc_DeleteCampaign", paraList);
+
+            
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            closeConnection();
+        }
+        return 0;
     }
     ///////////////////////////////////////End of onlaod procedurs && functions /////////////////////
 

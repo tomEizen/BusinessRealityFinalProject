@@ -91,7 +91,7 @@
                                         תאריך הוספה
                                     </th>
                                     <th style="text-align: right">
-                                        נוסח הקמפיין
+                                        מק"ט
                                     </th>
                                     <th style="text-align: right">
                                         תיאור ההטבה
@@ -215,7 +215,7 @@
                 </div>
             </div>
         </div>
-            <div id="editCampaign" class="displayNone">
+        <div id="editCampaign" class="displayNone">
             <div class="container_12">
                 <div class="grid_10">
                     <div class="box round first fullpage">
@@ -230,10 +230,12 @@
                                             שם הקמפיין</label>
                                     </th>
                                     <td class="col2">
-                                        <asp:TextBox class="text" ID="TextBox1" runat="server" Rows="4"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignNameEdit" runat="server" Rows="4">gggg</asp:TextBox>
                                     </td>
                                     <td>
-     
+                                        <asp:RequiredFieldValidator ID="editNameValidator" ControlToValidate="txtCampaignNameEdit"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -242,10 +244,12 @@
                                             נוסח הקמפיין ברשת החברתית</label>
                                     </th>
                                     <td class="col2">
-                                        <asp:TextBox class="text" ID="TextBox2" runat="server"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignDescriptionEdit" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
-
+                                    <asp:RequiredFieldValidator ID="editDescriptionValidator" ControlToValidate="txtCampaignDescriptionEdit"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -254,10 +258,12 @@
                                             ההטבה ללקוח</label>
                                     </th>
                                     <td class="col2">
-                                        <asp:TextBox class="text" ID="TextBox3" runat="server" Rows="4"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtVoucherEdit" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
-                                     
+                                     <asp:RequiredFieldValidator ID="editVoucherValidator" ControlToValidate="txtVoucherEdit"
+                                            runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
+                                            SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -266,8 +272,7 @@
                                             תוקף ההטבה לאחר השיתוף</label>
                                     </th>
                                     <td>
-                                        <asp:DropDownList class="text" ID="DropDownList1" runat="server">
-                                            <asp:ListItem Value="0">בחר</asp:ListItem>
+                                        <asp:DropDownList class="text" ID="ddlExpirationEdit" runat="server">
                                             <asp:ListItem Value="1">שעה</asp:ListItem>
                                             <asp:ListItem Value="2">שעתיים</asp:ListItem>
                                             <asp:ListItem Value="4">ארבע שעות</asp:ListItem>
@@ -277,7 +282,6 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td>
-                                
                                     </td>
                                 </tr>
                                 <tr>
@@ -286,7 +290,7 @@
                                             צרף תמונה לקמפיין</label>
                                     </th>
                                     <td>
-                                        <asp:FileUpload class="text" ID="FileUpload1" runat="server" />
+                                        <asp:FileUpload class="text" ID="uploadCampaignImgEdit" runat="server" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -294,7 +298,7 @@
                                         <strong>צרף קישור לקמפיין</strong>
                                     </th>
                                     <td>
-                                        <asp:TextBox class="text" ID="TextBox4" runat="server"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignLinkEdit" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -304,8 +308,8 @@
                                     </td>
                                 </tr>
                             </table>
-                            <asp:Button ID="Button2" class="btn" runat="server" Text="שמור שינויים " OnClick="btnSaveCampaign_Click" />
-                            <input id="Button3" type="button" class="btn" value="ביטול" onclick="show('general')" />
+                            <asp:Button ID="btnCampaignSaveChanges" class="btn" runat="server" Text="שמור שינויים" />
+                            <input id="btnClosePopUp" type="button" class="btn" value="ביטול" onclick="show('general')" />
                         </div>
                     </div>
                 </div>
@@ -322,13 +326,22 @@
         </div>
         <div class="clear">
         </div>
-          <div id="productInfo" class="displayNone">
-                        <h3 id="infoName" class="sprited">
+        <div id="productInfo" class="displayNone">
+            <h3 id="infoCampaignName" class="sprited">
             </h3>
             <div id="productInfo_form">
                 <img id="productInfoImage" runat="server" />
                 <table id="productInfoTB" class="form">
                     <thead>
+                        <tr>
+                            <td>
+                                <label>
+                                    מק"ט:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblCampsignId" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
                         <tr>
                             <td class="col1">
                                 <label>
@@ -341,7 +354,7 @@
                         <tr>
                             <td>
                                 <label>
-                                   ההטבה ללקוח:</label>
+                                    ההטבה ללקוח:</label>
                             </td>
                             <td>
                                 <asp:Label ID="lblVoucher" runat="server" Text=""></asp:Label>
@@ -350,7 +363,7 @@
                         <tr>
                             <td>
                                 <label>
-                                   תוקף ההטבה לאחר השיתוף:</label>
+                                    תוקף ההטבה לאחר השיתוף:</label>
                             </td>
                             <td>
                                 <asp:Label ID="lblExpirationTime" runat="server" Text=""></asp:Label>
@@ -365,14 +378,33 @@
                                 <asp:Label ID="lblCampaignLink" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    סטטוס:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblIsActive" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    מספר השיתופים:</label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblShareCount" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
                 <div style="text-align: center" id="productInfoButtons">
                     <input id="btnEditProduct" type="button" class="btn" value="ערוך קמפיין" onclick="edit()" />
+                    <input id="btnActivateCampaign" type="button" class="btn" value="הפוך לפעיל" />
                     <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
-                    <input id="btnDelete" type="button" class="btnRed" value="מחיקת הקמפיין"  onclick="DeleteProduct()"/>
+                    <input id="btnDeleteCampaign" type="button" class="btnRed" value="מחק קמפיין" onclick="DeleteCampaign()"/>
                 </div>
             </div>
         </div>
@@ -383,18 +415,3 @@
     </form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -62,7 +62,7 @@ public class WebService : System.Web.Services.WebService
     /// </summary>
     /// <param name="productId">product id</param>
     /// <param name="email">manager email for identification</param>
-    /// <returns>a json string of the properties</returns>
+    /// <returns>a json string of the3  properties</returns>
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string GetProductPropertiesInfo(int productId, string email)
@@ -128,4 +128,44 @@ public class WebService : System.Web.Services.WebService
         string productCounter = p.deleteProduct(email, productId);
         return productCounter;
     }
+
+
+    /// <summary>
+    /// get the chosen campaign info from the data base
+    /// </summary>
+    /// <param name="campaignId">the chosen campaign id</param>
+    /// <param name="email">for identification</param>
+    /// <returns>an object of the chosen campaign</returns>
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getCampaignInfo(int campaignId, string email)
+    {
+        List<Campaign> campaigns = new List<Campaign>();
+        Campaign c = new Campaign();
+        campaigns = c.GetCampaignList(email);
+        foreach (Campaign cc in campaigns)
+        {
+            if (cc.Id == campaignId)
+                c = cc;
+        }
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        string jsonString = js.Serialize(c);
+        return jsonString;
+    }
+
+    /// <summary>
+    /// delete the chosen campiagn from the db
+    /// </summary>
+    /// <param name="campaignId">the chosen campaign id</param>
+    /// <returns>num of row change</returns>
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public int deleteCampaign(int campaignId)
+    {
+        Campaign c=new Campaign();
+        int camp=c.DeleteCampaign(campaignId);
+        return camp;
+    }
+
+
 }

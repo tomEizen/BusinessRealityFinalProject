@@ -40,7 +40,7 @@ $(function () {
             $("#productInfo").find("input:first").focus();
         }
         });
-
+       
         e.preventDefault();
     });
 
