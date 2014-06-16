@@ -1142,8 +1142,7 @@ public class DataBaseManager
         try
         {
             paraList.Add(new SqlParameter("@campaignId", campaignId));
-            SqlDataReader dr = ActivateStoredProc("proc_DeleteCampaign", paraList);
-
+            SqlDataReader dr = ActivateStoredProc("DeleteCampaign", paraList);
             
         }
 

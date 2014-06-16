@@ -134,6 +134,7 @@ public class Campaign
     public int DeleteCampaign(int campaignId)
     {
         DataBaseManager db = new DataBaseManager();
-        return 0;
+        return db.DeleteCampaign(campaignId);
+        
     }
 }
