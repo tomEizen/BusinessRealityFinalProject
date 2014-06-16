@@ -230,7 +230,7 @@
                                             שם הקמפיין</label>
                                     </th>
                                     <td class="col2">
-                                        <asp:TextBox class="text" ID="TextBox1" runat="server" Rows="4"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignNameEdit" runat="server" Rows="4">gggg</asp:TextBox>
                                     </td>
                                     <td>
      
@@ -242,7 +242,7 @@
                                             נוסח הקמפיין ברשת החברתית</label>
                                     </th>
                                     <td class="col2">
-                                        <asp:TextBox class="text" ID="TextBox2" runat="server"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignDescriptionEdit" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
 
@@ -254,7 +254,7 @@
                                             ההטבה ללקוח</label>
                                     </th>
                                     <td class="col2">
-                                        <asp:TextBox class="text" ID="TextBox3" runat="server" Rows="4"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtVoucherEdit" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
                                      
@@ -266,7 +266,7 @@
                                             תוקף ההטבה לאחר השיתוף</label>
                                     </th>
                                     <td>
-                                        <asp:DropDownList class="text" ID="DropDownList1" runat="server">
+                                        <asp:DropDownList class="text" ID="ddlExpirationEdit" runat="server">
                                             <asp:ListItem Value="0">בחר</asp:ListItem>
                                             <asp:ListItem Value="1">שעה</asp:ListItem>
                                             <asp:ListItem Value="2">שעתיים</asp:ListItem>
@@ -286,7 +286,7 @@
                                             צרף תמונה לקמפיין</label>
                                     </th>
                                     <td>
-                                        <asp:FileUpload class="text" ID="FileUpload1" runat="server" />
+                                        <asp:FileUpload class="text" ID="uploadCampaignImgEdit" runat="server" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -294,7 +294,7 @@
                                         <strong>צרף קישור לקמפיין</strong>
                                     </th>
                                     <td>
-                                        <asp:TextBox class="text" ID="TextBox4" runat="server"></asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignLinkEdit" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -304,8 +304,8 @@
                                     </td>
                                 </tr>
                             </table>
-                            <asp:Button ID="Button2" class="btn" runat="server" Text="שמור שינויים " OnClick="btnSaveCampaign_Click" />
-                            <input id="Button3" type="button" class="btn" value="ביטול" onclick="show('general')" />
+                            <asp:Button ID="btnCampaignSaveChanges" class="btn" runat="server" Text="שמור שינויים" />
+                            <input id="btnClosePopUp" type="button" class="btn" value="ביטול" onclick="show('general')" />
                         </div>
                     </div>
                 </div>
@@ -398,8 +398,9 @@
                 </table>
                 <div style="text-align: center" id="productInfoButtons">
                     <input id="btnEditProduct" type="button" class="btn" value="ערוך קמפיין" onclick="edit()" />
+                    <input id="btnActivateCampaign" type="button" class="btn" value="הפוך קמפיין לפעיל"  />
                     <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
-                    <input id="btnDelete" type="button" class="btnRed" value="מחיקת הקמפיין"  onclick="DeleteProduct()"/>
+                    <input id="btnDelete" type="button" class="btnRed" value="מחק הקמפיין"  onclick="DeleteProduct()"/>
                 </div>
             </div>
         </div>

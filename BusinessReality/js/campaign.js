@@ -79,26 +79,33 @@ function GetCampaignInfo(row_number) {
 }
 
 
-//insert the campaign information to the  campaign info window
+//insert the campaign information to the campaign popup window and the edit section
 function EnterDetails(campaign) {
     RemoveDetailsFromCampaignInfoPage();
     $('#infoCampaignName').text(campaign.Name);
+    $('#txtCampaignNameEdit').val(campaign.Name);
     $('#lblCampsignId').text(campaign.Id);
     $('#lblCampaignDescription').text(campaign.Description);
+    $('#txtCampaignDescriptionEdit').val(campaign.Description);
     $('#lblVoucher').text(campaign.Voucher);
+    $('#txtVoucherEdit').val(campaign.Voucher);
     $("#lblExpirationTime").text(campaign.Expiration + ' שעות');
+    $("#ddlExpirationEdit").val(campaign.Expiration);
     $('#lblShareCount').text(campaign.ShareCount);
     if (campaign.ImageUrl == "") {
         $('#productInfoImage').attr("src", "BackOffice/img/gallery/campaigns/noPicAvailable.jpg");
     }
     else {
         $('#productInfoImage').attr("src", campaign.ImageUrl);
+        $('#uploadCampaignImgEdit').val(campaign.ImageUrl);
     }
     if (campaign.LinkUrl == "") {
         $("#lblCampaignLink").text('אין קישור מצורף');
+        $("#txtCampaignLinkEdit").val('אין קישור מצורף');
     }
     else {
         $("#lblCampaignLink").text(campaign.LinkUrl);
+        $("#txtCampaignLinkEdit").val(campaign.LinkUrl);
     }
     if (campaign.isActive == true) {
         $("#lblIsActive").text('פעיל');
