@@ -61,17 +61,17 @@ function edit() {
 
 
 function DeleteProduct() {
+    var pid = $('#lblproductID').html();
     if (confirm('האם אתה בטוח שברצונך למחוק מוצר זה?')) {
         $.ajax({ // ajax call starts
-            url: 'WebService.asmx/getProductsInfo',   // JQuery loads serverside.php
-            data: '{productId:"' + $('#lblproductID').val() + '",email:"' + email + '"}',
+            url: 'WebService.asmx/deleteProduct',   // JQuery loads serverside.php
+            data: '{productId:"' + pid + '",email:"' + email + '"}',
             type: 'POST',
             dataType: 'json', // Choosing a JSON datatype
             contentType: 'application/json; charset = utf-8',
             success: function (data) // Variable data contains the data we get from serverside
             {
-                p = $.parseJSON(data.d);
-                EnterDetails(p);
+                location.reload();
             }, // end of success
             error: function (e) {
                 alert(e.responseText);
