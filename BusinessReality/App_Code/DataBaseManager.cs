@@ -239,19 +239,7 @@ public class DataBaseManager
     public string deleteProduct(string email, string productId)
     {
         string pc = GetProductCounterWithEmail(email, productId);
-        try
-        {
-            List<SqlParameter> paraList = new List<SqlParameter>();
-            string change;
-            paraList.Add(new SqlParameter("@pc", pc));
-            SqlDataReader dr = ActivateStoredProc("deleteProduct", paraList);              
-        }
-        catch( Exception ex)
-        {
-
-        }
         return "";
-
     }
 
 
@@ -1148,8 +1136,6 @@ public class DataBaseManager
     /// <returns>num of rows changed</returns>
     public int DeleteCampaign(int campaignId)
     {
-        int numberOfRowsChanged;
-
         List<SqlParameter> paraList = new List<SqlParameter>();
         try
         {

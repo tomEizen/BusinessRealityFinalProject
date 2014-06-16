@@ -141,8 +141,8 @@ function DeleteCampaign() {
             contentType: 'application/json; charset = utf-8',
             success: function (data) // Variable data contains the data we get from serverside
             {
-                p = $.parseJSON(data.d);
-                EnterDetails(p);
+                
+
             }, // end of success
             error: function (e) {
                 alert(e.responseText);
