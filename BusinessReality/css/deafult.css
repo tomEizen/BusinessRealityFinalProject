@@ -686,8 +686,14 @@ FOOTER
 }
 #register,#companyRegister
 {
-     display:none;  
+    display:none;  
     position:relative;
+    width:70%;
+    margin-right:auto;
+    margin-left:auto;
+    color:White;
+    
+    
 }
 .registerBtn
 {
