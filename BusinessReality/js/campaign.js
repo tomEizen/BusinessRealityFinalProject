@@ -86,6 +86,7 @@ function EnterDetails(campaign) {
     $('#infoCampaignName').text(campaign.Name);
     $('#txtCampaignNameEdit').val(campaign.Name);
     $('#lblCampsignId').text(campaign.Id);
+    $('#txtCampaignIdEdit').val(campaign.Id);
     $('#lblCampaignDescription').text(campaign.Description);
     $('#txtCampaignDescriptionEdit').val(campaign.Description);
     $('#lblVoucher').text(campaign.Voucher);
@@ -141,8 +142,8 @@ function DeleteCampaign() {
             contentType: 'application/json; charset = utf-8',
             success: function (data) // Variable data contains the data we get from serverside
             {
-                p = $.parseJSON(data.d);
-                EnterDetails(p);
+                location.reload();
+
             }, // end of success
             error: function (e) {
                 alert(e.responseText);

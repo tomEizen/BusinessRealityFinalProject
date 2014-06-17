@@ -160,10 +160,10 @@ public class WebService : System.Web.Services.WebService
     /// <returns>num of row change</returns>
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public int deleteCampaign(int campaignId)
+    public int deleteCampaign(int campaignID)
     {
         Campaign c=new Campaign();
-        int camp=c.DeleteCampaign(campaignId);
+        int camp = c.DeleteCampaign(campaignID);
         return camp;
     }
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/text.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/grid.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen"  />
     <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
     <link href="css/catalog.css" rel="stylesheet" type="text/css" />
     <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
@@ -220,17 +220,23 @@
                 <div class="grid_10">
                     <div class="box round first fullpage">
                         <h2 dir="rtl" class="style1">
-                            ערוך קמפיין
+                           ערוך קמפיין
                         </h2>
                         <div class="block ">
                             <table dir="rtl" style="text-align: right">
+                                                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="txtCampaignIdEdit" class="text" runat="server" style="display:none"></asp:TextBox>
+                     
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th class="col1">
                                         <label>
                                             שם הקמפיין</label>
                                     </th>
                                     <td class="col2">
-                                        <asp:TextBox class="text" ID="txtCampaignNameEdit" runat="server" Rows="4">gggg</asp:TextBox>
+                                        <asp:TextBox class="text" ID="txtCampaignNameEdit" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RequiredFieldValidator ID="editNameValidator" ControlToValidate="txtCampaignNameEdit"
@@ -308,7 +314,9 @@
                                     </td>
                                 </tr>
                             </table>
-                            <asp:Button ID="btnCampaignSaveChanges" class="btn" runat="server" Text="שמור שינויים" />
+                            <asp:Button ID="btnCampaignSaveChanges" class="btn" runat="server" 
+                                Text="שמור שינויים" OnClick="btnCampaignSaveChanges_Click" 
+                                CausesValidation="False" />
                             <input id="btnClosePopUp" type="button" class="btn" value="ביטול" onclick="show('general')" />
                         </div>
                     </div>
@@ -348,7 +356,7 @@
                                     נוסח הקמפיין בפייסבוק:</label>
                             </td>
                             <td class="col2">
-                                <asp:Label ID="lblCampaignDescription" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblCampaignDescription" runat="server" Width="250px"></asp:Label>
                             </td>
                         </tr>
                         <tr>

@@ -239,19 +239,7 @@ public class DataBaseManager
     public string deleteProduct(string email, string productId)
     {
         string pc = GetProductCounterWithEmail(email, productId);
-        try
-        {
-            List<SqlParameter> paraList = new List<SqlParameter>();
-            string change;
-            paraList.Add(new SqlParameter("@pc", pc));
-            SqlDataReader dr = ActivateStoredProc("deleteProduct", paraList);              
-        }
-        catch( Exception ex)
-        {
-
-        }
         return "";
-
     }
 
 
@@ -1068,6 +1056,7 @@ public class DataBaseManager
         return rowChangedCampaign;
     }
 
+
     public bool CheckIfOrgExist(Organization org)
     {
         List<SqlParameter> paraList = new List<SqlParameter>();
@@ -1148,14 +1137,11 @@ public class DataBaseManager
     /// <returns>num of rows changed</returns>
     public int DeleteCampaign(int campaignId)
     {
-        int numberOfRowsChanged;
-
         List<SqlParameter> paraList = new List<SqlParameter>();
         try
         {
             paraList.Add(new SqlParameter("@campaignId", campaignId));
-            SqlDataReader dr = ActivateStoredProc("proc_DeleteCampaign", paraList);
-
+            SqlDataReader dr = ActivateStoredProc("DeleteCampaign", paraList);
             
         }
 
@@ -1170,6 +1156,21 @@ public class DataBaseManager
             closeConnection();
         }
         return 0;
+    }
+
+    /// <summary>
+    /// update selected campaign according to user input
+    /// </summary>
+    /// <param name="campaign">an object of the selected campaign</param>
+    /// <param name="campaignId">the id of the selected campaign</param>
+    /// <returns>num of row effected</returns>
+    public int EditCampaign(Campaign campaign, int campaignId)
+    {
+        int rowChangedCampaign;
+        String command = "UPDATE Campaign SET Name='" + campaign.Name + "', Description='" + campaign.Description + "', Voucher='" + campaign.Voucher + "', Expiration=" + campaign.Expiration + ", Img='" + campaign.ImageUrl + "', Link='" + campaign.LinkUrl + "' WHERE CampaignID=" + campaignId + ";";
+        rowChangedCampaign = insertCommand(command);
+
+        return rowChangedCampaign;
     }
     ///////////////////////////////////////End of onlaod procedurs && functions /////////////////////
 

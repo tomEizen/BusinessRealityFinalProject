@@ -6,23 +6,8 @@
     <title></title>
     <link href="css/deafult.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#addNewProfile').click(function () {
-                $('#general').hide();
-                $('#companyRegister').fadeIn(1000);
-            });
-            $('#nextToRegister').click(function () {
-                $('#companyRegister').hide();
-                $('#register').fadeIn(1000);
-            });
-            $('#priBtn').click(function () {
-                $('#register').hide();
-                $('#companyRegister').fadeIn(1000);
-            });
+    <script src="js/default.js" type="text/javascript"></script>
 
-        });
-    </script>
 </head>
 <body>
     <form id="form2" runat="server">
@@ -39,9 +24,9 @@
                 זמנית לשווק את הארגון ברשתות החברתיות</p>
             <br />
             <div id="general">
-                <asp:TextBox ID="txtEmail" class="textbox" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" class="textbox" runat="server" required="true" title="הזן כתובת אימייל"></asp:TextBox>
                 <br />
-                <asp:TextBox ID="txtPassword" class="textbox" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" class="textbox" runat="server" required="true" title="הזן סיסמא"></asp:TextBox>
                 <br />
                 <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר" OnClick="btnSubmit_Click" />
                 <br />
@@ -52,7 +37,7 @@
     <div class="wrap">
         <div class="content">
             <div id="register">
-                <div dir="rtl" style="color: #FFFFFF" align="center">
+                <div dir="rtl" align="center">
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>
@@ -96,12 +81,13 @@
                         </tr>
                     </table>
                     <input class="registerBtn" type="button" value="הקודם" id="priBtn" />
+                      <input class="registerBtn" type="button" value="ביטול" id="cancelRegisteration" />
                     <asp:Button ID="SubmitNewProfile" class="button" runat="server" Text="הוסף פרופיל"
                         OnClick="SubmitNewProfile_Click" />
                 </div>
             </div>
             <div id="companyRegister">
-                <div dir="rtl" style="color: #FFFFFF" align="center">
+                <div dir="rtl" align="center">
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>
@@ -161,6 +147,7 @@
                         </tr>
                     </table>
                     <input class="registerBtn" type="button" value="הבא" id="nextToRegister" />
+                    <input class="registerBtn" type="button" value="ביטול" id="cancelCompanyRegisteration" />
                 </div>
             </div>
         </div>

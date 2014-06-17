@@ -108,4 +108,25 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
         }
     }
 
+
+    /// <summary>
+    /// call the db to update a selected campaign
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnCampaignSaveChanges_Click(object sender, EventArgs e)
+    {
+        int id;
+        Campaign campaign = new Campaign();
+        id= Convert.ToInt32(txtCampaignIdEdit.Text);
+        campaign.Name = txtCampaignNameEdit.Text;
+        campaign.Description = txtCampaignDescriptionEdit.Text;
+        campaign.Voucher = txtVoucherEdit.Text;
+        campaign.Expiration = Convert.ToInt32(ddlExpirationEdit.SelectedValue);
+        campaign.LinkUrl = txtCampaignLinkEdit.Text;
+        campaign.ImageUrl = InsertPictureToDirectory();
+        campaign.EditCampaign(campaign, id);
+        Response.Redirect("Campaign.aspx");
+
+    }
 }
