@@ -333,9 +333,6 @@
                                                 <th dir="rtl">
                                                     שם תכונה
                                                 </th>
-                                                <th dir="rtl">
-                                                    פעולה
-                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody class="tableDataCategory" id="EditCategoryPropTable" runat="server">

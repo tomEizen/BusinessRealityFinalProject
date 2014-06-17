@@ -13,9 +13,16 @@ namespace BusinessReality.BackOffice
         string email;
         protected void Page_Load(object sender, EventArgs e)
         {
-            email = Session["Email"].ToString();
-            insertCompanyProfile();
-            insertCompanyProfileIntoForm();
+            if (Session["Email"] == null)
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else
+            {
+                email = Session["Email"].ToString();
+                insertCompanyProfile();
+                insertCompanyProfileIntoForm();
+            }
         }
 
         //insert the comapany details

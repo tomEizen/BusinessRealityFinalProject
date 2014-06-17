@@ -292,6 +292,18 @@ ul.section li.current > a.active:hover {
 }
 
 
+.grid_10
+{
+  font-size:12px; 
+    font-weight:bold;
+}
+.grid_2 li
+{
+  font-size:12px; 
+  font-weight:bold;
+  color:Red;
+}
+
 /* table
 ----------------------------------------------- */
 table.form {

@@ -18,23 +18,28 @@ namespace BusinessReality.BackOffice
         Dictionary<string, int> categoryProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
-            email = Session["Email"].ToString();
-            categoryProducts = new Dictionary<string, int>();
-            script = new StringBuilder();
-            updateGeneralDetails();
-            UpdateAgesStatistics();
-            Top5ScanedProducts();
-            GetCategoriesNames();
-            GeneralDetailsPlots();
-            getCamapaignsShareStatistics();
-            getActiveCampaignStatistics();
-            UpdateCampaignShareAgesStatistics();
-            UpdateCampaignShareGender();
-            proc_5mostScanedCategories();
-            scriptActive();
+            if (Session["Email"] == null)
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else
+            {
+                email = Session["Email"].ToString();
+                categoryProducts = new Dictionary<string, int>();
+                script = new StringBuilder();
+                updateGeneralDetails();
+                UpdateAgesStatistics();
+                Top5ScanedProducts();
+                GetCategoriesNames();
+                GeneralDetailsPlots();
+                getCamapaignsShareStatistics();
+                getActiveCampaignStatistics();
+                UpdateCampaignShareAgesStatistics();
+                UpdateCampaignShareGender();
+                proc_5mostScanedCategories();
+                scriptActive();
+            }
         }
-
-
         private void scriptActive()
         {
             script.Append("scanProduct();");
@@ -192,7 +197,7 @@ namespace BusinessReality.BackOffice
             catch (Exception)
             {
 
-        
+
             }
         }
         private void GeneralDetailsPlots()
