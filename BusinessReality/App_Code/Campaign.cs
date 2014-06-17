@@ -125,16 +125,39 @@ public class Campaign
         return db.getActiveCampaignStatistics(managerEmail);
     }
 
+    /// <summary>
+    /// call the db class to insert a new campaign
+    /// </summary>
+    /// <param name="campaign">campaign object</param>
+    /// <param name="email">for identification</param>
+    /// <returns>num of rows effected</returns>
     public int insertNewCampaign(Campaign campaign, string email)
     {
         DataBaseManager db = new DataBaseManager();
         return db.insertNewCampaign(campaign, email);
     }
 
+    /// <summary>
+    /// call the db class to delete a selected campaign
+    /// </summary>
+    /// <param name="campaignId">id of the selected campaign</param>
+    /// <returns>num of rows effected</returns>
     public int DeleteCampaign(int campaignId)
     {
         DataBaseManager db = new DataBaseManager();
         return db.DeleteCampaign(campaignId);
         
+    }
+
+    /// <summary>
+    /// call the db class to edit a selected campaign
+    /// </summary>
+    /// <param name="campaign">campaign object</param>
+    /// <param name="campaignId">id of the selected campaign</param>
+    /// <returns>num of rows effected</returns>
+    public int EditCampaign(Campaign campaign, int campaignId)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.EditCampaign(campaign, campaignId);
     }
 }

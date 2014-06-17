@@ -86,6 +86,7 @@ function EnterDetails(campaign) {
     $('#infoCampaignName').text(campaign.Name);
     $('#txtCampaignNameEdit').val(campaign.Name);
     $('#lblCampsignId').text(campaign.Id);
+    $('#txtCampaignIdEdit').val(campaign.Id);
     $('#lblCampaignDescription').text(campaign.Description);
     $('#txtCampaignDescriptionEdit').val(campaign.Description);
     $('#lblVoucher').text(campaign.Voucher);
