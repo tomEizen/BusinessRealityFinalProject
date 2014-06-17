@@ -356,7 +356,7 @@
                                     נוסח הקמפיין בפייסבוק:</label>
                             </td>
                             <td class="col2">
-                                <asp:Label ID="lblCampaignDescription" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblCampaignDescription" runat="server" Width="250px"></asp:Label>
                             </td>
                         </tr>
                         <tr>

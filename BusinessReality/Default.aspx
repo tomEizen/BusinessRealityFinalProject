@@ -24,9 +24,9 @@
                 זמנית לשווק את הארגון ברשתות החברתיות</p>
             <br />
             <div id="general">
-                <asp:TextBox ID="txtEmail" class="textbox" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" class="textbox" runat="server" required="true" title="הזן כתובת אימייל"></asp:TextBox>
                 <br />
-                <asp:TextBox ID="txtPassword" class="textbox" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" class="textbox" runat="server" required="true" title="הזן סיסמא"></asp:TextBox>
                 <br />
                 <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר" OnClick="btnSubmit_Click" />
                 <br />

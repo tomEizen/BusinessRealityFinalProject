@@ -408,9 +408,10 @@ label.error
 	color: #FF0000;
 }
 
-
-
-
+#productInfoTB td
+{
+    vertical-align:top;
+}
 
 /* site information
 ----------------------------------------------- */
@@ -713,7 +714,10 @@ img.right
 	background-image: url(../img/table/forward_enabled.png);
 }
 
-
+#CampaignTable tr
+{
+     cursor:pointer;
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables display
