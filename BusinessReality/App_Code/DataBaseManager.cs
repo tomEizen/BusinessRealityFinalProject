@@ -239,6 +239,48 @@ public class DataBaseManager
     public string deleteProduct(string email, string productId)
     {
         string pc = GetProductCounterWithEmail(email, productId);
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        try
+        {
+            paraList.Add(new SqlParameter("@pc", pc));
+            SqlDataReader dr = ActivateStoredProc("deleteProduct", paraList);
+
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            closeConnection();
+        }
+        return "";
+    }
+
+    public string deleteCategory(string email, string catName)
+    {
+        List<SqlParameter> paraList = new List<SqlParameter>();
+        try
+        {
+            paraList.Add(new SqlParameter("@catName", catName));
+            paraList.Add(new SqlParameter("@email", email));
+            SqlDataReader dr = ActivateStoredProc("deleteCategory", paraList);
+
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            closeConnection();
+        }
         return "";
     }
 
@@ -998,8 +1040,8 @@ public class DataBaseManager
             StringBuilder sb = new StringBuilder();
             if (!categories.ContainsKey(c.Name))
             {
-                sb.AppendFormat("Values('{0}', '{1}', '{2}')", c.Name, c.Description, email);
-                String prefix = "INSERT INTO Category " + "(Name, Description,Email_address)";
+                sb.AppendFormat("Values('{0}', '{1}', '{2}', '{3}')", c.Name, c.Description, email, 1);
+                String prefix = "INSERT INTO Category " + "(Name, Description,Email_address,Active)";
                 command = prefix + sb.ToString();
                 rowChanged = insertCommand(command);
                 if (rowChanged > 0)
@@ -1142,7 +1184,7 @@ public class DataBaseManager
         {
             paraList.Add(new SqlParameter("@campaignId", campaignId));
             SqlDataReader dr = ActivateStoredProc("DeleteCampaign", paraList);
-            
+
         }
 
         catch (Exception ex)
@@ -1167,7 +1209,7 @@ public class DataBaseManager
     public int EditCampaign(Campaign campaign, int campaignId)
     {
         int rowChangedCampaign;
-        String command = "UPDATE Campaign SET Name='" + campaign.Name + "', Description='" + campaign.Description + "', Voucher='" + campaign.Voucher + "', Expiration=" + campaign.Expiration + ", Img='" + campaign.ImageUrl + "', Link='" + campaign.LinkUrl + "' WHERE CampaignID=" + campaignId + ";";
+        String command = "UPDATE Campaign SET Name='" + campaign.Name + "', Description='" + campaign.Description + "', Voucher='" + campaign.Voucher + "', Expiration=" + campaign.Expiration + ", Img='" + campaign.ImageUrl + "', Link='" + campaign.LinkUrl + "' WHERE CampaignID=" + campaignId;
         rowChangedCampaign = insertCommand(command);
 
         return rowChangedCampaign;

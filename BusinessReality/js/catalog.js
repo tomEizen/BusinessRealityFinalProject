@@ -82,6 +82,28 @@ function DeleteProduct() {
     }
 }
 
+function deleteCategory() {
+    var cName = $('#editCategoryCategoriesDDL').val();
+    if (confirm('האם אתה בטוח שברצונך למחוק מוצר זה?')) {
+        $.ajax({ // ajax call starts
+            url: 'WebService.asmx/deleteCategory',   // JQuery loads serverside.php
+            data: '{catName:"' + cName + '",email:"' + email + '"}',
+            type: 'POST',
+            dataType: 'json', // Choosing a JSON datatype
+            contentType: 'application/json; charset = utf-8',
+            success: function (data) // Variable data contains the data we get from serverside
+            {
+                location.reload();
+            }, // end of success
+            error: function (e) {
+                alert(e.responseText);
+            } // end of error
+        }) // end of ajax call
+    } else {
+        // Do nothing!
+    }
+}
+
 //getting the selected product informaiton from the db
 function getProductInfo(row_number) {
     var MyRows = $('table#productTable').find('tbody').find('tr');

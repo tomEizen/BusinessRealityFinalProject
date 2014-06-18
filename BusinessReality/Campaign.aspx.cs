@@ -14,8 +14,15 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
     public string email;
     protected void Page_Load(object sender, EventArgs e)
     {
-        email = Session["Email"].ToString();
-        ShowCampaignTable();
+        if (Session["Email"] == null)
+        {
+            Response.Redirect("Default.aspx");
+        }
+        else
+        {
+            email = Session["Email"].ToString();
+            ShowCampaignTable();
+        }
     }
 
     /// <summary>

@@ -129,6 +129,14 @@ public class WebService : System.Web.Services.WebService
         return productCounter;
     }
 
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string deleteCategory(string email, string catName)
+    {
+        Category c = new Category();
+        string productCounter = c.deleteCategory(email, catName);
+        return productCounter;
+    }
 
     /// <summary>
     /// get the chosen campaign info from the data base

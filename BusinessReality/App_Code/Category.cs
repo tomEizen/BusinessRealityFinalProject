@@ -93,4 +93,10 @@ public class Category
         DataBaseManager db = new DataBaseManager();
         return db.insertNewCategory(c, lProperty, email);
     }
+
+    public string deleteCategory(string email, string catName)
+    {
+        DataBaseManager db = new DataBaseManager();
+        return db.deleteCategory(email, catName);
+    }
 }
