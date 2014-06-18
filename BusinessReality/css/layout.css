@@ -18,7 +18,7 @@ body {
 .floatright{float:right; position:absolute; right:3%;}
 .fontwhite{color:#fff;}
 .small{font-size:9px;}
-.inline-ul li{display:inline; color:#fff;}
+.inline-ul li{display:inline; color:#fff; font-size:13px;}
 .marginleft10{margin-left:10px;}
 .grey{color:#C2C2C2;}
 
@@ -317,13 +317,12 @@ table.form label {
 	font-weight:bold;
 }
 
-table.form .col1{width:20%;}
-table.form .col2{}
+
+table.form .col1{width:30%;}
+table.form .col2{width:40%;}
 table.form input, table.form select{
 
 	padding: 4px 4px 5px 4px;
-
-
 	border-top: 1px solid #b3b3b3;
 	border-left: 1px solid #b3b3b3;
 	border-right: 1px solid #eaeaea;
@@ -731,6 +730,7 @@ img.right
      cursor:pointer;
 }
 
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables display
  */
@@ -753,8 +753,9 @@ table.display {
 	 */
 }
 
-table.display th{ /* background:#8f8f8f;   */ }
+table.display th{ font-size:13px; }
 
+table.display tr{ font-size:12px; }
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -1125,7 +1126,7 @@ td.details {
 
 .gallery-sand .sorting{background-color:white !important;}
 
-.text
+.text , .textLong
 {
    font-family :Arial, sans-serif; 
     color:#aaa; 
@@ -1143,6 +1144,10 @@ td.details {
 box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);   
 }
 
+.textLong
+{
+    width:200px;
+    }
 
 .text:focus {  
     -webkit-box-shadow: 0px 0px 5px #007eff;  

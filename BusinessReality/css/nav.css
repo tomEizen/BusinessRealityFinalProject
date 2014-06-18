@@ -5,6 +5,7 @@ Navigation
 
 /* navigation (horizontal subnavigation)
 ----------------------------------------------- */
+
 ul.nav,
 ul.nav * { margin:0;padding:0;}
 ul.nav {
@@ -17,16 +18,19 @@ ul.nav li {
 	cursor:pointer;
 	float:right;
 	text-align:center;
+	vertical-align:middle;
 	list-style-type:none;
 	font-weight:normal;
 	vertical-align:middle;
+	
+	
 }
 ul.nav li ul {
 	cursor:default;
 	width:100%;
 	max-width:100%;
 	position:absolute;
-	height:auto;
+	height:100%;
 	top:3.4em;
 	background-position:0 0 !important;
 	left:-9000px;
@@ -56,6 +60,7 @@ ul.nav li ul li a {
 	height:2.5em;
 	font-weight:normal;
 	color:#666;
+	
 	
 	background-position:0 50% !important;
 }
@@ -92,6 +97,7 @@ ul.main li {
   position:relative;
   top:0;
   left:0;
+  
 }
 ul.main li ul {
   border-top:0;
