@@ -45,13 +45,13 @@
                 <div class="floatleft">
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
-                            <li>שלום מנהל</li>
-                            <li><a href="CompanyProfile.aspx">פרופיל</a></li>
+                            <li id="hellowManager">שלום אביב</li>
+                            <li><a href="CompanyProfile.aspx">פרופיל החברה</a></li>
                             <li><a href="Default.aspx">יציאה</a></li>
                         </ul>
                     </div>
-                    <div class="floatleft">
-                        <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
+<%--                    <div class="floatleft">
+                        <img src="img/img-profile.jpg" alt="Profile Pic" /></div>--%>
                 </div>
                 <div class="clear">
                 </div>
@@ -163,7 +163,7 @@
                                             תיאור המוצר</label>
                                     </th>
                                     <td>
-                                        <asp:TextBox ID="productDescriptionTB" class="text" runat="server" Rows="4"></asp:TextBox>
+                                        <asp:TextBox ID="productDescriptionTB" class="textLong" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RequiredFieldValidator ID="productDescriptionTBValidator" ControlToValidate="productDescriptionTB"
