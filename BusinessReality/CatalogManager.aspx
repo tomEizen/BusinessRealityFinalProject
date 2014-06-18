@@ -163,7 +163,7 @@
                                             תיאור המוצר</label>
                                     </th>
                                     <td>
-                                        <asp:TextBox ID="productDescriptionTB" class="textLong" runat="server" Rows="4"></asp:TextBox>
+                                        <asp:TextBox ID="productDescriptionTB" class="text" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RequiredFieldValidator ID="productDescriptionTBValidator" ControlToValidate="productDescriptionTB"
