@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
@@ -71,13 +71,13 @@
                         <div class="floatleft
     marginleft10">
                             <ul class="inline-ul floatleft">
-                                <li id="hellowManager">שלום אביב</li>
-                                <li><a href="CompanyProfile.aspx">פרופיל החברה</a></li>
+                                <li>שלום מנהל</li>
+                                <li><a href="CompanyProfile.aspx">פרופיל</a></li>
                                 <li><a href="Default.aspx">יציאה</a></li>
                             </ul>
                         </div>
-<%--                        <div class="floatleft">
-                            <img src="img/img-profile.jpg" alt="Profile Pic" /></div>--%>
+                        <div class="floatleft">
+                            <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
                     </div>
                     <div class="clear">
                     </div>
@@ -99,49 +99,49 @@
                 <div id="wrapper">
                     <div >
                         <div class="box round first">
-                            <h2>
+                            <h2 style="font-size: small">
                                 פרטי החברה</h2>
                             <div class="block" id="companyProfile">
                                 <!-- paragraphs -->
                                 <table class="form">
                                     <tr>
                                         <td>
-                                            <label>
+                                            <label style="font-size: small">
                                                 שם האירגון:</label>
                                         </td>
                                         <td id="name" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <th style="font-size: small">
                                             שוק/תעשייה:
                                         </th>
                                         <td id="industry" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <th style="font-size: small">
                                             כתובת בית העסק:
                                         </th>
                                         <td id="address" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <th style="font-size: small">
                                             טלפון:
                                         </th>
                                         <td id="phone" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <th style="font-size: small">
                                             אודות בית העסק:
                                         </th>
                                         <td id="description" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <th style="font-size: small">
                                             עמוד פייסבוק:
                                         </th>
                                         <td>
@@ -149,7 +149,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <th style="font-size: small">
                                             אתר העסק:
                                         </th>
                                         <td>
@@ -172,19 +172,19 @@
                                 <tr>
                                 </tr>
                                 <tr>
-                                    <th>
+                                    <th style="font-size: small">
                                         אימייל:
                                     </th>
-                                    <td>
-                                        aviv@gmail.com
+                                    <td style="font-size: small">
+                                     &nbsp&nbsp&nbsp     &nbsp&nbsp&nbsp        aviv@gmail.com
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>
+                                    <th style="font-size: small">
                                         סיסמא:
                                     </th>
-                                    <td>
-                                        *********
+                                    <td style="font-size: small">
+                                       &nbsp&nbsp&nbsp     &nbsp&nbsp&nbsp      *********
                                     </td>
                                 </tr>
                             </table>
@@ -203,33 +203,39 @@
                     עדכון פרופיל עסק</h3>
                 <div id="sign_up_form">
                     <label>
-                        <strong>שם האירגון:</strong>
+                        <strong style="font-size: small">שם האירגון:</strong>
                         <input class="sprited" id="formName" runat="server" /></label>
                     <label>
-                        <strong>שוק/תעשייה:</strong>
+                       
+                        <strong style="font-size: small">שוק/תעשייה:</strong>
                         <br />
                         <asp:DropDownList ID="formIndustry" runat="server">
                             <asp:ListItem>בחר</asp:ListItem>
                         </asp:DropDownList>
                     </label>
                     <label>
-                        <strong>כתובת בית העסק:</strong>
+                       
+                        <strong style="font-size: small" >כתובת בית העסק:</strong>
                         <input class="sprited" id="formAddress" runat="server" /></label>
                     <label>
-                        <strong>טלפון:</strong>
+                      
+                        <strong style="font-size: small" >טלפון:</strong>
                         <input class="sprited" id="formPhone" runat="server" /></label>
                     <label>
-                        <strong>אודות בית העסק:</strong>
+                    
+                        <strong style="font-size: small">אודות בית העסק:</strong>
                         <textarea id="formDescription" runat="server" rows="5" style="resize: none; height: 50px"
                             name="Text1"></textarea></label>
                     <label>
-                        <strong>עמוד פייסבוק:</strong>
+                       
+                        <strong style="font-size: small" >עמוד פייסבוק:</strong>
                         <input class="sprited" id="formFbpage" runat="server" /></label>
                     <label>
-                        <strong>אתר החברה:</strong>
+                       
+                        <strong style="font-size: small" >אתר החברה:</strong>
                         <input class="sprited" id="formWebsite" runat="server" /></label>
                     <input type="text" class="file" name="file_info">
-                    <div class="file_upload" runat="server">
+                    <div id="Div1" class="file_upload" runat="server">
                         <input type="file" id="file_upload" runat="server" name="file_upload">
                     </div>
                     <div id="actions">
@@ -244,13 +250,15 @@
                     עדכון סיסמא</h3>
                 <div id="updatePassword_form">
                     <label>
-                        <strong>סיסמא ישנה:</strong>
+                      
+                        <strong style="font-size: small" >סיסמא ישנה:</strong>
                         <input class="sprited" /></label>
                     <label>
-                        <strong>סיסמא חדשה:</strong>
+                        <strong style="font-size: small">סיסמא חדשה:</strong>
                         <input class="sprited" /></label>
                     <label>
-                        <strong>אימות סיסמא חדשה:</strong>
+                       
+                        <strong style="font-size: small" >אימות סיסמא חדשה:</strong>
                         <input class="sprited" /></label>
                     <div id="Div3">
                         <a href="#" id="A1" class="btn">עדכן פרטים</a>
@@ -262,3 +270,5 @@
     </form>
 </body>
 </html>
+
+

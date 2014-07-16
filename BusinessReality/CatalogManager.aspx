@@ -238,7 +238,8 @@
                     <div id="ProductInsertedName" runat="server">
                     </div>
                     <br />
-                    <input type="button" value="הדפסת הברקוד" onclick="printDiv('qrcode', 'ProductInsertedName')" />
+                    <div id=productInsertedQR></div>
+                    <input type="button" value="הדפסת הברקוד" onclick="printDiv('productInsertedQR', 'ProductInsertedName')" />
                 </div>
             </div>
         </div>
@@ -362,7 +363,7 @@
                                             בחר קטגוריה</label>
                                     </td>
                                     <td class="col2">
-                                        <asp:DropDownList class="text" ID="DropDownList1" runat="server">
+                                        <asp:DropDownList class="text" ID="categoryNameEdit" runat="server">
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
@@ -372,7 +373,7 @@
                                             מק"ט מוצר</label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="productIdEdit" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
