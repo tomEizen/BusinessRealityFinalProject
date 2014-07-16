@@ -1,6 +1,8 @@
 ﻿var products;
 var propertyCount = 0;
 var QRurl;
+var productState = 0
+var selectedProduct
 //show a specific div in the page and hides the rest
 function show(target) {
     $('#general').hide();
@@ -151,6 +153,7 @@ function EnterDetails(product) {
     $('#infoName').text(product.Name);
     $('#lblCategory').text(product.CategoryName);
     $('#lblproductID').text(product.Id);
+    $('#productIdEdit').text(product.Id);
     $('#lblProductDescription').text(product.Description);
     if (product.Discount == "") {
         $("#productInfoDiscount").text('לא');
@@ -262,7 +265,7 @@ function discountTBvisible(bool) {
 //open the new product successfully insert window
 $(function () {
     function launch() {
-        $('#prodectInserted').lightbox_me({ centered: true, onLoad: function () { $('#prodectInserted').find('input:first').focus() } });
+        $('#prodectInserted').lightbox_me({ centered: true, closeClick:true,onLoad: function () { $('#prodectInserted').find('input:first').focus() } });
     }
 
     $('#Butt').click(function (e) {
@@ -281,6 +284,7 @@ function productInsertedToDb(productId) {
     getProductCounter(productId);
     $("#prodectInserted").lightbox_me({ centered: true, preventScroll: true, onLoad: function () {
         $("#prodectInserted").find("input:first").focus();
+        printDiv('productInsertedQR', 'ProductInsertedName');
     }
     });
 }
