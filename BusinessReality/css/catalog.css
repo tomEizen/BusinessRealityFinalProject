@@ -105,8 +105,8 @@ box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
         -webkit-box-shadow: rgba(0,0,0,.6) 0px 2px 12px;
         -moz-box-shadow:  rgba(0,0,0,.6) 0px 2px 12px;;
         padding: 14px 22px;
-        width: 300px;
-        height:360px;
+        width: 700px;
+        height:500px;
         position: relative;
         display: none;
         direction:rtl;
@@ -117,22 +117,18 @@ box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
         text-align:right;
     }
     #prodectInserted label {
-       
+        display: block;
         margin-bottom: 10px; 
         color: #536376;
         font-size: .9em;
     }
-  #productInsertedQR img
-  {
-      margin:0 auto;
-     display:inherit;
-  }
+  
     #prodectInserted label input,textarea 
     { 
     font-family :Arial, sans-serif; 
     color:#aaa; 
     border:solid 1px #ccc; 
-   
+    display: block;
      width: 393px;
         height: 31px;
         background-position: -201px 0;

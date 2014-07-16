@@ -73,7 +73,7 @@ function setupProductViews(containerElementId) {
 //draw gender plot
 function drawGenderChart(containerElement, male, female) {
     var plot3 = $.jqplot(containerElement,
-    [[['נשים', parseInt(female)], ['גברים', parseInt(male)]]],
+    [[['נשים',  (female)], ['גברים', parseInt(male)]]],
     {
         title: ' ',
         seriesDefaults: {

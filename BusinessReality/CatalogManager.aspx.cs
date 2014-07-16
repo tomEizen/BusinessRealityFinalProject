@@ -145,7 +145,7 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
             if (discountTB.Text == "") { }
             else
                 product.Discount = discountTB.Text;
-            int numOfRows = product.insertNewProduct(product, categories[categoriesNamesDDL.SelectedValue.ToString()], propertiesOfCategory,email);
+            int numOfRows = product.insertNewProduct(product, categories[categoriesNamesDDL.SelectedValue.ToString()], propertiesOfCategory, "Email");
             if (numOfRows > 0)//מוציא הודעה האם המוצר הוכנס כמו שצריך
             {
                 ProductInsertedName.InnerHtml = product.Name;
