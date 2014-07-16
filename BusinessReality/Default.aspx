@@ -24,9 +24,9 @@
                 זמנית לשווק את הארגון ברשתות החברתיות</p>
             <br />
             <div id="general">
-                <asp:TextBox ID="txtEmail" class="textbox" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" class="textbox" runat="server" required="true" title="הזן כתובת אימייל"></asp:TextBox>
                 <br />
-                <asp:TextBox ID="txtPassword" class="textbox" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" class="textbox" runat="server" required="true" title="הזן סיסמא"></asp:TextBox>
                 <br />
                 <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר" OnClick="btnSubmit_Click" />
                 <br />
@@ -41,28 +41,23 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>
-                                <strong>שם פרטי*:</strong>
+                                <strong>שם פרטי:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MName" class="textbox" runat="server"></asp:TextBox>
                             </td>
-                              <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required Field." ControlToValidate="MName" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <th>
-                                <strong>שם משפחה*:</strong>
+                                <strong>שם משפחה:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MLName" class="textbox" runat="server"></asp:TextBox>
-                              <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Required Field." ControlToValidate="MLName" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator>
                             </td>
-
                         </tr>
                         <tr>
                             <th>
-                                <strong>שם משתמש (כתובת מייל*):</strong>
+                                <strong>שם משתמש (כתובת מייל):</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MEMail" class="textbox" runat="server"></asp:TextBox>
@@ -70,7 +65,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong>סיסמא* :</strong>
+                                <strong>סיסמא :</strong>
                             </th>
                             <td>
                                 <asp:TextBox TextMode="Password"  ID="MP" class="textbox" runat="server"></asp:TextBox>
@@ -78,22 +73,17 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong>אימות סיסמא* :</strong>
+                                <strong>אימות סיסמא :</strong>
                             </th>
                             <td>
                                 <asp:TextBox TextMode="Password" ID="MP2" class="textbox" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
-                    
-                     <br />
-                      <br />
-                    <input class="registerBtn" type="button" value="הקודם" id="priBtn" style="font-size: medium" />
-                    &nbsp&nbsp&nbsp
-                      <input class="registerBtn" type="button" value="ביטול" id="cancelRegisteration" style="font-size: medium" />
-                      &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp
+                    <input class="registerBtn" type="button" value="הקודם" id="priBtn" />
+                      <input class="registerBtn" type="button" value="ביטול" id="cancelRegisteration" />
                     <asp:Button ID="SubmitNewProfile" class="button" runat="server" Text="הוסף פרופיל"
-                        OnClick="SubmitNewProfile_Click" Font-Size="Medium" Width="120" />
+                        OnClick="SubmitNewProfile_Click" />
                 </div>
             </div>
             <div id="companyRegister">
@@ -101,13 +91,11 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>
-                                <strong>*שם האירגון:</strong>
+                                <strong>שם האירגון:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="OName" class="textbox" runat="server"></asp:TextBox>
                             </td>
-                            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Required Field." ControlToValidate="OName" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <th>
@@ -119,7 +107,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong dir="rtl">*טלפון:</strong>
+                                <strong dir="rtl">טלפון:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="Phone" class="textbox" runat="server"></asp:TextBox>
@@ -127,17 +115,13 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong style"top: auto">אודות בית העסק:</strong>
+                                <strong>אודות בית העסק:</strong>
                             </th>
                             <td>
                                 <textarea id="Odescription" runat="server" rows="5" style="height: 50px" name="Text1"></textarea>
                             </td>
                         </tr>
-  
                         <tr>
-                         </tr>
-                         <td>           <br />         </td>
-                          <tr>
                             <th>
                                 <strong>עמוד פייסבוק:</strong>
                             </th>
@@ -162,13 +146,8 @@
                             </td>
                         </tr>
                     </table>
-
-                     <br />
-                      <br />
-
-                    <input class="registerBtn" type="button" value="הבא" id="nextToRegister" style="font-size: medium" />
-                    &nbsp&nbsp&nbsp
-                    <input class="registerBtn" type="button" value="ביטול" id="cancelCompanyRegisteration" style="font-size: medium" />
+                    <input class="registerBtn" type="button" value="הבא" id="nextToRegister" />
+                    <input class="registerBtn" type="button" value="ביטול" id="cancelCompanyRegisteration" />
                 </div>
             </div>
         </div>
@@ -176,5 +155,3 @@
     </form>
 </body>
 </html>
-
-
