@@ -129,7 +129,7 @@
                                         <asp:TextBox class="text" ID="txtCampaignName" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
-                                        <asp:RequiredFieldValidator ID="CampaignNameValidator" ControlToValidate="txtCampaignName"
+                                        <asp:RequiredFieldValidator ID="CampaignNameValidator" ValidationGroup="campaign1" ControlToValidate="txtCampaignName"
                                             runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
                                             SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
@@ -143,7 +143,7 @@
                                         <asp:TextBox class="text" ID="txtCampaignDescription" runat="server"></asp:TextBox>
                                     </td>
                                     <td>
-                                        <asp:RequiredFieldValidator ID="CampaignDescriptionValidator" ControlToValidate="txtCampaignDescription"
+                                        <asp:RequiredFieldValidator ID="CampaignDescriptionValidator" ValidationGroup="campaign1" ControlToValidate="txtCampaignDescription"
                                             runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
                                             SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
@@ -157,7 +157,7 @@
                                         <asp:TextBox class="text" ID="txtVoucher" runat="server" Rows="4"></asp:TextBox>
                                     </td>
                                     <td>
-                                        <asp:RequiredFieldValidator ID="txtVoucherValidator" ControlToValidate="txtVoucher"
+                                        <asp:RequiredFieldValidator ID="txtVoucherValidator" ValidationGroup="campaign1" ControlToValidate="txtVoucher"
                                             runat="server" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
                                             SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
@@ -179,7 +179,7 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td>
-                                        <asp:RequiredFieldValidator ID="ddlExpirationTimeValidator" runat="server" ControlToValidate="ddlExpirationTime"
+                                        <asp:RequiredFieldValidator ID="ddlExpirationTimeValidator" ValidationGroup="campaign1" runat="server" ControlToValidate="ddlExpirationTime"
                                             InitialValue="0" ErrorMessage="שדה זה הינו שדה חובה" Display="Dynamic" ForeColor="Red"
                                             SetFocusOnError="True" EnableClientScript="true"></asp:RequiredFieldValidator>
                                     </td>
@@ -208,7 +208,9 @@
                                     </td>
                                 </tr>
                             </table>
-                            <asp:Button ID="btnSaveCampaign" class="btn" runat="server" Text="שמור קמפיין" OnClick="btnSaveCampaign_Click" />
+                            <asp:Button ID="btnSaveCampaign" ValidationGroup="campaign1" class="btn" runat="server" Text="שמור קמפיין" 
+                                 OnClick="btnSaveCampaign_Click" 
+                                 />
                             <input id="Button1" type="button" class="btn" value="ביטול" onclick="show('general')" />
                         </div>
                     </div>

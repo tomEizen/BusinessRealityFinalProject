@@ -55,28 +55,6 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
         return "";
     }
 
-    /// <summary>
-    /// insert the campaign into the db
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    protected void btnSaveCampaign_Click(object sender, EventArgs e)
-    {
-
-        Campaign campaign = new Campaign();
-        campaign.Name = txtCampaignName.Text;
-        campaign.Description = txtCampaignDescription.Text;
-        campaign.ShareCount = 0;//temporary
-        campaign.Voucher = txtVoucher.Text;
-        campaign.Expiration = Convert.ToInt32(ddlExpirationTime.SelectedValue);
-        campaign.LinkUrl = txtCampaignLink.Text;
-        campaign.ImageUrl = InsertPictureToDirectory();
-        campaign.DateCreated = DateTime.Now;
-        campaign.IsActive = true;
-        campaign.insertNewCampaign(campaign,email);
-        Response.Redirect("Campaign.aspx");
-
-    }
 
     /// <summary>
     /// select the table to show from the db and build the table in the page
@@ -135,5 +113,26 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
         campaign.EditCampaign(campaign, id);
         Response.Redirect("Campaign.aspx");
 
+    }
+
+    /// <summary>
+    /// insert new campagin into the db
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void btnSaveCampaign_Click(object sender, EventArgs e)
+    {
+        Campaign campaign = new Campaign();
+        campaign.Name = txtCampaignName.Text;
+        campaign.Description = txtCampaignDescription.Text;
+        campaign.ShareCount = 0;//temporary
+        campaign.Voucher = txtVoucher.Text;
+        campaign.Expiration = Convert.ToInt32(ddlExpirationTime.SelectedValue);
+        campaign.LinkUrl = txtCampaignLink.Text;
+        campaign.ImageUrl = InsertPictureToDirectory();
+        campaign.DateCreated = DateTime.Now;
+        campaign.IsActive = true;
+        campaign.insertNewCampaign(campaign, email);
+        Response.Redirect("Campaign.aspx");
     }
 }
