@@ -29,6 +29,8 @@
     <!-- END: load jquery -->
     <script type="text/javascript" src="js/table/jquery.dataTables.min.js"></script>
     <script src="js/setup.js" type="text/javascript"></script>
+    <script type="text/ecmascript">        var email = "<%=email%>";</script>
+
     <script type="text/javascript">
 
         $(document).ready(function () {

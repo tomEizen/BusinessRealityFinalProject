@@ -1,5 +1,4 @@
-﻿var email = 'aviv@gmail.com';
-var campaignID
+﻿var campaignID
 
 //show pages with fade
 function show(target) {
@@ -101,7 +100,7 @@ function EnterDetails(campaign) {
         $('#productInfoImage').attr("src", campaign.ImageUrl);
         $('#uploadCampaignImgEdit').val(campaign.ImageUrl);
     }
-    if (campaign.LinkUrl == "") {
+    if (campaign.LinkUrl == "" || campaign.LinkUrl == null) {
         $("#lblCampaignLink").text('אין קישור מצורף');
         $("#txtCampaignLinkEdit").val('אין קישור מצורף');
     }

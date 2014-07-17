@@ -12,6 +12,7 @@ using System.Text;
 public partial class BackOffice_Campaign : System.Web.UI.Page
 {
     public string email;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["Email"] == null)
@@ -24,6 +25,7 @@ public partial class BackOffice_Campaign : System.Web.UI.Page
             ShowCampaignTable();
         }
     }
+
 
     /// <summary>
     /// saving the uploaded picture 
