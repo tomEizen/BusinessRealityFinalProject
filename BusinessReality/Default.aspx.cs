@@ -28,7 +28,7 @@ public partial class BackOffice_Default : System.Web.UI.Page
             }
             else
             {
-                Response.Write("<script LANGUAGE='JavaScript' >alert('שגיעת התחברות. נסה שנית..')</script>");
+                Response.Write("<script LANGUAGE='JavaScript' >alert('שגיאת התחברות. נסה שנית..')</script>");
             }
 
         } 
@@ -36,7 +36,7 @@ public partial class BackOffice_Default : System.Web.UI.Page
     }
     protected void SubmitNewProfile_Click(object sender, EventArgs e)
     {
-        if (MP == MP2)
+        if (MP.Text == MP2.Text)
         {
             Manager m = new Manager();
             m.Lname = MName.Text;
@@ -60,7 +60,7 @@ public partial class BackOffice_Default : System.Web.UI.Page
         }
         else
         {
-
+            Response.Write("<script LANGUAGE='JavaScript' >alert('סיסמא שגוייה . נסה שנית..')</script>");
         }
     }
 
