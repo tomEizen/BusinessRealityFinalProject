@@ -24,9 +24,9 @@
                 זמנית לשווק את הארגון ברשתות החברתיות</p>
             <br />
             <div id="general">
-                <asp:TextBox ID="txtEmail" class="textbox" runat="server" required="true" type="email"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" class="textbox" runat="server" ></asp:TextBox>
                 <br />
-                <asp:TextBox ID="txtPassword" TextMode="Password" class="textbox" runat="server" required="true" type="text" ForeColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" TextMode="Password" class="textbox" runat="server" ForeColor="Black"></asp:TextBox>
                 <br />
                 <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר"  OnClick="btnSubmit_Click" />
                 <br />
@@ -129,13 +129,12 @@
                                 <strong style"top: auto">אודות בית העסק:</strong>
                             </th>
                             <td>
-                                <textarea id="Odescription" runat="server"class="textbox" rows="5" style="height: 50px" name="Text1"></textarea>
+                                <textarea id="Odescription" runat="server" class="textbox" rows="5" style="height: 50px" name="Text1"></textarea>
                             </td>
                         </tr>
   
                         <tr>
                          </tr>
-                         <td>           <br />         </td>
                           <tr>
                             <th>
                                 <strong>עמוד פייסבוק:</strong>
