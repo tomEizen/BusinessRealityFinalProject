@@ -29,6 +29,7 @@
                 <asp:TextBox ID="txtPassword" TextMode="Password" class="textbox" runat="server" ForeColor="Black"></asp:TextBox>
                 <br />
                 <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר"  OnClick="btnSubmit_Click" />
+  
                 <br />
                 <input type="button" class="registerBtn" id="addNewProfile" value="צור פרופיל חדש" />
             </div>
