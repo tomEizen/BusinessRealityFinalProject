@@ -24,18 +24,17 @@
                 זמנית לשווק את הארגון ברשתות החברתיות</p>
             <br />
             <div id="general">
-                <asp:TextBox ID="txtEmail" class="textbox" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" class="textbox" runat="server" required="true" type="email"></asp:TextBox>
                 <br />
                 <asp:TextBox ID="txtPassword" TextMode="Password" class="textbox" runat="server" required="true" type="text" ForeColor="Black"></asp:TextBox>
                 <br />
-                <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר" OnClick="btnSubmit_Click" />
+                <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר"  OnClick="btnSubmit_Click" />
                 <br />
                 <input type="button" class="registerBtn" id="addNewProfile" value="צור פרופיל חדש" />
             </div>
         </div>
     </div>
     <div class="wrap">
-        <div class="content">
             <div id="register">
                 <div dir="rtl" align="center">
                     <table border="0" cellpadding="0" cellspacing="0">
@@ -91,7 +90,7 @@
                     <input class="registerBtn" type="button" value="הקודם" id="priBtn" style="font-size: medium" />
                     &nbsp&nbsp&nbsp
                       <input class="registerBtn" type="button" value="ביטול" id="cancelRegisteration" style="font-size: medium" />
-                      &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp 
                     <asp:Button ID="SubmitNewProfile" class="button" runat="server" Text="הוסף פרופיל"
                         OnClick="SubmitNewProfile_Click" Font-Size="Medium" Width="120" />
                 </div>
@@ -130,7 +129,7 @@
                                 <strong style"top: auto">אודות בית העסק:</strong>
                             </th>
                             <td>
-                                <textarea id="Odescription" runat="server" rows="5" style="height: 50px" name="Text1"></textarea>
+                                <textarea id="Odescription" runat="server"class="textbox" rows="5" style="height: 50px" name="Text1"></textarea>
                             </td>
                         </tr>
   
@@ -172,7 +171,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </form>
 </body>
 </html>
