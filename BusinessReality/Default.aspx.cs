@@ -31,7 +31,7 @@ public partial class BackOffice_Default : System.Web.UI.Page
                 Response.Write("<script LANGUAGE='JavaScript' >alert('שגיעת התחברות. נסה שנית..')</script>");
             }
 
-        }
+        } 
 
     }
     protected void SubmitNewProfile_Click(object sender, EventArgs e)
