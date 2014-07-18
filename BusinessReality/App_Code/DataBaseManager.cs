@@ -1013,6 +1013,20 @@ public class DataBaseManager
                 if (rowChangeProduct == 0)
                     return 0;
             }
+
+            if (rowChangeProduct > 0)
+            {
+                sb.Clear();
+                command = "";
+                prefix = "";
+                sb.AppendFormat("Values('{0}', '{1}')", " ",productCounter);
+                prefix = "INSERT INTO QrCode " + "(qrUrl,productCounter)";
+                command = prefix + sb.ToString();
+                rowChangeProduct = insertCommand(command);
+                if (rowChangeProduct == 0)
+                    return 0;
+             
+            }
             return rowChangeProduct;
         }
         else
@@ -1209,7 +1223,7 @@ public class DataBaseManager
     public int EditCampaign(Campaign campaign, int campaignId)
     {
         int rowChangedCampaign;
-        String command = "UPDATE Campaign SET Name='"  + campaign.Name + "', Description='" + campaign.Description + "', Voucher='" + campaign.Voucher + "', Expiration=" + campaign.Expiration + ", Img='" + campaign.ImageUrl + "', Link='" + campaign.LinkUrl + "' WHERE CampaignID=" + campaignId;
+        String command = "UPDATE Campaign SET Name='" + campaign.Name + "', Description='" + campaign.Description + "', Voucher='" + campaign.Voucher + "', Expiration=" + campaign.Expiration + ", Img='" + campaign.ImageUrl + "', Link='" + campaign.LinkUrl + "' WHERE CampaignID=" + campaignId;
         rowChangedCampaign = insertCommand(command);
 
         return rowChangedCampaign;
