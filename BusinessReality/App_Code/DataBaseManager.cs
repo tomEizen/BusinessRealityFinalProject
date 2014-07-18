@@ -1209,7 +1209,7 @@ public class DataBaseManager
     public int EditCampaign(Campaign campaign, int campaignId)
     {
         int rowChangedCampaign;
-        String command = "UPDATE Campaign SET Name='" + campaign.Name + "', Description='" + campaign.Description + "', Voucher='" + campaign.Voucher + "', Expiration=" + campaign.Expiration + ", Img='" + campaign.ImageUrl + "', Link='" + campaign.LinkUrl + "' WHERE CampaignID=" + campaignId;
+        String command = "UPDATE Campaign SET Name='"  + campaign.Name + "', Description='" + campaign.Description + "', Voucher='" + campaign.Voucher + "', Expiration=" + campaign.Expiration + ", Img='" + campaign.ImageUrl + "', Link='" + campaign.LinkUrl + "' WHERE CampaignID=" + campaignId;
         rowChangedCampaign = insertCommand(command);
 
         return rowChangedCampaign;

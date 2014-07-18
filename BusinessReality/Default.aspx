@@ -25,72 +25,64 @@
             <br />
             <div id="general">
                 <asp:TextBox ID="txtEmail" class="textbox" runat="server"></asp:TextBox>
-                
                 <br />
-                <asp:TextBox ID="txtPassword" TextMode="Password" class="textbox" runat="server"  ForeColor="Black"></asp:TextBox>
-                
+                <asp:TextBox ID="txtPassword" TextMode="Password" class="textbox" runat="server" required="true" type="text" ForeColor="Black"></asp:TextBox>
                 <br />
                 <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר" OnClick="btnSubmit_Click" />
-                 
                 <br />
                 <input type="button" class="registerBtn" id="addNewProfile" value="צור פרופיל חדש" />
             </div>
         </div>
     </div>
     <div class="wrap">
+        <div class="content">
             <div id="register">
                 <div dir="rtl" align="center">
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>
-                                <strong>שם פרטי</strong>
+                                <strong>שם פרטי*:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MName" class="textbox" runat="server"></asp:TextBox>
                             </td>
-                              <td><asp:RequiredFieldValidator ID="MNameValidator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="MName" ForeColor="Red" ValidationGroup="Submit">
+                              <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required Field." ControlToValidate="MName" ForeColor="Red" ValidationGroup="Submit">
                                 </asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <th>
-                                <strong>שם משפחה</strong>
+                                <strong>שם משפחה*:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MLName" class="textbox" runat="server"></asp:TextBox>
-                              <td><asp:RequiredFieldValidator ID="MLNameValidator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="MLName" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
-                            
+                              <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Required Field." ControlToValidate="MLName" ForeColor="Red" ValidationGroup="Submit">
+                                </asp:RequiredFieldValidator>
+                            </td>
 
                         </tr>
                         <tr>
                             <th>
-                                <strong>שם משתמש (אימייל)</strong>
+                                <strong>שם משתמש (כתובת מייל*):</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MEMail" class="textbox" runat="server"></asp:TextBox>
-                                <td><asp:RequiredFieldValidator ID="MEMailValidator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="MEMail" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
-                            
+                            </td>
                         </tr>
                         <tr>
                             <th>
-                                <strong>סיסמא</strong>
+                                <strong>סיסמא* :</strong>
                             </th>
                             <td>
                                 <asp:TextBox TextMode="Password"  ID="MP" class="textbox" runat="server"></asp:TextBox>
-                          <td>  <asp:RequiredFieldValidator ID="PasswordValidator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="MP" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
-                            
+                            </td>
                         </tr>
                         <tr>
                             <th>
-                                <strong>אימות סיסמא</strong>
+                                <strong>אימות סיסמא* :</strong>
                             </th>
                             <td>
                                 <asp:TextBox TextMode="Password" ID="MP2" class="textbox" runat="server"></asp:TextBox>
-                           <td><asp:RequiredFieldValidator ID="MP2Validator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="MP2" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
-                            
+                            </td>
                         </tr>
                     </table>
                     
@@ -99,9 +91,9 @@
                     <input class="registerBtn" type="button" value="הקודם" id="priBtn" style="font-size: medium" />
                     &nbsp&nbsp&nbsp
                       <input class="registerBtn" type="button" value="ביטול" id="cancelRegisteration" style="font-size: medium" />
-                      &nbsp&nbsp&nbsp     
+                      &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp       &nbsp&nbsp&nbsp
                     <asp:Button ID="SubmitNewProfile" class="button" runat="server" Text="הוסף פרופיל"
-                        OnClick="SubmitNewProfile_Click" Font-Size="Medium" Width="120" ValidationGroup="Submit"/>
+                        OnClick="SubmitNewProfile_Click" Font-Size="Medium" Width="120" />
                 </div>
             </div>
             <div id="companyRegister">
@@ -109,57 +101,53 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>
-                                <strong>שם האירגון</strong>
+                                <strong>*שם האירגון:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="OName" class="textbox" runat="server"></asp:TextBox>
                             </td>
-                            <td><asp:RequiredFieldValidator ID="ONameValidator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="OName" ForeColor="Red" ValidationGroup="Submit">
+                            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Required Field." ControlToValidate="OName" ForeColor="Red" ValidationGroup="Submit">
                                 </asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <th>
-                                <strong>כתובת בית העסק</strong>
+                                <strong>כתובת בית העסק:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="Addres" class="textbox" runat="server"></asp:TextBox>
                             </td>
-                            <td><asp:RequiredFieldValidator ID="AddresValidator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="OName" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <th>
-                                <strong dir="rtl">טלפון</strong>
+                                <strong dir="rtl">*טלפון:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="Phone" class="textbox" runat="server"></asp:TextBox>
                             </td>
-                            <td><asp:RequiredFieldValidator ID="PhoneValidator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="OName" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <th>
-                                <strong style"top: auto">אודות בית העסק</strong>
+                                <strong style"top: auto">אודות בית העסק:</strong>
                             </th>
                             <td>
-                                
-                                <textarea id="Odescription" class="textbox" runat="server" rows="5" style="height: 50px" name="Text1" required="true"></textarea>
+                                <textarea id="Odescription" runat="server" rows="5" style="height: 50px" name="Text1"></textarea>
                             </td>
-                            <td><asp:RequiredFieldValidator ID="OdescriptionValidator" runat="server" ErrorMessage="שדה זה הינו שדה חובה" ControlToValidate="Odescription" ForeColor="Red" ValidationGroup="Submit">
-                                </asp:RequiredFieldValidator></td>
                         </tr>
+  
+                        <tr>
+                         </tr>
+                         <td>           <br />         </td>
                           <tr>
                             <th>
-                                <strong>עמוד פייסבוק</strong>
+                                <strong>עמוד פייסבוק:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="FaceBook" class="textbox" runat="server"></asp:TextBox>
                             </td>
-             
                         </tr>
                         <tr>
                             <th>
-                                <strong>אתר החברה</strong>
+                                <strong>אתר החברה:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="Site" class="textbox" runat="server"></asp:TextBox>
@@ -177,11 +165,13 @@
 
                      <br />
                       <br />
-                    <input class="registerBtn" type="button" value="הבא" id="nextToRegister" style="font-size: medium"/>
+
+                    <input class="registerBtn" type="button" value="הבא" id="nextToRegister" style="font-size: medium" />
                     &nbsp&nbsp&nbsp
                     <input class="registerBtn" type="button" value="ביטול" id="cancelCompanyRegisteration" style="font-size: medium" />
                 </div>
             </div>
+        </div>
     </div>
     </form>
 </body>
