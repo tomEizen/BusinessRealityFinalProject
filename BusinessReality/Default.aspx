@@ -41,7 +41,7 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>
-                                <strong>שם פרטי*:</strong>
+                                <strong>שם פרטי:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MName" class="textbox" runat="server"></asp:TextBox>
@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong>שם משפחה*:</strong>
+                                <strong>שם משפחה:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MLName" class="textbox" runat="server"></asp:TextBox>
@@ -62,7 +62,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong>שם משתמש (כתובת מייל*):</strong>
+                                <strong>שם משתמש (אימייל):</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="MEMail" class="textbox" runat="server"></asp:TextBox>
@@ -70,7 +70,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong>סיסמא* :</strong>
+                                <strong>סיסמא:</strong>
                             </th>
                             <td>
                                 <asp:TextBox TextMode="Password"  ID="MP" class="textbox" runat="server"></asp:TextBox>
@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong>אימות סיסמא* :</strong>
+                                <strong>אימות סיסמא:</strong>
                             </th>
                             <td>
                                 <asp:TextBox TextMode="Password" ID="MP2" class="textbox" runat="server"></asp:TextBox>
@@ -101,7 +101,7 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>
-                                <strong>*שם האירגון:</strong>
+                                <strong>שם האירגון:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="OName" class="textbox" runat="server"></asp:TextBox>
@@ -119,7 +119,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <strong dir="rtl">*טלפון:</strong>
+                                <strong dir="rtl">טלפון:</strong>
                             </th>
                             <td>
                                 <asp:TextBox ID="Phone" class="textbox" runat="server"></asp:TextBox>
