@@ -1,5 +1,6 @@
 ﻿content {
 text-align:center;
+    direction:rtl;
 }
 #wrapper {
 margin: 0 auto;
@@ -7,17 +8,44 @@ width: 80%; /* Replace the xxxx with the the width of your site (eg 800px)*/
 text-align:right;
 }
 
-#companyProfile
+#companyProfile,
+#managerProfile
 {
     text-align: right;
 }
-#companyProfile th
+#companyProfile th,
+#managerProfile th
 {
     width: 150px;
+    font-size:14px;
 }
+
+#companyProfile td,
+#managerProfile td
+{
+    font-size:14px;  
+    width:450px;  
+}
+
 #companyProfile td a
 {
     color: Blue;
+}
+
+#logo_container,
+#table_container
+{
+    float:right;
+}
+
+#table_container
+{
+    text-align:right;
+}
+
+#managerProfile table
+{
+    margin-top:20px;
 }
 .updateSection
 {

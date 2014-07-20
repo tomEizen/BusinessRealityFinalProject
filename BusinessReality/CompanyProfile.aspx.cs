@@ -30,6 +30,7 @@ namespace BusinessReality.BackOffice
         {
             Organization org = new Organization();
             org = org.getComapnyProfile(email);
+            logo.Src = org.LogoSrc;
             name.InnerHtml = org.Name;
             industry.InnerHtml = org.Industry;
             description.InnerHtml = org.Description;
