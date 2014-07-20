@@ -27,6 +27,12 @@
         direction:rtl;
         text-align:center;
     }
+    
+    #productInfoTB th
+    {
+        width:150px;
+    }
+    
     #productInfo #productInfo_form {
         margin-top: 13px;
         text-align:right;
@@ -39,7 +45,7 @@
     }
     #productInfo  #productInfoButtons
     {
-      position:absolute;
+    position:absolute;
     bottom:10%;
     right:25%;
     left:50%;
@@ -53,9 +59,9 @@
     #productInfo img
     {
       border:solid 1px #ccc; 
-      width:250px;
+      width:200px;
       float:left;
-      height:250px;   
+      height:200px;   
     }
     #productInfo label input,textarea 
     { 
@@ -63,7 +69,6 @@
     color:#aaa; 
     border:solid 1px #ccc; 
     display: block;
-     width: 393px;
         height: 31px;
         background-position: -201px 0;
         position:relative;
@@ -85,7 +90,6 @@ box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
 }  
 #productInfo label select
 {
-  width: 393px;
         height: 34px;
         -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5); 
  -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5); 
