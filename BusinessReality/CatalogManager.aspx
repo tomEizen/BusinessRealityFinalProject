@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
     <link href="css/catalog.css" rel="stylesheet" type="text/css" />
     <link href="css/table/demo_page.css" rel="stylesheet" type="text/css" />
-    <!-- BEGIN: load jquery -->
+    <!-- BEGIN: load jquery -->    
     <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery-ui/jquery.ui.core.min.js"></script>
     <script src="js/jquery-ui/jquery.ui.widget.min.js" type="text/javascript"></script>
