@@ -71,7 +71,7 @@
                         <div class="floatleft
     marginleft10">
                             <ul class="inline-ul floatleft">
-                                <li>שלום מנהל</li>
+                                <li>שלום אביב</li>
                                 <li><a href="CompanyProfile.aspx">פרופיל</a></li>
                                 <li><a href="Default.aspx">יציאה</a></li>
                             </ul>
@@ -99,49 +99,49 @@
                 <div id="wrapper">
                     <div >
                         <div class="box round first">
-                            <h2 style="font-size: small">
+                            <h2>
                                 פרטי החברה</h2>
                             <div class="block" id="companyProfile">
                                 <!-- paragraphs -->
+                     
+                                <div id="table_container">
                                 <table class="form">
                                     <tr>
-                                        <td>
-                                            <label style="font-size: small">
-                                                שם האירגון:</label>
-                                        </td>
+                                        <th>
+                                                שם הארגון:</th>
                                         <td id="name" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="font-size: small">
+                                        <th>
                                             שוק/תעשייה:
                                         </th>
                                         <td id="industry" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="font-size: small">
+                                        <th>
                                             כתובת בית העסק:
                                         </th>
                                         <td id="address" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="font-size: small">
+                                        <th>
                                             טלפון:
                                         </th>
                                         <td id="phone" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="font-size: small">
+                                        <th>
                                             אודות בית העסק:
                                         </th>
                                         <td id="description" runat="server">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="font-size: small">
+                                        <th>
                                             עמוד פייסבוק:
                                         </th>
                                         <td>
@@ -149,7 +149,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="font-size: small">
+                                        <th>
                                             אתר העסק:
                                         </th>
                                         <td>
@@ -157,6 +157,12 @@
                                         </td>
                                     </tr>
                                 </table>
+                                </div>
+                                <div id="logo_container">
+                                <img id="logo" runat="server" />
+                                </div>
+                                <div class="clear">
+                            </div>
                                 <section class="updateSection">
                                     <a href="#" id="try-1" class="btn">עדכן פרטים</a></section>
                             </div>
@@ -165,26 +171,25 @@
                         </div>
                     </div>
                     <div>
-                        <div class="box round first">
+                        <div class="box round first" id="managerProfile">
                             <h2>
-                                פרטי המשתמש</h2>
+                                פרטי המנהל</h2>
                             <table>
+                         
                                 <tr>
-                                </tr>
-                                <tr>
-                                    <th style="font-size: small">
+                                    <th>
                                         אימייל:
                                     </th>
-                                    <td style="font-size: small">
-                                     &nbsp&nbsp&nbsp     &nbsp&nbsp&nbsp        aviv@gmail.com
+                                    <td>
+                                      aviv@gmail.com
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="font-size: small">
+                                    <th>
                                         סיסמא:
                                     </th>
-                                    <td style="font-size: small">
-                                       &nbsp&nbsp&nbsp     &nbsp&nbsp&nbsp      *********
+                                    <td>
+                                         *********
                                     </td>
                                 </tr>
                             </table>

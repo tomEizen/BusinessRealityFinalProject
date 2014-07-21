@@ -193,6 +193,7 @@ ul, ol {
 
 /* menus
 ----------------------------------------------- */
+
 ul.menu {
 	list-style:none;
 	border-top:1px solid #bbb;
@@ -318,8 +319,8 @@ table.form label {
 }
 
 
-table.form .col1{width:10%;}
-table.form .col2{width:25%;}
+table.form .col1{width:150px;}
+table.form .col2{width:300px;}
 table.form input, table.form select{
 
 	padding: 4px 4px 5px 4px;

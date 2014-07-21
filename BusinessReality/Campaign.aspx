@@ -346,64 +346,64 @@
                 <table id="productInfoTB" class="form">
                     <thead>
                         <tr>
-                            <td>
-                                <label>
-                                    מק"ט:</label>
-                            </td>
+                            <th style="width:170px;">
+                                
+                                    מק"ט:
+                            </th>
                             <td>
                                 <asp:Label ID="lblCampsignId" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td class="col1">
-                                <label>
-                                    נוסח הקמפיין בפייסבוק:</label>
-                            </td>
-                            <td class="col2">
+                            <th>
+                               
+                                    נוסח הקמפיין בפייסבוק:
+                            </th>
+                            <td>
                                 <asp:Label ID="lblCampaignDescription" runat="server" Width="250px"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <label>
-                                    ההטבה ללקוח:</label>
-                            </td>
+                            <th>
+                                
+                                    ההטבה ללקוח:
+                            </th>
                             <td>
                                 <asp:Label ID="lblVoucher" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <label>
-                                    תוקף ההטבה לאחר השיתוף:</label>
-                            </td>
+                            <th>
+                                
+                                    תוקף ההטבה לאחר השיתוף:
+                            </th>
                             <td>
                                 <asp:Label ID="lblExpirationTime" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <label>
-                                    קישור מצורף:</label>
-                            </td>
+                            <th>
+                               
+                                    קישור מצורף:
+                            </th>
                             <td>
                                 <asp:Label ID="lblCampaignLink" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <label>
-                                    סטטוס:</label>
-                            </td>
+                            <th>
+                               
+                                    סטטוס:
+                            </th>
                             <td>
                                 <asp:Label ID="lblIsActive" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <label>
-                                    מספר השיתופים:</label>
-                            </td>
+                            <th>
+                              
+                                    מספר השיתופים:
+                            </th>
                             <td>
                                 <asp:Label ID="lblShareCount" runat="server" Text=""></asp:Label>
                             </td>
