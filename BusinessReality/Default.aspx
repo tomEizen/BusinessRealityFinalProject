@@ -25,9 +25,11 @@
             <br />
             <div id="general">
                 <asp:TextBox ID="txtEmail" class="textbox" runat="server" ></asp:TextBox>
+                <label class="loginLlbl">אימייל&nbsp</label>
                 <br />
                 <asp:TextBox ID="txtPassword" TextMode="Password" class="textbox" runat="server" ForeColor="Black"></asp:TextBox>
-                <br />
+               <label class="loginLlbl">סיסמא</label>
+               <br />
                 <asp:Button ID="btnSubmit" class="button" runat="server" Text="התחבר"  OnClick="btnSubmit_Click" />
   
                 <br />
