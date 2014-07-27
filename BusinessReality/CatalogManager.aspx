@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
     <link href="css/catalog.css" rel="stylesheet" type="text/css" />
     <link href="css/table/demo_page.css" rel="stylesheet" type="text/css" />
-    <!-- BEGIN: load jquery -->    
+    <!-- BEGIN: load jquery -->
     <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery-ui/jquery.ui.core.min.js"></script>
     <script src="js/jquery-ui/jquery.ui.widget.min.js" type="text/javascript"></script>
@@ -50,7 +50,7 @@
                             <li><a href="Default.aspx">יציאה</a></li>
                         </ul>
                     </div>
-<%--                    <div class="floatleft">
+                    <%--                    <div class="floatleft">
                         <img src="img/img-profile.jpg" alt="Profile Pic" /></div>--%>
                 </div>
                 <div class="clear">
@@ -238,7 +238,8 @@
                     <div id="ProductInsertedName" runat="server">
                     </div>
                     <br />
-                    <div id=productInsertedQR></div>
+                    <div id="productInsertedQR">
+                    </div>
                     <input type="button" value="הדפסת הברקוד" onclick="printDiv('productInsertedQR', 'ProductInsertedName')" />
                 </div>
             </div>
@@ -450,58 +451,67 @@
                 <table id="productInfoTB" class="form">
                     <thead>
                         <tr>
-                            <th>
-                                    קטגוריה:</th>
-                            <td>
+                            <td class="col1">
+                                <label>
+                                    קטגוריה:</label>
+                            </td>
+                            <td class="col2">
                                 <asp:Label ID="lblCategory" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th>
-                                    מק"ט מוצר:
-                            </th>
+                            <td>
+                                <label>
+                                    מק"ט מוצר:</label>
+                            </td>
                             <td>
                                 <asp:Label ID="lblproductID" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th>
-                                
-                                    תיאור המוצר:
-                            </th>
+                            <td>
+                                <label>
+                                    תיאור המוצר:</label>
+                            </td>
                             <td>
                                 <asp:Label ID="lblProductDescription" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th>
-                             
-                                    מחיר המוצר:
-                            </th>
+                            <td>
+                                <label>
+                                    מחיר המוצר:</label>
+                            </td>
                             <td>
                                 <asp:Label ID="lblProductPrice" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th>
-                               
-                                    מוצר במבצע:
-                            </th>
+                            <td>
+                                <label>
+                                    מוצר במבצע:</label>
+                            </td>
                             <td>
                                 <asp:Label ID="productInfoDiscount" runat="server"></asp:Label>
                             </td>
                         </tr>
-                        
+                        <tr>
+                            <td>
+                             
+                            </td>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
-                <div style="text-align: center; margin-top:10px;" id="productInfoButtons">
+                <div style="text-align: center" id="productInfoButtons">
                     <input id="btnEditProduct" type="button" class="btn" value="ערוך מוצר" onclick="edit()" />
                     <input type="button" id="btnPrintCode" class="btn" value="הדפס ברקוד" onclick="printDiv('qrcode','infoName')" />
                     <input id="btnCloseBox" type="button" class="btn" value="ביטול" onclick="CloseLightBox()" />
                     <input id="btnDelete" type="button" class="btnRed" value="מחיקת המוצר" onclick="DeleteProduct()" />
                 </div>
+                   <div id="qrCodeInfo">
+                                </div>
             </div>
         </div>
         <div id="actions">

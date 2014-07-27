@@ -42,7 +42,7 @@ $(function () {
             $("#productInfo").find("input:first").focus();
         }
         });
-       
+
         e.preventDefault();
     });
 
@@ -110,6 +110,8 @@ function deleteCategory() {
 function getProductInfo(row_number) {
     var MyRows = $('table#productTable').find('tbody').find('tr');
     var productID = ($(MyRows[row_number]).find('td:eq(2)').text());
+    $('#qrCodeInfo').empty();
+    addQrCode1('proj.ruppin.ac.il/bgroup16/Test2/FbLogin.htm?productCounter=' + productID, 'qrCodeInfo');
     $.ajax({ // ajax call starts
         url: 'WebService.asmx/getProductsInfo',   // JQuery loads serverside.php
         data: '{productId:"' + productID + '",email:"' + email + '"}',
@@ -127,7 +129,13 @@ function getProductInfo(row_number) {
     }) // end of ajax call
 }
 
-
+function addQrCode1(url, div) {
+    var qrcode = new QRCode(document.getElementById(div), {
+        width: 50,
+        height: 50
+    });
+    qrcode.makeCode(url);
+}
 //getting the selected product properties from the db
 function GetProductPropertiesInfo(productID) {
     $.ajax({ // ajax call starts
@@ -265,7 +273,7 @@ function discountTBvisible(bool) {
 //open the new product successfully insert window
 $(function () {
     function launch() {
-        $('#prodectInserted').lightbox_me({ centered: true, closeClick:true,onLoad: function () { $('#prodectInserted').find('input:first').focus() } });
+        $('#prodectInserted').lightbox_me({ centered: true, closeClick: true, onLoad: function () { $('#prodectInserted').find('input:first').focus() } });
     }
 
     $('#Butt').click(function (e) {

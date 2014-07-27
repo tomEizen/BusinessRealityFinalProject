@@ -92,8 +92,10 @@
                     &nbsp&nbsp&nbsp
                       <input class="registerBtn" type="button" value="ביטול" id="cancelRegisteration" style="font-size: medium" />
                       &nbsp&nbsp&nbsp 
+                           <input class="registerBtn" type="button" value="הוסף פרופיל" id="SubmitNewProfileBtn" style="font-size: medium" />
+                      &nbsp&nbsp&nbsp 
                     <asp:Button ID="SubmitNewProfile" class="button" runat="server" Text="הוסף פרופיל"
-                        OnClick="SubmitNewProfile_Click" Font-Size="Medium" Width="120" />
+                        OnClick="SubmitNewProfile_Click" style=" display:none;" Font-Size="Medium" Width="120" />
                 </div>
             </div>
             <div id="companyRegister">

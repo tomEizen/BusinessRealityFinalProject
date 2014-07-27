@@ -221,8 +221,8 @@ public partial class BackOffice_CatalogManager : System.Web.UI.Page
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) 
+            {  
             }
         else if (uploadImgFU.HasFile == false && ProductpicPath == null)
         {

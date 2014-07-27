@@ -12,6 +12,13 @@
 {
      display:none;
 }
+#productInfo img
+{
+     top:340px;
+  width:90px;
+  height:90px;   
+  position:relative;    
+}
   #productInfo {
         -moz-border-radius: 6px;
         background: #eef2f7;
@@ -56,12 +63,13 @@
    position:absolute;
    font-size:larger;
     }
-    #productInfo img
+    #productInfo #productInfoImage
     {
       border:solid 1px #ccc; 
       width:200px;
       float:left;
       height:200px;   
+      position:inherit;
     }
     #productInfo label input,textarea 
     { 
